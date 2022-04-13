@@ -3,6 +3,7 @@ package model.person;
 import model.Department;
 
 import java.io.File;
+import java.util.Date;
 
 public abstract class User {
     protected String firstname;
@@ -15,11 +16,12 @@ public abstract class User {
     protected File photo;
     protected Department department;
     protected String phoneNumber;
+    protected Date lastLogin;
 
 
     public User(String firstname, String lastname, String username,
                 String identityCode, String password, String email,
-                Department department, String phoneNumber) {
+                Department department, String phoneNumber, Date lastLogin) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.username = username;
@@ -28,11 +30,12 @@ public abstract class User {
         this.email = email;
         this.department = department;
         this.phoneNumber = phoneNumber;
+        this.lastLogin = lastLogin;
     }
 
     public User(String firstname, String lastname, String username, String id,
                 String identityCode, String password, String email,
-                File photo, Department department, String phoneNumber) {
+                File photo, Department department, String phoneNumber, Date lastLogin) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.username = username;
@@ -43,6 +46,7 @@ public abstract class User {
         this.photo = photo;
         this.department = department;
         this.phoneNumber = phoneNumber;
+        this.lastLogin = lastLogin;
     }
 
     public String getFirstname() {
@@ -125,5 +129,11 @@ public abstract class User {
         this.phoneNumber = phoneNumber;
     }
 
+    public Date getLastLogin() {
+        return lastLogin;
+    }
 
+    public void setLastLogin(Date lastLogin) {
+        this.lastLogin = lastLogin;
+    }
 }

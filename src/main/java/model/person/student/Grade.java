@@ -1,6 +1,6 @@
 package model.person.student;
 
-public enum StudentRole {
+public enum Grade {
     BS,
     MS,
     PHD

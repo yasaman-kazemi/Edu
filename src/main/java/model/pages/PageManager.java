@@ -21,7 +21,7 @@ public class PageManager {
     public void enterToMainPage() {
     }
 
-    public void exit() {
+    public void logout() {
 
     }
 }

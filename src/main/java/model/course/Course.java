@@ -2,6 +2,7 @@ package model.course;
 
 import model.Department;
 import model.person.master.Master;
+import model.person.student.Grade;
 import model.person.student.Student;
 
 import java.util.Date;
@@ -19,13 +20,14 @@ public class Course {
     private List<Date> weeklyClassDate;
     private List<Assignment> examList;
     private List<Assignment> assignmentList;
+    private Grade grade;
 
     public Course(String name, String id, Department department,
                   List<Course> prerequisitesCourse, List<Course> corequisitesCourse,
                   List<Student> studentList, Master master, int courseCredit,
                   List<Date> weeklyClassDate, List<Assignment> examList,
-                  List<Assignment> assignmentList) {
-        this(name, department, prerequisitesCourse, corequisitesCourse, master, courseCredit, weeklyClassDate);
+                  List<Assignment> assignmentList, Grade grade) {
+        this(name, department, prerequisitesCourse, corequisitesCourse, master, courseCredit, weeklyClassDate, grade);
         this.id = id;
         this.studentList = studentList;
         this.examList = examList;
@@ -35,7 +37,7 @@ public class Course {
     public Course(String name, Department department,
                   List<Course> prerequisitesCourse, List<Course> corequisitesCourse,
                   Master master, int courseCredit,
-                  List<Date> weeklyClassDate) {
+                  List<Date> weeklyClassDate, Grade grade) {
         this.name = name;
         this.department = department;
         this.prerequisitesCourse = prerequisitesCourse;
@@ -43,6 +45,7 @@ public class Course {
         this.master = master;
         this.courseCredit = courseCredit;
         this.weeklyClassDate = weeklyClassDate;
+        this.grade = grade;
     }
 
     public String getName() {
@@ -131,5 +134,13 @@ public class Course {
 
     public void setAssignmentList(List<Assignment> assignmentList) {
         this.assignmentList = assignmentList;
+    }
+
+    public Grade getGrade() {
+        return grade;
+    }
+
+    public void setGrade(Grade grade) {
+        this.grade = grade;
     }
 }

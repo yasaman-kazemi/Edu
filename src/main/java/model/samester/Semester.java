@@ -3,13 +3,14 @@ package model.samester;
 import model.Department;
 import model.course.Course;
 import model.course.CourseDAO;
+import model.pages.mainPage.EducationalStatus;
 import model.person.master.Master;
 import model.person.master.MasterDAO;
 import model.person.master.MasterDegree;
 import model.person.master.MasterPosition;
 import model.person.student.Student;
 import model.person.student.StudentDAO;
-import model.person.student.StudentRole;
+import model.person.student.Grade;
 import model.person.student.StudentStatus;
 import utils.Dao;
 
@@ -59,18 +60,20 @@ public class Semester {
                            String identityCode, String password, String email,
                            Department department, String phoneNumber, int roomNumber,
                            MasterDegree masterDegree, MasterPosition masterPosition) {
-        Master master = new Master(firstname, lastname, username, identityCode, password, email, department, phoneNumber,
+        Master master = new Master(firstname, lastname, username, identityCode,
+                password, email, department, phoneNumber,
                 roomNumber, masterDegree, masterPosition);
         MasterDAO masterDAO = (MasterDAO) daoMap.get("master");
         masterDAO.save(master);
     }
 
-    public void saveStudent(String firstname, String lastname, String username,
-                            String identityCode, String password, String email,
-                            Department department, String phoneNumber, Master guideMaster,
-                            String enteringYear, StudentRole studentRole, StudentStatus studentStatus) {
-        Student student = new Student(firstname, lastname, username,identityCode, password, email, department, phoneNumber,
-                guideMaster, enteringYear, studentRole, studentStatus);
+    public void saveStudent(String firstname, String lastname, String username, String identityCode, String password,
+                            String email, Department department, String phoneNumber, Master guideMaster,
+                            String enteringYear, Grade grade, StudentStatus studentStatus, Date lastLogin,
+                            EducationalStatus educationalStatus, String rand) {
+        Student student = new Student(firstname, lastname, username, identityCode, password,
+                email, department, phoneNumber,
+                guideMaster, enteringYear, grade, studentStatus, lastLogin, educationalStatus, rand);
         StudentDAO studentDAO = (StudentDAO) daoMap.get("student");
         studentDAO.save(student);
     }
@@ -78,12 +81,21 @@ public class Semester {
     public void saveCourse(String name, Department department,
                            List<Course> prerequisitesCourse, List<Course> corequisitesCourse,
                            Master master, int courseCredit,
-                           List<Date> weeklyClassDate) {
+                           List<Date> weeklyClassDate, Grade grade) {
         Course course = new Course(name, department, prerequisitesCourse, corequisitesCourse, master,
-                courseCredit, weeklyClassDate);
+                courseCredit, weeklyClassDate, grade);
         CourseDAO courseDAO = (CourseDAO) daoMap.get("course");
         courseDAO.save(course);
     }
 
+    //TODO if i delete the master what happened to master courses and guide master of students with this master
+    public void deleteMaster(Master master) {
+        MasterDAO masterDAO = (MasterDAO) daoMap.get("master");
+        masterDAO.delete(master);
+    }
 
+    public void deleteCourse(Course course) {
+        CourseDAO courseDAO = (CourseDAO) daoMap.get("course");
+        courseDAO.delete(course);
+    }
 }

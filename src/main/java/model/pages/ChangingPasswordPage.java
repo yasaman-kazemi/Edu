@@ -8,11 +8,11 @@ import java.util.Date;
 
 public class ChangingPasswordPage extends MainPage {
 
-    public ChangingPasswordPage(User user) {
-        super(user);
+    public ChangingPasswordPage(User user, PageManager pageManager) {
+        super(user, pageManager);
     }
 
-    public ChangingPasswordPage(Date now, Date lastLogin, User user) {
-        super(now, lastLogin, user);
+    public ChangingPasswordPage(Date now, User user, PageManager pageManager) {
+        super(now, user, pageManager);
     }
 }
