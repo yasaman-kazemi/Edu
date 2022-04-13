@@ -15,4 +15,6 @@ public class RequestsPage extends MainPage {
     public RequestsPage(Date now, User user, PageManager pageManager) {
         super(now, user, pageManager);
     }
+
+
 }
