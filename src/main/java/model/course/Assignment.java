@@ -3,7 +3,7 @@ package model.course;
 import java.io.File;
 import java.util.Date;
 
-public class Assignment {
+public class Assignment implements Comparable<Assignment> {
     private Date deadline;
     private Date start;
     private File questions;
@@ -62,5 +62,10 @@ public class Assignment {
 
     public void setScore(Score score) {
         this.score = score;
+    }
+
+    @Override
+    public int compareTo(Assignment o) {
+       return this.start.compareTo(o.getStart());
     }
 }
