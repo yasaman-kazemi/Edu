@@ -58,20 +58,20 @@ public class MainPage {
 
     public void addMasterByAssistant(String firstname, String lastname, String username,
                                      String identityCode, String password, String email,
-                                     Department department, String phoneNumber, int roomNumber,
+                                     Department department, String phoneNumber, Date lastLogin, int roomNumber,
                                      MasterDegree masterDegree, MasterPosition masterPosition) {
         if (user instanceof Master)
             if (((Master) user).getMasterPosition() == MasterPosition.Assistant) {
-                addMaster(firstname, lastname, username, identityCode, password, email, department, phoneNumber,
-                        roomNumber, masterDegree, masterPosition);
+                addMaster(firstname, lastname, username, identityCode, password, email,
+                        department, phoneNumber, lastLogin, roomNumber, masterDegree, masterPosition);
             }
     }
 
     protected void addMaster(String firstname, String lastname, String username, String identityCode, String password,
-                           String email, Department department, String phoneNumber, int roomNumber,
-                           MasterDegree masterDegree, MasterPosition masterPosition) {
+                             String email, Department department, String phoneNumber, Date lastLogin, int roomNumber,
+                             MasterDegree masterDegree, MasterPosition masterPosition) {
         pageManager.getSemester().saveMaster(firstname, lastname, username,
-                identityCode, password, email, department, phoneNumber, roomNumber,
+                identityCode, password, email, department, phoneNumber, lastLogin, roomNumber,
                 masterDegree, masterPosition);
     }
 

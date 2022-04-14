@@ -58,10 +58,10 @@ public class Semester {
 
     public void saveMaster(String firstname, String lastname, String username,
                            String identityCode, String password, String email,
-                           Department department, String phoneNumber, int roomNumber,
+                           Department department, String phoneNumber, Date lastLogin, int roomNumber,
                            MasterDegree masterDegree, MasterPosition masterPosition) {
         Master master = new Master(firstname, lastname, username, identityCode,
-                password, email, department, phoneNumber,
+                password, email, department, phoneNumber, lastLogin,
                 roomNumber, masterDegree, masterPosition);
         MasterDAO masterDAO = (MasterDAO) daoMap.get("master");
         masterDAO.save(master);

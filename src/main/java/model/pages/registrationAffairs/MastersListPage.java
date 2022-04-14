@@ -93,11 +93,13 @@ public class MastersListPage extends MainPage implements Searchable<Master> {
     }
 
     public void addMasterByManager(String firstname, String lastname, String username, String identityCode,
-                                   String password, String email, Department department, String phoneNumber,
-                                   int roomNumber, MasterDegree masterDegree, MasterPosition masterPosition) {
+                                   String password, String email, Department department,
+                                   String phoneNumber, Date lastLogin, int roomNumber, MasterDegree masterDegree,
+                                   MasterPosition masterPosition) {
         if (user instanceof Master)
             if (((Master) user).getMasterPosition() == MasterPosition.Manager) addMaster(firstname, lastname, username,
-                    identityCode, password, email, department, phoneNumber, roomNumber, masterDegree, masterPosition);
+                    identityCode, password, email, department, phoneNumber,
+                    lastLogin, roomNumber, masterDegree, masterPosition);
     }
 
     //todo fill this method

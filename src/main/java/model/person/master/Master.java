@@ -4,6 +4,7 @@ import model.Department;
 import model.person.User;
 
 import java.io.File;
+import java.util.Date;
 
 
 public class Master extends User {
@@ -13,9 +14,9 @@ public class Master extends User {
 
     public Master(String firstname, String lastname, String username,
                   String identityCode, String password, String email,
-                  Department department, String phoneNumber, int roomNumber,
+                  Department department, String phoneNumber, Date lastLogin, int roomNumber,
                   MasterDegree masterDegree, MasterPosition masterPosition) {
-       super(firstname, lastname, username, identityCode, password, email, department, phoneNumber);
+        super(firstname, lastname, username, identityCode, password, email, department, phoneNumber, lastLogin);
         this.roomNumber = roomNumber;
         this.masterDegree = masterDegree;
         this.masterPosition = masterPosition;
@@ -23,9 +24,9 @@ public class Master extends User {
 
     public Master(String firstname, String lastname, String username,
                   String id, String identityCode, String password, String email,
-                  File photo, Department department, String phoneNumber, int roomNumber, MasterDegree masterDegree,
+                  File photo, Department department, String phoneNumber,Date lastLogin, int roomNumber, MasterDegree masterDegree,
                   MasterPosition masterPosition) {
-        super(firstname, lastname, username, id, identityCode, password, email, photo, department, phoneNumber);
+        super(firstname, lastname, username, id, identityCode, password, email, photo, department, phoneNumber,lastLogin);
         this.roomNumber = roomNumber;
         this.masterDegree = masterDegree;
         this.masterPosition = masterPosition;
