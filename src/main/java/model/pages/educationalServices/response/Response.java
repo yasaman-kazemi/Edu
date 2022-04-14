@@ -2,7 +2,7 @@ package model.pages.educationalServices.response;
 
 import java.util.Date;
 
-public class Response {
+public abstract class Response {
     protected Date dateOfSubmit;
     protected String firstname;
     protected String lastname;
