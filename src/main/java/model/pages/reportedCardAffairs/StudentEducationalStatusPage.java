@@ -9,7 +9,7 @@ import java.util.Date;
 public class StudentEducationalStatusPage extends MainPage {
 
     public StudentEducationalStatusPage(User user, PageManager pageManager) {
-        super(user,pageManager);
+        super(user, pageManager);
     }
 
     public StudentEducationalStatusPage(Date now, User user, PageManager pageManager) {

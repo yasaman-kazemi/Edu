@@ -2,13 +2,13 @@ package model.pages;
 
 import model.person.User;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class LoginPage {
     private PageManager pageManager;
-    private List<User> userList;
+    private ArrayList<User> userList;
 
-    public LoginPage(PageManager pageManager, List<User> userList) {
+    public LoginPage(PageManager pageManager, ArrayList<User> userList) {
         this.pageManager = pageManager;
         this.userList = userList;
     }

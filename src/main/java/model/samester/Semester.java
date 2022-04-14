@@ -14,17 +14,14 @@ import model.person.student.Grade;
 import model.person.student.StudentStatus;
 import utils.Dao;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Semester {
     private int semesterNumber;
     private Map<String, Dao<?>> daoMap;
 
     public Semester(int semesterNumber,
-                    List<Course> courseList, List<Student> studentList, List<Master> masterList) {
+                    ArrayList<Course> courseList, ArrayList<Student> studentList, ArrayList<Master> masterList) {
         this.semesterNumber = semesterNumber;
         daoMap = new HashMap<>();
         initial(courseList, studentList, masterList);
@@ -35,7 +32,7 @@ public class Semester {
         this.daoMap = daoMap;
     }
 
-    public void initial(List<Course> courseList, List<Student> studentList, List<Master> masterList) {
+    public void initial(ArrayList<Course> courseList, ArrayList<Student> studentList, ArrayList<Master> masterList) {
         CourseDAO courseDAO = new CourseDAO(courseList);
         StudentDAO studentDAO = new StudentDAO(studentList);
         MasterDAO masterDAO = new MasterDAO(masterList);
@@ -79,9 +76,9 @@ public class Semester {
     }
 
     public void saveCourse(String name, Department department,
-                           List<Course> prerequisitesCourse, List<Course> corequisitesCourse,
+                           ArrayList<Course> prerequisitesCourse, ArrayList<Course> corequisitesCourse,
                            Master master, int courseCredit,
-                           List<Date> weeklyClassDate, Grade grade) {
+                           ArrayList<Date> weeklyClassDate, Grade grade) {
         Course course = new Course(name, department, prerequisitesCourse, corequisitesCourse, master,
                 courseCredit, weeklyClassDate, grade);
         CourseDAO courseDAO = (CourseDAO) daoMap.get("course");

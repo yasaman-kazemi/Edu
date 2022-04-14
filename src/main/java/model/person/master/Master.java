@@ -12,9 +12,8 @@ public class Master extends User {
     private MasterDegree masterDegree;
     private MasterPosition masterPosition;
 
-    public Master(String firstname, String lastname, String username,
-                  String identityCode, String password, String email,
-                  Department department, String phoneNumber, Date lastLogin, int roomNumber,
+    public Master(String firstname, String lastname, String username, String identityCode, String password,
+                  String email, Department department, String phoneNumber, Date lastLogin, int roomNumber,
                   MasterDegree masterDegree, MasterPosition masterPosition) {
         super(firstname, lastname, username, identityCode, password, email, department, phoneNumber, lastLogin);
         this.roomNumber = roomNumber;
@@ -22,10 +21,9 @@ public class Master extends User {
         this.masterPosition = masterPosition;
     }
 
-    public Master(String firstname, String lastname, String username,
-                  String id, String identityCode, String password, String email,
-                  File photo, Department department, String phoneNumber,Date lastLogin, int roomNumber, MasterDegree masterDegree,
-                  MasterPosition masterPosition) {
+    public Master(String firstname, String lastname, String username, String id, String identityCode, String password,
+                  String email, File photo, Department department, String phoneNumber,Date lastLogin, int roomNumber,
+                  MasterDegree masterDegree, MasterPosition masterPosition) {
         super(firstname, lastname, username, id, identityCode, password, email, photo, department, phoneNumber,lastLogin);
         this.roomNumber = roomNumber;
         this.masterDegree = masterDegree;

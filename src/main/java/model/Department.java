@@ -5,9 +5,13 @@ import model.person.master.Master;
 public enum Department {
     Physic,
     Math,
+    ComputerScience,
+    Aerospace,
+    ElectronicEngineering,
+    CivilEngineering,
     Chemistry,
     Mechanic,
-    Computer,
+    ComputerEngineering,
     Industry;
 
     private Master manager;

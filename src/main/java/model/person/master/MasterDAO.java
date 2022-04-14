@@ -2,14 +2,18 @@ package model.person.master;
 
 import utils.Dao;
 
-import java.util.List;
+import java.util.ArrayList;
 import java.util.Optional;
 
 public class MasterDAO implements Dao<Master> {
-    private List<Master> masterList;
+    private ArrayList<Master> masterList;
 
-    public MasterDAO(List<Master> masterList) {
+    public MasterDAO(ArrayList<Master> masterList) {
         this.masterList = masterList;
+    }
+
+    public MasterDAO() {
+        this.masterList = new ArrayList<>();
     }
 
     @Override
@@ -21,7 +25,7 @@ public class MasterDAO implements Dao<Master> {
     }
 
     @Override
-    public List<Master> getAll() {
+    public ArrayList<Master> getAll() {
         return masterList;
     }
 

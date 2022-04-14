@@ -7,10 +7,10 @@ import java.util.List;
 import java.util.Optional;
 
 public class StudentDAO implements Dao<Student> {
-    private List<Student> studentList;
+    private ArrayList<Student> studentList;
     private int counter = 100000;
 
-    public StudentDAO(List<Student> studentList) {
+    public StudentDAO(ArrayList<Student> studentList) {
         this.studentList = new ArrayList<>();
     }
 
@@ -23,7 +23,7 @@ public class StudentDAO implements Dao<Student> {
     }
 
     @Override
-    public List<Student> getAll() {
+    public ArrayList<Student> getAll() {
         return studentList;
     }
 

@@ -1,7 +1,5 @@
 package model.pages.reportedCardAffairs;
 
-import model.course.Course;
-import model.course.Score;
 import model.pages.PageManager;
 import model.pages.mainPage.MainPage;
 import model.person.User;

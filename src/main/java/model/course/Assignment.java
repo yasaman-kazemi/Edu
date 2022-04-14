@@ -65,7 +65,7 @@ public class Assignment implements Comparable<Assignment> {
     }
 
     @Override
-    public int compareTo(Assignment o) {
-        return this.start.compareTo(o.getStart());
+    public int compareTo(Assignment assignment) {
+        return this.start.compareTo(assignment.getStart());
     }
 }

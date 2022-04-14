@@ -5,39 +5,36 @@ import model.pages.PageManager;
 import model.pages.mainPage.MainPage;
 import model.person.User;
 import model.person.master.Master;
-import model.person.master.MasterDAO;
 import model.person.master.MasterDegree;
 import model.person.master.MasterPosition;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class MastersListPage extends MainPage implements Searchable<Master> {
-    private List<Master> masterList;
+    private ArrayList<Master> masterList;
     //filters
     private String firstname;
     private String lastname;
     private MasterDegree masterDegree;
     private Department department;
 
-    //todo check constructors and whole class
-    public MastersListPage(User user, PageManager pageManager, List<Master> masterList) {
+    public MastersListPage(User user, PageManager pageManager, ArrayList<Master> masterList) {
         super(user, pageManager);
         this.masterList = masterList;
     }
 
     public MastersListPage(Date now, User user, PageManager pageManager,
-                           List<Master> masterList) {
+                           ArrayList<Master> masterList) {
         super(now, user, pageManager);
         this.masterList = masterList;
     }
 
-    public List<Master> getMasterList() {
+    public ArrayList<Master> getMasterList() {
         return masterList;
     }
 
-    public void setMasterList(List<Master> masterList) {
+    public void setMasterList(ArrayList<Master> masterList) {
         this.masterList = masterList;
     }
 
@@ -74,8 +71,8 @@ public class MastersListPage extends MainPage implements Searchable<Master> {
     }
 
     @Override
-    public List<Master> search() {
-        List<Master> suitableMasters = new ArrayList<>();
+    public ArrayList<Master> search() {
+        ArrayList<Master> suitableMasters = new ArrayList<>();
         for (Master master : masterList)
             if ((department == null || master.getDepartment().equals(department)) &&
                     (firstname == null || master.getFirstname().equals(firstname)) &&
@@ -103,7 +100,7 @@ public class MastersListPage extends MainPage implements Searchable<Master> {
     }
 
     //todo fill this method
-    public void update() {
+    public void edit() {
 
     }
 
