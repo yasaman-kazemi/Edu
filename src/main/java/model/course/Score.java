@@ -1,11 +1,14 @@
 package model.course;
 
 
+import java.util.Objects;
+
 public class Score {
     private String course;
     private double score;
     private ScoreStatus scoreStatus;
     private String protest;
+    private ProtestRespond protestRespond;
 
     public Score(String course, double score) {
         this.course = course;
@@ -13,11 +16,28 @@ public class Score {
         scoreStatus = ScoreStatus.Temporary;
     }
 
-    public Score(String course, double score, ScoreStatus scoreStatus, String protest) {
+    public Score(String course, double score, ScoreStatus scoreStatus, String protest, ProtestRespond protestRespond) {
         this.course = course;
         this.score = score;
         this.scoreStatus = scoreStatus;
         this.protest = protest;
+        this.protestRespond = protestRespond;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Score)) return false;
+        Score score1 = (Score) o;
+        return Double.compare(score1.getScore(), getScore()) == 0 &&
+                Objects.equals(getCourse(), score1.getCourse()) &&
+                getScoreStatus() == score1.getScoreStatus() &&
+                Objects.equals(getProtest(), score1.getProtest());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getCourse(), getScore(), getScoreStatus(), getProtest());
     }
 
     public String getCourse() {
@@ -33,7 +53,10 @@ public class Score {
     }
 
     public void setScore(double score) {
-        this.score = score;
+        if (score < 20 && score > 0) this.score = Math.round(4 * score) / 4.0;
+            //todo fill this else
+        else {
+        }
     }
 
     public ScoreStatus getScoreStatus() {
@@ -50,5 +73,13 @@ public class Score {
 
     public void setProtest(String protest) {
         this.protest = protest;
+    }
+
+    public ProtestRespond getProtestRespond() {
+        return protestRespond;
+    }
+
+    public void setProtestRespond(ProtestRespond protestRespond) {
+        this.protestRespond = protestRespond;
     }
 }

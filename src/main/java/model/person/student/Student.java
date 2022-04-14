@@ -17,7 +17,7 @@ public class Student extends User {
     private Grade grade;
     private StudentStatus studentStatus;
     private List<Course> currentCourses;
-    private Map<Course, Score> scores;
+    private List<Score> scores;
     private EducationalStatus educationalStatus;
     private String rand;
 
@@ -33,14 +33,15 @@ public class Student extends User {
         this.educationalStatus = educationalStatus;
         this.rand = rand;
         currentCourses = new ArrayList<>();
-        scores = new HashMap<>();
+        scores = new ArrayList<>();
     }
 
     public Student(String firstname, String lastname, String username, String id, String identityCode,
                    String password, String email, File photo, Department department,
                    String phoneNumber, double totalAverageScore, Master guideMaster,
                    String enteringYear, Grade grade, StudentStatus studentStatus,
-                   List<Course> currentCourses, Map<Course, Score> scores, Date lastLogin, EducationalStatus educationalStatus, String rand) {
+                   List<Course> currentCourses, List<Score> scores, Date lastLogin,
+                   EducationalStatus educationalStatus, String rand) {
         super(firstname, lastname, username, id, identityCode, password,
                 email, photo, department, phoneNumber, lastLogin);
         this.totalAverageScore = totalAverageScore;
@@ -102,11 +103,19 @@ public class Student extends User {
         this.currentCourses = currentCourses;
     }
 
-    public Map<Course, Score> getScores() {
+    public Grade getGrade() {
+        return grade;
+    }
+
+    public void setGrade(Grade grade) {
+        this.grade = grade;
+    }
+
+    public List<Score> getScores() {
         return scores;
     }
 
-    public void setScores(Map<Course, Score> scores) {
+    public void setScores(List<Score> scores) {
         this.scores = scores;
     }
 
@@ -124,5 +133,32 @@ public class Student extends User {
 
     public void setRand(String rand) {
         this.rand = rand;
+    }
+
+    public Score searchScore(String course) {
+            for (Score score : scores)
+                if (score.getCourse().equals(course)) return score;
+       return null;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Student)) return false;
+        Student student = (Student) o;
+        return Double.compare(student.getTotalAverageScore(), getTotalAverageScore()) == 0 &&
+                Objects.equals(getGuideMaster(), student.getGuideMaster()) &&
+                Objects.equals(getEnteringYear(), student.getEnteringYear()) &&
+                getGrade() == student.getGrade() &&
+                getStudentStatus() == student.getStudentStatus() &&
+                Objects.equals(getCurrentCourses(), student.getCurrentCourses()) &&
+                Objects.equals(getScores(), student.getScores()) &&
+                getEducationalStatus() == student.getEducationalStatus() &&
+                Objects.equals(getRand(), student.getRand());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getTotalAverageScore(), getGuideMaster(), getEnteringYear(), getGrade(), getStudentStatus(), getCurrentCourses(), getScores(), getEducationalStatus(), getRand());
     }
 }

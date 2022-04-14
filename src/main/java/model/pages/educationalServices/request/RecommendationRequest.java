@@ -2,6 +2,7 @@ package model.pages.educationalServices.request;
 
 import model.course.Course;
 import model.course.Score;
+import model.person.master.Master;
 
 import java.util.Date;
 import java.util.List;

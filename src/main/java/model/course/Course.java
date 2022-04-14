@@ -7,6 +7,7 @@ import model.person.student.Student;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 public class Course {
     private String name;
@@ -21,6 +22,30 @@ public class Course {
     private List<Assignment> examList;
     private List<Assignment> assignmentList;
     private Grade grade;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Course)) return false;
+        Course course = (Course) o;
+        return getCourseCredit() == course.getCourseCredit() &&
+                Objects.equals(getName(), course.getName()) &&
+                Objects.equals(getId(), course.getId()) &&
+                getDepartment() == course.getDepartment() &&
+                Objects.equals(getPrerequisitesCourse(), course.getPrerequisitesCourse()) &&
+                Objects.equals(getCorequisitesCourse(), course.getCorequisitesCourse()) &&
+                Objects.equals(getStudentList(), course.getStudentList()) &&
+                Objects.equals(getMaster(), course.getMaster()) &&
+                Objects.equals(getWeeklyClassDate(), course.getWeeklyClassDate()) &&
+                Objects.equals(getExamList(), course.getExamList()) &&
+                Objects.equals(getAssignmentList(), course.getAssignmentList()) &&
+                getGrade() == course.getGrade();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getId(), getDepartment(), getPrerequisitesCourse(), getCorequisitesCourse(), getStudentList(), getMaster(), getCourseCredit(), getWeeklyClassDate(), getExamList(), getAssignmentList(), getGrade());
+    }
 
     public Course(String name, String id, Department department,
                   List<Course> prerequisitesCourse, List<Course> corequisitesCourse,
