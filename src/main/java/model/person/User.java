@@ -136,4 +136,8 @@ public abstract class User {
     public void setLastLogin(Date lastLogin) {
         this.lastLogin = lastLogin;
     }
+
+    public void changeTheme() {
+
+    }
 }

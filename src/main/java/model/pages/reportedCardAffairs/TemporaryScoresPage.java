@@ -1,17 +1,16 @@
 package model.pages.reportedCardAffairs;
 
-import model.course.Course;
-import model.course.ProtestRespond;
-import model.course.Score;
-import model.course.ScoreStatus;
+import model.course.*;
 import model.pages.PageManager;
 import model.pages.mainPage.MainPage;
 import model.person.User;
 import model.person.master.Master;
+import model.person.master.MasterPosition;
 import model.person.student.Student;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -39,8 +38,9 @@ public class TemporaryScoresPage extends MainPage {
             temporaryScore.setProtest(protest);
     }
 
-    public void finalizedScore(Score temporaryScore) {
-        temporaryScore.setScoreStatus(ScoreStatus.Finalized);
+    public void finalizedScore(Score temporaryScore, Course course) {
+        if (user instanceof Master && hasBeenScoredTemporaryAll(course))
+            temporaryScore.setScoreStatus(ScoreStatus.Finalized);
     }
 
     public void setScore(Student student, Course course, double score) {
@@ -67,5 +67,56 @@ public class TemporaryScoresPage extends MainPage {
         if (user instanceof Master)
             score.setProtestRespond(protestRespond);
     }
+
+    public List<Score> searchTemporaryScoreFor(Student student) {
+        if (user instanceof Master && ((Master) user).getMasterPosition().equals(MasterPosition.Assistant) ||
+                user instanceof Student)
+            return student.getScoreByStatus(ScoreStatus.Temporary);
+        return null;
+    }
+
+    public List<Score> searchFinalizedScoreFor(Student student) {
+        if (user instanceof Master && ((Master) user).getMasterPosition().equals(MasterPosition.Assistant) ||
+                user instanceof Student)
+            return student.getScoreByStatus(ScoreStatus.Finalized);
+        return null;
+    }
+
+    //todo ask about "for"
+    public List<Score> getFinalizedScoreBy(Master master) {
+      return null;
+    }
+
+    public int getCourseCreditFor(Score score) {
+        CourseDAO courseDAO = (CourseDAO) pageManager.getSemester().getDao("course");
+        if (courseDAO.getCourse(score.getCourse()) != null)
+            return courseDAO.getCourse(score.getCourse()).getCourseCredit();
+        return 0;
+    }
+
+    public int getNumberOfPassedCourses() {
+        int result = 0;
+        if (user instanceof Student ||
+                (user instanceof Master && ((Master) user).getMasterPosition().equals(MasterPosition.Assistant)))
+            for (Score score : ((Student) user).getScores()) {
+                if (((Student) user).isPassed(score))
+                    result += getCourseCreditFor(score);
+            }
+        return result;
+    }
+
+    public double getWeightedTotalAverage() {
+        double totalAverage = 0;
+        int n = 0;
+        if (user instanceof Student)
+            for (Score score : ((Student) user).getScores()) {
+                int scoreCredit = getCourseCreditFor(score);
+                totalAverage += score.getScore() * scoreCredit;
+                n += scoreCredit;
+            }
+        return totalAverage / n;
+    }
+
+
 }
 

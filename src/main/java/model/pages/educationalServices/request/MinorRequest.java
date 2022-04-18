@@ -42,5 +42,5 @@ public class MinorRequest extends Request {
         this.minorDepartment = minorDepartment;
     }
 
-    //todo check score and ...
+    //todo check score and ... inorder to give permission for minor
 }

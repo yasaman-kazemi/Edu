@@ -15,4 +15,8 @@ public class ChangingPasswordPage extends MainPage {
     public ChangingPasswordPage(Date now, User user, PageManager pageManager) {
         super(now, user, pageManager);
     }
+
+    public void setNewPassword(String newPassword) {
+        user.setPassword(newPassword);
+    }
 }

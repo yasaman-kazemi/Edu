@@ -1,6 +1,7 @@
 package model.pages.mainPage;
 
 import model.Department;
+import model.pages.ChangingPasswordPage;
 import model.pages.PageManager;
 import model.person.User;
 import model.person.master.Master;
@@ -78,5 +79,15 @@ public class MainPage {
     public void logout() {
         pageManager.logout();
     }
+
+    //todo check this method
+    public void changePassword(String password) {
+        long differenceInMin = (Math.abs(now.getTime() - user.getLastLogin().getTime()) / (60 * 1000));
+        if (differenceInMin > 180) {
+            ChangingPasswordPage changingPasswordPage = new ChangingPasswordPage(user, pageManager);
+            changingPasswordPage.setNewPassword(password);
+        }
+    }
+
 
 }

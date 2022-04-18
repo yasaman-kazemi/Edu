@@ -48,4 +48,11 @@ public class CourseDAO implements Dao<Course> {
         String id = course.getCourseCredit() + String.valueOf(counter).substring(1);
         course.setId(id);
     }
+
+    public Course getCourse(String courseName) {
+        for (Course course : courseList) {
+           if (course.getName().equals(courseName)) return course;
+        }
+        return null;
+    }
 }

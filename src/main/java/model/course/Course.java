@@ -168,4 +168,36 @@ public class Course {
     public void setGrade(Grade grade) {
         this.grade = grade;
     }
+
+    public double getTotalAverageFor(Course course) {
+        double totalAverage = 0;
+        for (Student student : studentList) {
+            totalAverage += student.searchScore(course.getName()).getScore();
+        }
+        return totalAverage / studentList.size();
+    }
+
+    public int getNumberOfPasses(Course course) {
+        int result = 0;
+        for (Student studnet : studentList) {
+            if (studnet.isPassed(studnet.searchScore(course.getName()))) result++;
+        }
+        return result;
+    }
+
+    public int getNumberOfFailed(Course course) {
+        int result = 0;
+        for (Student studnet : studentList) {
+            if (!studnet.isPassed(studnet.searchScore(course.getName()))) result++;
+        }
+        return result;
+    }
+
+    public double getTotalAverageWithoutFailuresFor(Course course) {
+        double totalAverage = 0;
+        for (Student student : studentList) {
+            totalAverage += student.searchScore(course.getName()).getScore();
+        }
+        return totalAverage / (studentList.size() - getNumberOfFailed(course));
+    }
 }

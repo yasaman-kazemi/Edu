@@ -2,7 +2,9 @@ package model.person.student;
 
 import model.Department;
 import model.course.Course;
+import model.course.CourseDAO;
 import model.course.Score;
+import model.course.ScoreStatus;
 import model.pages.mainPage.EducationalStatus;
 import model.person.User;
 import model.person.master.Master;
@@ -136,9 +138,21 @@ public class Student extends User {
     }
 
     public Score searchScore(String course) {
-            for (Score score : scores)
-                if (score.getCourse().equals(course)) return score;
-       return null;
+        for (Score score : scores)
+            if (score.getCourse().equals(course)) return score;
+        return null;
+    }
+
+    public List<Score> getScoreByStatus(ScoreStatus scoreStatus) {
+        ArrayList<Score> scoreArrayList = new ArrayList<>();
+        for (Score score : scores) {
+            if (score.getScoreStatus().equals(scoreStatus)) scoreArrayList.add(score);
+        }
+        return scoreArrayList;
+    }
+
+    public boolean isPassed(Score score) {
+        return score.getScore() >= 10.0;
     }
 
     @Override
