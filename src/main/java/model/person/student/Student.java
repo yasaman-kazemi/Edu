@@ -2,7 +2,6 @@ package model.person.student;
 
 import model.Department;
 import model.course.Course;
-import model.course.CourseDAO;
 import model.course.Score;
 import model.course.ScoreStatus;
 import model.pages.mainPage.EducationalStatus;
