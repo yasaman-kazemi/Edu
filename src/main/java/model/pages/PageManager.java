@@ -19,6 +19,7 @@ public class PageManager {
     }
 
     public void enterToMainPage() {
+
     }
 
     public void logout() {
@@ -26,4 +27,7 @@ public class PageManager {
     }
 
 
+    public void enterToChangingPasswordPAge() {
+
+    }
 }

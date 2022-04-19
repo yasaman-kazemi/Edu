@@ -16,7 +16,11 @@ public class ChangingPasswordPage extends MainPage {
         super(now, user, pageManager);
     }
 
-    public void setNewPassword(String newPassword) {
-        user.setPassword(newPassword);
+    public void changePassword(String oldPass, String newPass) {
+        if (user.getPassword().equals(oldPass)) {
+            user.setPassword(newPass);
+        } else {
+            //TODO return exception that old pass is incorrect
+        }
     }
 }

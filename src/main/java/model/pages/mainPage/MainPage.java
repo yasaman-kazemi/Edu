@@ -81,13 +81,16 @@ public class MainPage {
     }
 
     //todo check this method
-    public void changePassword(String password) {
-        long differenceInMin = (Math.abs(now.getTime() - user.getLastLogin().getTime()) / (60 * 1000));
+    public void changePassword() {
+        long differenceInMin = now.getTime() - user.getLastLogin().getTime() / (60 * 1000);
         if (differenceInMin > 180) {
-            ChangingPasswordPage changingPasswordPage = new ChangingPasswordPage(user, pageManager);
-            changingPasswordPage.setNewPassword(password);
+            pageManager.enterToChangingPasswordPAge();
         }
     }
 
+    //TODO fill this
+    public void refresh() {
+
+    }
 
 }

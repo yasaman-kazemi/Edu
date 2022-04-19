@@ -54,7 +54,7 @@ public class Score {
 
     public void setScore(double score) {
         if (score < 20 && score > 0) this.score = Math.round(4 * score) / 4.0;
-            //todo fill this else
+            //todo fill this else with exception
         else {
         }
     }
