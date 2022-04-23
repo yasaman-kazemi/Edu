@@ -4,19 +4,19 @@ package model.course;
 import java.util.Objects;
 
 public class Score {
-    private String course;
+    private Course course;
     private double score;
     private ScoreStatus scoreStatus;
     private String protest;
     private ProtestRespond protestRespond;
 
-    public Score(String course, double score) {
+    public Score(Course course, double score) {
         this.course = course;
-        this.score = score;
+        setScore(score);
         scoreStatus = ScoreStatus.Temporary;
     }
 
-    public Score(String course, double score, ScoreStatus scoreStatus, String protest, ProtestRespond protestRespond) {
+    public Score(Course course, double score, ScoreStatus scoreStatus, String protest, ProtestRespond protestRespond) {
         this.course = course;
         this.score = score;
         this.scoreStatus = scoreStatus;
@@ -40,11 +40,11 @@ public class Score {
         return Objects.hash(getCourse(), getScore(), getScoreStatus(), getProtest());
     }
 
-    public String getCourse() {
+    public Course getCourse() {
         return course;
     }
 
-    public void setCourse(String course) {
+    public void setCourse(Course course) {
         this.course = course;
     }
 
@@ -53,9 +53,10 @@ public class Score {
     }
 
     public void setScore(double score) {
-        if (score < 20 && score > 0) this.score = Math.round(4 * score) / 4.0;
-            //todo fill this else with exception
-        else {
+        if (score < 20 && score > 0) {
+            this.score = Math.round(4 * score) / 4.0;
+        } else {
+            throw new IllegalArgumentException();
         }
     }
 

@@ -1,8 +1,10 @@
 package model.course;
 
+import model.person.master.Master;
 import utils.Dao;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public class CourseDAO implements Dao<Course> {
@@ -49,10 +51,20 @@ public class CourseDAO implements Dao<Course> {
         course.setId(id);
     }
 
-    public Course getCourse(String courseName) {
+    public Optional<Course> getByName(String courseName) {
         for (Course course : courseList) {
-           if (course.getName().equals(courseName)) return course;
+           if (course.getName().equals(courseName))
+               return Optional.of(course);
         }
-        return null;
+        return Optional.empty();
+    }
+
+    public List<Course> getByMaster(Master master) {
+        List<Course> result = new ArrayList<>();
+        for (Course course : courseList) {
+            if (course.getMaster().equals(master))
+                result.add(course);
+        }
+        return result;
     }
 }

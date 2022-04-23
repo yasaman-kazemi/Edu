@@ -1,8 +1,8 @@
-package Graphic;
+package Graphic.pages;
 
 import javax.swing.*;
 
-public class MasterTemporaryScorePage extends JPanel {
+public class StudentTemporaryScorePage extends JPanel {
     private javax.swing.JTextField courseNameTextField;
     private javax.swing.JScrollPane scrollPane1;
     private javax.swing.JScrollPane scrollPane2;
@@ -10,7 +10,7 @@ public class MasterTemporaryScorePage extends JPanel {
     private javax.swing.JButton sendButton;
     private javax.swing.JTable temporaryScoresTable;
 
-    public MasterTemporaryScorePage() {
+    public StudentTemporaryScorePage() {
         initComponents();
     }
 
@@ -26,27 +26,27 @@ public class MasterTemporaryScorePage extends JPanel {
         setPreferredSize(new java.awt.Dimension(1112, 643));
 
         temporaryScoresTable.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][]{
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null}
+                new Object [][] {
+                        {null, null, null, null},
+                        {null, null, null, null},
+                        {null, null, null, null},
+                        {null, null, null, null},
+                        {null, null, null, null},
+                        {null, null, null, null},
+                        {null, null, null, null},
+                        {null, null, null, null},
+                        {null, null, null, null},
+                        {null, null, null, null}
                 },
-                new String[]{
-                        "Students", "Temporary scores", "Protest"
+                new String [] {
+                        "Course id", "Course name", "Score", "Protest response"
                 }
         ));
         scrollPane1.setViewportView(temporaryScoresTable);
 
         courseNameTextField.setForeground(new java.awt.Color(204, 204, 204));
-        courseNameTextField.setText("Student name");
-        courseNameTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Response for:"));
+        courseNameTextField.setText("Course Name");
+        courseNameTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Protest for:"));
 
         protestResponseTextArea.setColumns(20);
         protestResponseTextArea.setRows(5);

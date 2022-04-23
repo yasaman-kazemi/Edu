@@ -83,7 +83,7 @@ public class MainPage {
     public void changePassword() {
         long differenceInMin = now.getTime() - user.getLastLogin().getTime() / (60 * 1000);
         if (differenceInMin > 180) {
-            pageManager.enterToChangingPasswordPAge();
+            pageManager.enterToChangingPasswordPage();
         }
     }
 

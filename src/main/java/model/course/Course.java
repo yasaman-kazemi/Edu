@@ -5,6 +5,7 @@ import model.person.master.Master;
 import model.person.student.Grade;
 import model.person.student.Student;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -169,35 +170,55 @@ public class Course {
         this.grade = grade;
     }
 
-    public double getTotalAverageFor(Course course) {
+    public double getTotalAverage() {
         double totalAverage = 0;
         for (Student student : studentList) {
-            totalAverage += student.searchScore(course.getName()).getScore();
+            totalAverage += student.getScore(this).getScore();
         }
-        return totalAverage / studentList.size();
+        if (studentList.size() > 0) {
+            return totalAverage / studentList.size();
+        } else {
+            return 0;
+        }
     }
 
-    public int getNumberOfPasses(Course course) {
+    public int getNumberOfPasses() {
         int result = 0;
-        for (Student studnet : studentList) {
-            if (studnet.isPassed(studnet.searchScore(course.getName()))) result++;
+        for (Student student : studentList) {
+            if (student.isPassed(student.getScore(this))) result++;
         }
         return result;
     }
 
-    public int getNumberOfFailed(Course course) {
+    public int getNumberOfFailed() {
         int result = 0;
-        for (Student studnet : studentList) {
-            if (!studnet.isPassed(studnet.searchScore(course.getName()))) result++;
+        for (Student student : studentList) {
+            if (!student.isPassed(student.getScore(this))) result++;
         }
         return result;
     }
 
-    public double getTotalAverageWithoutFailuresFor(Course course) {
+    public double getTotalAverageWithoutFailuresFor() {
         double totalAverage = 0;
+        int n = 0;
         for (Student student : studentList) {
-            totalAverage += student.searchScore(course.getName()).getScore();
+            if (student.isPassed(student.getScore(this))) {
+                totalAverage += student.getScore(this).getScore();
+                n++;
+            }
         }
-        return totalAverage / (studentList.size() - getNumberOfFailed(course));
+        if (n == 0) {
+            return 0;
+        } else {
+            return totalAverage / n;
+        }
+    }
+
+    public List<Score> getAllScores() {
+        List<Score> result = new ArrayList<>();
+        for (Student student : studentList) {
+            result.add(student.getScore(this));
+        }
+        return result;
     }
 }

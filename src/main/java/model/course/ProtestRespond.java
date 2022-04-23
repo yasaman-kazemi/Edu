@@ -1,7 +1,7 @@
 package model.course;
 
 public enum ProtestRespond {
-    Registered,
+    Accepted,
     rejected,
     InProgress
 }

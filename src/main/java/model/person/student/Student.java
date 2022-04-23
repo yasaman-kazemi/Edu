@@ -9,10 +9,12 @@ import model.person.User;
 import model.person.master.Master;
 
 import java.io.File;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Objects;
 
 public class Student extends User {
-    private double totalAverageScore;
     private Master guideMaster;
     private String enteringYear;
     private Grade grade;
@@ -39,13 +41,11 @@ public class Student extends User {
 
     public Student(String firstname, String lastname, String username, String id, String identityCode,
                    String password, String email, File photo, Department department,
-                   String phoneNumber, double totalAverageScore, Master guideMaster,
-                   String enteringYear, Grade grade, StudentStatus studentStatus,
+                   String phoneNumber, Master guideMaster, String enteringYear, Grade grade, StudentStatus studentStatus,
                    List<Course> currentCourses, List<Score> scores, Date lastLogin,
                    EducationalStatus educationalStatus, String rand) {
         super(firstname, lastname, username, id, identityCode, password,
                 email, photo, department, phoneNumber, lastLogin);
-        this.totalAverageScore = totalAverageScore;
         this.guideMaster = guideMaster;
         this.enteringYear = enteringYear;
         this.grade = grade;
@@ -54,14 +54,6 @@ public class Student extends User {
         this.scores = scores;
         this.educationalStatus = educationalStatus;
         this.rand = rand;
-    }
-
-    public double getTotalAverageScore() {
-        return totalAverageScore;
-    }
-
-    public void setTotalAverageScore(double totalAverageScore) {
-        this.totalAverageScore = totalAverageScore;
     }
 
     public Master getGuideMaster() {
@@ -136,18 +128,20 @@ public class Student extends User {
         this.rand = rand;
     }
 
-    public Score searchScore(String course) {
+    public Score getScore(Course course) {
         for (Score score : scores)
-            if (score.getCourse().equals(course)) return score;
+            if (score.getCourse().equals(course))
+                return score;
         return null;
     }
 
     public List<Score> getScoreByStatus(ScoreStatus scoreStatus) {
-        ArrayList<Score> scoreArrayList = new ArrayList<>();
+        ArrayList<Score> result = new ArrayList<>();
         for (Score score : scores) {
-            if (score.getScoreStatus().equals(scoreStatus)) scoreArrayList.add(score);
+            if (score.getScoreStatus() == scoreStatus)
+                result.add(score);
         }
-        return scoreArrayList;
+        return result;
     }
 
     public boolean isPassed(Score score) {
@@ -159,8 +153,7 @@ public class Student extends User {
         if (this == o) return true;
         if (!(o instanceof Student)) return false;
         Student student = (Student) o;
-        return Double.compare(student.getTotalAverageScore(), getTotalAverageScore()) == 0 &&
-                Objects.equals(getGuideMaster(), student.getGuideMaster()) &&
+        return Objects.equals(getGuideMaster(), student.getGuideMaster()) &&
                 Objects.equals(getEnteringYear(), student.getEnteringYear()) &&
                 getGrade() == student.getGrade() &&
                 getStudentStatus() == student.getStudentStatus() &&
@@ -172,6 +165,28 @@ public class Student extends User {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getTotalAverageScore(), getGuideMaster(), getEnteringYear(), getGrade(), getStudentStatus(), getCurrentCourses(), getScores(), getEducationalStatus(), getRand());
+        return Objects.hash(getGuideMaster(), getEnteringYear(), getGrade(), getStudentStatus(), getCurrentCourses(),
+                getScores(), getEducationalStatus(), getRand());
+    }
+
+    public double getTotalAverageScore() {
+        double totalAverage = 0;
+        int n = 0;
+        for (Score score : scores) {
+            int scoreCredit = score.getCourse().getCourseCredit();
+            totalAverage += score.getScore() * scoreCredit;
+            n += scoreCredit;
+        }
+        return totalAverage / n;
+    }
+
+    public int getTotalPassedCredit() {
+        int result = 0;
+        for (Score score : scores) {
+            if (score.getScoreStatus() == ScoreStatus.Finalized && score.getScore() >= 10) {
+                result += score.getCourse().getCourseCredit();
+            }
+        }
+        return result;
     }
 }

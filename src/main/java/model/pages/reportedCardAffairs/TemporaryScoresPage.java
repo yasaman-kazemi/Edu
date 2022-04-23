@@ -23,27 +23,29 @@ public class TemporaryScoresPage extends MainPage {
         super(now, user, pageManager);
     }
 
-    public List<Score> getAll() {
-        ArrayList<Score> temporaryScores = new ArrayList<>();
+    public List<Score> getAllTemporaryScores() {
         if (user instanceof Student) {
-            for (Score score : ((Student) user).getScores())
-                if (score.getScoreStatus().equals(ScoreStatus.Temporary)) temporaryScores.add(score);
+            return ((Student) user).getScoreByStatus(ScoreStatus.Temporary);
         }
-        return temporaryScores;
+        return new ArrayList<>();
     }
 
     public void setProtest(Score temporaryScore, String protest) {
-        if (temporaryScore.getScoreStatus().equals(ScoreStatus.Temporary))
-            temporaryScore.setProtest(protest);
+        if (temporaryScore.getScoreStatus() == ScoreStatus.Temporary)
+            if (temporaryScore.getProtest() == null)
+                temporaryScore.setProtest(protest);
     }
 
-    public void finalizedScore(Score temporaryScore, Course course) {
-        if (user instanceof Master && hasBeenScoredTemporaryAll(course))
-            temporaryScore.setScoreStatus(ScoreStatus.Finalized);
+    public ProtestRespond getProtestResult(Score score) {
+        return score.getProtestRespond();
+    }
+
+    public List<Student> getAllCourseStudent(Course course) {
+        return course.getStudentList();
     }
 
     public void setScore(Student student, Course course, double score) {
-        Score newScore = new Score(course.toString(), score);
+        Score newScore = new Score(course, score);
         if (user instanceof Master)
             if (course.getStudentList().contains(student))
                 student.getScores().add(newScore);
@@ -55,11 +57,30 @@ public class TemporaryScoresPage extends MainPage {
     }
 
     public boolean hasBeenScoredTemporaryAll(Course course) {
-        if (user instanceof Master)
+        if (user instanceof Master) {
             for (Student student : course.getStudentList()) {
-                if (student.searchScore(course.getName()) == null) return false;
+                if (student.getScore(course) == null)
+                    return false;
             }
-        return true;
+            return true;
+        }
+        return false;
+    }
+
+    public void finalizedScore(Score temporaryScore, Course course) {
+        if (user instanceof Master && hasBeenScoredTemporaryAll(course))
+            temporaryScore.setScoreStatus(ScoreStatus.Finalized);
+    }
+
+    public List<Score> getProtestedScores(Course course) {
+        List<Score> result = new ArrayList<>();
+        if (user instanceof Master) {
+            for (Score score : course.getAllScores()) {
+                if (score.getProtest() != null)
+                    result.add(score);
+            }
+        }
+        return result;
     }
 
     public void responseProtest(ProtestRespond protestRespond, Score score) {
@@ -67,30 +88,36 @@ public class TemporaryScoresPage extends MainPage {
             score.setProtestRespond(protestRespond);
     }
 
-    public List<Score> searchTemporaryScoreFor(Student student) {
+    public List<Score> getAllScores(Course course) {
+        return course.getAllScores();
+    }
+
+    public List<Score> getTemporaryScore(Student student) {
         if (user instanceof Master && ((Master) user).getMasterPosition().equals(MasterPosition.Assistant) ||
                 user instanceof Student)
             return student.getScoreByStatus(ScoreStatus.Temporary);
         return null;
     }
 
-    public List<Score> searchFinalizedScoreFor(Student student) {
+    public List<Score> getFinalizedScore(Student student) {
         if (user instanceof Master && ((Master) user).getMasterPosition().equals(MasterPosition.Assistant) ||
                 user instanceof Student)
             return student.getScoreByStatus(ScoreStatus.Finalized);
         return null;
     }
 
-    //todo ask about "for"
-    public List<Score> getFinalizedScoreBy(Master master) {
-      return null;
+    public List<Score> getScore(Master master) {
+        List<Score> result = new ArrayList<>();
+        List<Course> courses = pageManager.getSemester().getCourses(master);
+        for (Course course : courses) {
+            result.addAll(course.getAllScores());
+        }
+        return result;
     }
 
-    public int getCourseCreditFor(Score score) {
-        CourseDAO courseDAO = (CourseDAO) pageManager.getSemester().getDao("course");
-        if (courseDAO.getCourse(score.getCourse()) != null)
-            return courseDAO.getCourse(score.getCourse()).getCourseCredit();
-        return 0;
+    public CourseSummery getSummeryOfCourse(Course course) {
+        return new CourseSummery(course.getTotalAverage(), course.getNumberOfPasses(),
+                course.getNumberOfFailed(), course.getTotalAverageWithoutFailuresFor());
     }
 
     public int getNumberOfPassedCourses() {
@@ -99,23 +126,9 @@ public class TemporaryScoresPage extends MainPage {
                 (user instanceof Master && ((Master) user).getMasterPosition().equals(MasterPosition.Assistant)))
             for (Score score : ((Student) user).getScores()) {
                 if (((Student) user).isPassed(score))
-                    result += getCourseCreditFor(score);
+                    result += score.getCourse().getCourseCredit();
             }
         return result;
     }
-
-    public double getWeightedTotalAverage() {
-        double totalAverage = 0;
-        int n = 0;
-        if (user instanceof Student)
-            for (Score score : ((Student) user).getScores()) {
-                int scoreCredit = getCourseCreditFor(score);
-                totalAverage += score.getScore() * scoreCredit;
-                n += scoreCredit;
-            }
-        return totalAverage / n;
-    }
-
-
 }
 

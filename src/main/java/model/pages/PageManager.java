@@ -27,7 +27,7 @@ public class PageManager {
     }
 
 
-    public void enterToChangingPasswordPAge() {
+    public void enterToChangingPasswordPage() {
 
     }
 }

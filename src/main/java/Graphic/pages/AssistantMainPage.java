@@ -1,4 +1,4 @@
-package Graphic;
+package Graphic.pages;
 
 import javax.swing.*;
 

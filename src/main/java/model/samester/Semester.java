@@ -3,6 +3,7 @@ package model.samester;
 import model.Department;
 import model.course.Course;
 import model.course.CourseDAO;
+import model.course.Score;
 import model.pages.mainPage.EducationalStatus;
 import model.person.master.Master;
 import model.person.master.MasterDAO;
@@ -94,5 +95,10 @@ public class Semester {
     public void deleteCourse(Course course) {
         CourseDAO courseDAO = (CourseDAO) daoMap.get("course");
         courseDAO.delete(course);
+    }
+
+    public List<Course> getCourses(Master master) {
+        CourseDAO courseDAO = (CourseDAO) daoMap.get("course");
+        return courseDAO.getByMaster(master);
     }
 }
