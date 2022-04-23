@@ -1,7 +1,6 @@
 package model.pages.mainPage;
 
 import model.Department;
-import model.pages.ChangingPasswordPage;
 import model.pages.PageManager;
 import model.person.User;
 import model.person.master.Master;
