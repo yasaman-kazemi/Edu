@@ -10,8 +10,10 @@ public class MainFrame extends JFrame {
     private javax.swing.JTextField emailTextField;
     private javax.swing.JMenuItem examListMenuItem;
     private javax.swing.JButton exitButton;
+    private javax.swing.JPanel headerPanel;
     private javax.swing.JTextField lastLoginTextField;
     private javax.swing.JMenu mainPageMenu;
+    private javax.swing.JPanel mainPanel;
     private javax.swing.JMenuItem masterListMenuItem;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JTextField nameTextField;
@@ -28,12 +30,14 @@ public class MainFrame extends JFrame {
     }
 
     private void initComponents() {
+        headerPanel = new javax.swing.JPanel();
+        lastLoginTextField = new javax.swing.JTextField();
+        currentTimeTextField = new javax.swing.JTextField();
         userPhotoLabel = new javax.swing.JLabel();
         nameTextField = new javax.swing.JTextField();
         emailTextField = new javax.swing.JTextField();
-        lastLoginTextField = new javax.swing.JTextField();
-        currentTimeTextField = new javax.swing.JTextField();
         exitButton = new javax.swing.JButton();
+        mainPanel = new javax.swing.JPanel();
         menuBar = new javax.swing.JMenuBar();
         mainPageMenu = new javax.swing.JMenu();
         registrationAffairsMenu = new javax.swing.JMenu();
@@ -52,7 +56,18 @@ public class MainFrame extends JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Edu");
         setBackground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(1100, 700));
+        setPreferredSize(new java.awt.Dimension(1145, 850));
+
+        headerPanel.setBackground(new java.awt.Color(255, 255, 255));
+        headerPanel.setPreferredSize(new java.awt.Dimension(1112, 159));
+
+        lastLoginTextField.setEditable(false);
+        lastLoginTextField.setBackground(new java.awt.Color(150, 207, 249));
+        lastLoginTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Last entry:"));
+
+        currentTimeTextField.setEditable(false);
+        currentTimeTextField.setBackground(new java.awt.Color(150, 207, 249));
+        currentTimeTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Current time:"));
 
         userPhotoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pages/question.jpg"))); // NOI18N
         userPhotoLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153), 4));
@@ -64,17 +79,66 @@ public class MainFrame extends JFrame {
         emailTextField.setEditable(false);
         emailTextField.setBackground(new java.awt.Color(150, 207, 249));
         emailTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Email:"));
-
-        lastLoginTextField.setEditable(false);
-        lastLoginTextField.setBackground(new java.awt.Color(150, 207, 249));
-        lastLoginTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Last entry:"));
-
-        currentTimeTextField.setEditable(false);
-        currentTimeTextField.setBackground(new java.awt.Color(150, 207, 249));
-        currentTimeTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Current time:"));
+        emailTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emailTextFieldActionPerformed(evt);
+            }
+        });
 
         exitButton.setBackground(new java.awt.Color(249, 150, 170));
         exitButton.setText("Exit");
+
+        javax.swing.GroupLayout headerPanelLayout = new javax.swing.GroupLayout(headerPanel);
+        headerPanel.setLayout(headerPanelLayout);
+        headerPanelLayout.setHorizontalGroup(
+                headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(headerPanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(userPhotoLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(headerPanelLayout.createSequentialGroup()
+                                                .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(currentTimeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(lastLoginTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        headerPanelLayout.setVerticalGroup(
+                headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(headerPanelLayout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(currentTimeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lastLoginTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(exitButton)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(headerPanelLayout.createSequentialGroup()
+                                .addGap(5, 5, 5)
+                                .addComponent(userPhotoLabel)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        mainPanel.setBackground(new java.awt.Color(255, 255, 255));
+        mainPanel.setPreferredSize(new java.awt.Dimension(1112, 643));
+
+        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
+        mainPanel.setLayout(mainPanelLayout);
+        mainPanelLayout.setHorizontalGroup(
+                mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 1112, Short.MAX_VALUE)
+        );
+        mainPanelLayout.setVerticalGroup(
+                mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 643, Short.MAX_VALUE)
+        );
 
         mainPageMenu.setText("Main page");
         menuBar.add(mainPageMenu);
@@ -134,71 +198,31 @@ public class MainFrame extends JFrame {
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                                .addGap(314, 314, 314)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lastLoginTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(currentTimeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addComponent(userPhotoLabel)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addGap(171, 171, 171)
-                                                .addComponent(exitButton)))
-                                .addContainerGap(330, Short.MAX_VALUE))
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(headerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap())
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(layout.createSequentialGroup()
-                                                                .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                        .addComponent(userPhotoLabel))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(exitButton))
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addComponent(lastLoginTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(currentTimeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap(431, Short.MAX_VALUE))
+                                .addComponent(headerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addContainerGap())
         );
 
         pack();
-    }
-
-    private void courseListMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
     }
 
     private void weeklyScheduleMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
 
-    private void requestMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
+    private void emailTextFieldActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
-
-    private void temporaryScoresMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
-    private void studentEducationalStatusMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
-    private void lastLoginFieldActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
-
 }
 
