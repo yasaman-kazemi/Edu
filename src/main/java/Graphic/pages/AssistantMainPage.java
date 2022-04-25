@@ -1,8 +1,10 @@
 package Graphic.pages;
 
+import model.pages.mainPage.MainPage;
+
 import javax.swing.*;
 
-public class AssistantMainPage extends JPanel {
+public class AssistantMainPage extends MyPanel {
     private javax.swing.JButton createNewAccountButton;
     private javax.swing.JTextField departmentTextField;
     private javax.swing.JTextField emailTextField;
@@ -15,7 +17,8 @@ public class AssistantMainPage extends JPanel {
     private javax.swing.JTextField userInfoTextField;
     private javax.swing.JLabel userPhoto;
 
-    public AssistantMainPage() {
+    public AssistantMainPage(MainPage mainPage) {
+        super(mainPage);
         initComponents();
     }
 

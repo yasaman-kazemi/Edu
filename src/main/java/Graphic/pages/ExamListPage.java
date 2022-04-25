@@ -2,12 +2,13 @@ package Graphic.pages;
 
 import javax.swing.*;
 
-public class StudentExamList extends JPanel {
+public class ExamListPage extends MyPanel {
     private javax.swing.JList<String> examList;
     private javax.swing.JScrollPane scrollPane;
     private javax.swing.JTextField titleTextField;
 
-    public StudentExamList() {
+    public ExamListPage(model.pages.educationalServices.ExamListPage examListPage) {
+        super(examListPage);
         initComponents();
     }
 

@@ -2,7 +2,7 @@ package Graphic.pages;
 
 import javax.swing.*;
 
-public class MasterProfilePage extends JPanel {
+public class MasterProfilePage extends MyPanel {
     private javax.swing.JButton changeThemeButton;
     private javax.swing.JTextField departmentTextField;
     private javax.swing.JButton emailChangeButton;

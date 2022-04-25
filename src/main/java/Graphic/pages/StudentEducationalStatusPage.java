@@ -2,13 +2,14 @@ package Graphic.pages;
 
 import javax.swing.*;
 
-public class StudentEducationalStatusPage extends JPanel {
+public class StudentEducationalStatusPage extends MyPanel {
     private javax.swing.JScrollPane scrollPane1;
     private javax.swing.JTextField numberOfPassedUnitsTextField;
     private javax.swing.JTable scoreTable;
     private javax.swing.JTextField weightedTotalAverageTextField;
 
-    public StudentEducationalStatusPage() {
+    public StudentEducationalStatusPage(model.pages.reportedCardAffairs.StudentEducationalStatusPage studentEducationalStatusPage) {
+        super(studentEducationalStatusPage);
         initComponents();
     }
 

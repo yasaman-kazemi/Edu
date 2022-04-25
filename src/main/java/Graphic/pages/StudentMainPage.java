@@ -1,15 +1,18 @@
 package Graphic.pages;
 
+import model.pages.mainPage.MainPage;
+
 import javax.swing.*;
 
-public class StudentMainPage extends JPanel {
+public class StudentMainPage extends MyPanel {
     private javax.swing.JTextField educationalInfoTextField;
     private javax.swing.JTextField educationalStatusTextField;
     private javax.swing.JTextField guideMasterTextField;
     private javax.swing.JTextField registrationLicenseTextField;
     private javax.swing.JTextField registrationTimeTextField;
 
-    public StudentMainPage() {
+    public StudentMainPage(MainPage mainPage) {
+        super(mainPage);
         initComponents();
     }
 

@@ -2,12 +2,13 @@ package Graphic.pages;
 
 import javax.swing.*;
 
-public class WeeklySchedulePage extends JPanel {
+public class WeeklySchedulePage extends MyPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable weeklyScheduleTable;
 
-    public WeeklySchedulePage() {
+    public WeeklySchedulePage(model.pages.educationalServices.WeeklySchedulePage weeklySchedulePage) {
+        super(weeklySchedulePage);
         initComponents();
     }
 

@@ -1,15 +1,18 @@
 package Graphic.pages;
 
+import model.pages.ChangingPasswordPage;
+
 import javax.swing.*;
 
-public class NewPasswordPage extends JPanel {
+public class NewPasswordPage extends MyPanel {
     private javax.swing.JTextField currentTextField;
     private javax.swing.JTextField messageTextField;
     private javax.swing.JTextField newPassword2TextField;
     private javax.swing.JTextField newPasswordTextField;
     private javax.swing.JButton saveButton;
 
-    public NewPasswordPage() {
+    public NewPasswordPage(ChangingPasswordPage changingPasswordPage) {
+        super(changingPasswordPage);
         initComponents();
     }
 

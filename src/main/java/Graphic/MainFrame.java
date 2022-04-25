@@ -1,5 +1,7 @@
 package Graphic;
 
+import Graphic.pages.MyPanel;
+
 import javax.swing.*;
 
 public class MainFrame extends JFrame {
@@ -35,7 +37,7 @@ public class MainFrame extends JFrame {
         return mainPanel;
     }
 
-    public void setMainPanel(JPanel mainPanel) {
+    public void setMainPanel(MyPanel mainPanel) {
         this.mainPanel = mainPanel;
         setMainPageSetting();
         setLayout();

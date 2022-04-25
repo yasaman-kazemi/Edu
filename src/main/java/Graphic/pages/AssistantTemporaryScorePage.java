@@ -2,7 +2,7 @@ package Graphic.pages;
 
 import javax.swing.*;
 
-public class AssistantTemporaryScorePage extends JPanel {
+public class AssistantTemporaryScorePage extends MyPanel {
     private javax.swing.JTextField courseNameForSearchTextField;
     private javax.swing.JTextField courseNameForSummaryTextField;
     private javax.swing.JScrollPane jScrollPane2;

@@ -1,8 +1,6 @@
 package Graphic.pages;
 
-import javax.swing.*;
-
-public class StudentTemporaryScorePage extends JPanel {
+public class TemporaryScoresPage extends MyPanel {
     private javax.swing.JTextField courseNameTextField;
     private javax.swing.JScrollPane scrollPane1;
     private javax.swing.JScrollPane scrollPane2;
@@ -10,7 +8,8 @@ public class StudentTemporaryScorePage extends JPanel {
     private javax.swing.JButton sendButton;
     private javax.swing.JTable temporaryScoresTable;
 
-    public StudentTemporaryScorePage() {
+    public TemporaryScoresPage(model.pages.reportedCardAffairs.TemporaryScoresPage temporaryScoresPage) {
+        super(temporaryScoresPage);
         initComponents();
     }
 
@@ -26,7 +25,7 @@ public class StudentTemporaryScorePage extends JPanel {
         setPreferredSize(new java.awt.Dimension(1112, 643));
 
         temporaryScoresTable.setModel(new javax.swing.table.DefaultTableModel(
-                new Object [][] {
+                new Object[][]{
                         {null, null, null, null},
                         {null, null, null, null},
                         {null, null, null, null},
@@ -38,7 +37,7 @@ public class StudentTemporaryScorePage extends JPanel {
                         {null, null, null, null},
                         {null, null, null, null}
                 },
-                new String [] {
+                new String[]{
                         "Course id", "Course name", "Score", "Protest response"
                 }
         ));

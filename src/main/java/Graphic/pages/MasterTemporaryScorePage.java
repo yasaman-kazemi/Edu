@@ -1,8 +1,10 @@
 package Graphic.pages;
 
+import model.pages.reportedCardAffairs.TemporaryScoresPage;
+
 import javax.swing.*;
 
-public class MasterTemporaryScorePage extends JPanel {
+public class MasterTemporaryScorePage extends MyPanel {
     private javax.swing.JTextField courseNameTextField;
     private javax.swing.JScrollPane scrollPane1;
     private javax.swing.JScrollPane scrollPane2;
@@ -10,7 +12,8 @@ public class MasterTemporaryScorePage extends JPanel {
     private javax.swing.JButton sendButton;
     private javax.swing.JTable temporaryScoresTable;
 
-    public MasterTemporaryScorePage() {
+    public MasterTemporaryScorePage(TemporaryScoresPage temporaryScoresPage) {
+        super(temporaryScoresPage);
         initComponents();
     }
 

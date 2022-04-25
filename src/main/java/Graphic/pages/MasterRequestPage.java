@@ -1,15 +1,18 @@
 package Graphic.pages;
 
+import model.pages.educationalServices.RequestsPage;
+
 import javax.swing.*;
 
-public class MasterRequestPage extends JPanel {
+public class MasterRequestPage extends MyPanel {
     private javax.swing.JScrollPane scrollPane1;
     private javax.swing.JScrollPane scrollPane2;
     private javax.swing.JTextArea requestTextArea;
     private javax.swing.JTextArea responseTextArea;
     private javax.swing.JButton sendButton;
 
-    public MasterRequestPage() {
+    public MasterRequestPage(RequestsPage requestsPage) {
+        super(requestsPage);
         initComponents();
     }
 

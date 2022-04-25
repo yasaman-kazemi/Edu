@@ -1,8 +1,6 @@
 package Graphic.pages;
 
-import javax.swing.*;
-
-public class StudentRequestPage extends JPanel {
+public class StudentRequestPage extends MyPanel {
     private javax.swing.JScrollPane scrollPane1;
     private javax.swing.JScrollPane scrollPane2;
     private javax.swing.JTextArea requestTextArea;
