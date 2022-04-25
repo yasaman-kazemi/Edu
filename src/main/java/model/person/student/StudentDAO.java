@@ -3,7 +3,6 @@ package model.person.student;
 import utils.Dao;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 public class StudentDAO implements Dao<Student> {
@@ -43,5 +42,12 @@ public class StudentDAO implements Dao<Student> {
         counter++;
         String id = student.getEnteringYear() + String.valueOf(counter).substring(1);
         student.setId(id);
+    }
+
+    public Student getByUsername(String username) {
+        for (Student student : studentList) {
+            if (student.getUsername().equals(username)) return student;
+        }
+        return null;
     }
 }

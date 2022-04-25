@@ -117,7 +117,7 @@ public class TemporaryScoresPage extends MainPage {
 
     public CourseSummery getSummeryOfCourse(Course course) {
         return new CourseSummery(course.getTotalAverage(), course.getNumberOfPasses(),
-                course.getNumberOfFailed(), course.getTotalAverageWithoutFailuresFor());
+                course.getNumberOfFailed(), course.getTotalAverageWithoutFailures());
     }
 
     public int getNumberOfPassedCourses() {

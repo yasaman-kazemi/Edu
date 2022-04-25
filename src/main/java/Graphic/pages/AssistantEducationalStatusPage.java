@@ -1,8 +1,11 @@
-package Graphic;
+package Graphic.pages;
+
+import model.pages.mainPage.MainPage;
+import model.pages.reportedCardAffairs.StudentEducationalStatusPage;
 
 import javax.swing.*;
 
-public class AssistantEducationalStatusPage extends JPanel {
+public class AssistantEducationalStatusPage extends MyPanel {
     private javax.swing.JTextField firstnameTextField;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField lastnameTextField;
@@ -13,7 +16,8 @@ public class AssistantEducationalStatusPage extends JPanel {
     private javax.swing.JTextField studentIdTextField;
     private javax.swing.JTextField weightedTotalAverageTextField;
 
-    public AssistantEducationalStatusPage() {
+    public AssistantEducationalStatusPage(StudentEducationalStatusPage studentEducationalStatusPage) {
+        super(studentEducationalStatusPage);
         initComponents();
     }
 

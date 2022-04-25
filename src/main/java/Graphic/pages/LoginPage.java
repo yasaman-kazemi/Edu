@@ -177,7 +177,7 @@ public class LoginPage extends JFrame implements ActionListener {
         if (e.getSource().equals(loginButton)) {
             page.login(usernameTextField.getText(), new String(passwordField.getPassword()));
         } else if (e.getSource().equals(forgetPasswordButton)) {
-
+            
         }
     }
 }

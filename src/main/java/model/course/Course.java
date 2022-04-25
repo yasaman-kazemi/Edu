@@ -198,7 +198,7 @@ public class Course {
         return result;
     }
 
-    public double getTotalAverageWithoutFailuresFor() {
+    public double getTotalAverageWithoutFailures() {
         double totalAverage = 0;
         int n = 0;
         for (Student student : studentList) {

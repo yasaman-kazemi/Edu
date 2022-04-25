@@ -1,22 +1,22 @@
 package Graphic;
 
-import model.pages.PageManager;
 
 public class GraphicPageManager {
+    private MainFrame mainFrame;
 
-    public GraphicPageManager(PageManager pageManager) {
+    public GraphicPageManager() {
+        mainFrame = MainFrame.getInstance();
+    }
+
+    public void enterToMainPage() {
+        mainFrame.setMainPanel();
+    }
+
+    public void logout() {
 
     }
 
-    public void enterToMainPageRequest() {
-
-    }
-
-    public void logoutRequest() {
-
-    }
-
-    public void enterToChangingPasswordPAgeRequest() {
+    public void enterToChangingPasswordPage() {
 
     }
 }
