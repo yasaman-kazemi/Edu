@@ -1,40 +1,43 @@
 package Graphic.pages;
 
+import model.pages.reportedCardAffairs.TemporaryScoresPage;
+
 import javax.swing.*;
 
 public class AssistantTemporaryScorePage extends MyPanel {
-    private javax.swing.JTextField courseNameForSearchTextField;
-    private javax.swing.JTextField courseNameForSummaryTextField;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField masterNameTextField;
-    private javax.swing.JTextField numberOfFailedPeopleTextField;
-    private javax.swing.JTextField numberOfPassedPeopleTextField;
-    private javax.swing.JPanel scoreFiltersPanel;
-    private javax.swing.JTable scoreTable;
-    private javax.swing.JButton searchButtonForSummary;
-    private javax.swing.JButton searchButtonForTable;
-    private javax.swing.JTextField studentNameTextField;
-    private javax.swing.JTextField totalAverageTextField;
-    private javax.swing.JTextField totalAverageWithoutFailuresTextField;
+    private JTextField courseNameForSearchTextField;
+    private JTextField courseNameForSummaryTextField;
+    private JScrollPane jScrollPane2;
+    private JTextField masterNameTextField;
+    private JTextField numberOfFailedPeopleTextField;
+    private JTextField numberOfPassedPeopleTextField;
+    private JPanel scoreFiltersPanel;
+    private JTable scoreTable;
+    private JButton searchButtonForSummary;
+    private JButton searchButtonForTable;
+    private JTextField studentNameTextField;
+    private JTextField totalAverageTextField;
+    private JTextField totalAverageWithoutFailuresTextField;
 
-    public AssistantTemporaryScorePage() {
+    public AssistantTemporaryScorePage(TemporaryScoresPage temporaryScoresPage) {
+        super(temporaryScoresPage);
         initComponents();
     }
 
     private void initComponents() {
-        jScrollPane2 = new javax.swing.JScrollPane();
-        scoreTable = new javax.swing.JTable();
-        scoreFiltersPanel = new javax.swing.JPanel();
-        courseNameForSearchTextField = new javax.swing.JTextField();
-        studentNameTextField = new javax.swing.JTextField();
-        masterNameTextField = new javax.swing.JTextField();
-        searchButtonForTable = new javax.swing.JButton();
-        totalAverageTextField = new javax.swing.JTextField();
-        courseNameForSummaryTextField = new javax.swing.JTextField();
-        numberOfPassedPeopleTextField = new javax.swing.JTextField();
-        numberOfFailedPeopleTextField = new javax.swing.JTextField();
-        totalAverageWithoutFailuresTextField = new javax.swing.JTextField();
-        searchButtonForSummary = new javax.swing.JButton();
+        jScrollPane2 = new JScrollPane();
+        scoreTable = new JTable();
+        scoreFiltersPanel = new JPanel();
+        courseNameForSearchTextField = new JTextField();
+        studentNameTextField = new JTextField();
+        masterNameTextField = new JTextField();
+        searchButtonForTable = new JButton();
+        totalAverageTextField = new JTextField();
+        courseNameForSummaryTextField = new JTextField();
+        numberOfPassedPeopleTextField = new JTextField();
+        numberOfFailedPeopleTextField = new JTextField();
+        totalAverageWithoutFailuresTextField = new JTextField();
+        searchButtonForSummary = new JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1112, 643));
@@ -54,58 +57,58 @@ public class AssistantTemporaryScorePage extends MyPanel {
 
         scoreFiltersPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        courseNameForSearchTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Course:"));
+        courseNameForSearchTextField.setBorder(BorderFactory.createTitledBorder("Course:"));
 
-        studentNameTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Student:"));
+        studentNameTextField.setBorder(BorderFactory.createTitledBorder("Student:"));
         studentNameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 studentNameTextFieldActionPerformed(evt);
             }
         });
 
-        masterNameTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Master:"));
+        masterNameTextField.setBorder(BorderFactory.createTitledBorder("Master:"));
 
-        searchButtonForTable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pages/search.png"))); // NOI18N
+        searchButtonForTable.setIcon(new ImageIcon(getClass().getResource("/pages/search.png"))); // NOI18N
 
-        javax.swing.GroupLayout scoreFiltersPanelLayout = new javax.swing.GroupLayout(scoreFiltersPanel);
+        GroupLayout scoreFiltersPanelLayout = new GroupLayout(scoreFiltersPanel);
         scoreFiltersPanel.setLayout(scoreFiltersPanelLayout);
         scoreFiltersPanelLayout.setHorizontalGroup(
-                scoreFiltersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                scoreFiltersPanelLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
                         .addGroup(scoreFiltersPanelLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(courseNameForSearchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(studentNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(courseNameForSearchTextField, GroupLayout.PREFERRED_SIZE, 210, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(studentNameTextField, GroupLayout.PREFERRED_SIZE, 210, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(masterNameTextField)
                                 .addContainerGap())
                         .addGroup(scoreFiltersPanelLayout.createSequentialGroup()
                                 .addContainerGap(98, Short.MAX_VALUE)
-                                .addComponent(searchButtonForTable, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(searchButtonForTable, GroupLayout.PREFERRED_SIZE, 469, GroupLayout.PREFERRED_SIZE)
                                 .addGap(93, 93, 93))
         );
         scoreFiltersPanelLayout.setVerticalGroup(
-                scoreFiltersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                scoreFiltersPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(scoreFiltersPanelLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addGroup(scoreFiltersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(scoreFiltersPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                         .addGroup(scoreFiltersPanelLayout.createSequentialGroup()
                                                 .addComponent(studentNameTextField)
                                                 .addGap(11, 11, 11))
-                                        .addComponent(courseNameForSearchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(masterNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(courseNameForSearchTextField, GroupLayout.PREFERRED_SIZE, 59, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(masterNameTextField, GroupLayout.PREFERRED_SIZE, 59, GroupLayout.PREFERRED_SIZE))
                                 .addComponent(searchButtonForTable))
         );
 
         totalAverageTextField.setForeground(new java.awt.Color(204, 204, 204));
-        totalAverageTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Total average:"));
+        totalAverageTextField.setBorder(BorderFactory.createTitledBorder("Total average:"));
 
         courseNameForSummaryTextField.setForeground(new java.awt.Color(204, 204, 204));
         courseNameForSummaryTextField.setText("Search for summary");
-        courseNameForSummaryTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Course:"));
+        courseNameForSummaryTextField.setBorder(BorderFactory.createTitledBorder("Course:"));
 
         numberOfPassedPeopleTextField.setForeground(new java.awt.Color(204, 204, 204));
-        numberOfPassedPeopleTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Number of passed people:"));
+        numberOfPassedPeopleTextField.setBorder(BorderFactory.createTitledBorder("Number of passed people:"));
         numberOfPassedPeopleTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 numberOfPassedPeopleTextFieldActionPerformed(evt);
@@ -113,60 +116,60 @@ public class AssistantTemporaryScorePage extends MyPanel {
         });
 
         numberOfFailedPeopleTextField.setForeground(new java.awt.Color(204, 204, 204));
-        numberOfFailedPeopleTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Number of failed people:"));
+        numberOfFailedPeopleTextField.setBorder(BorderFactory.createTitledBorder("Number of failed people:"));
 
         totalAverageWithoutFailuresTextField.setForeground(new java.awt.Color(204, 204, 204));
-        totalAverageWithoutFailuresTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Total avarage without failures:"));
+        totalAverageWithoutFailuresTextField.setBorder(BorderFactory.createTitledBorder("Total avarage without failures:"));
 
-        searchButtonForSummary.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pages/search.png"))); // NOI18N
+        searchButtonForSummary.setIcon(new ImageIcon(getClass().getResource("/pages/search.png"))); // NOI18N
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(totalAverageTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(numberOfPassedPeopleTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(numberOfFailedPeopleTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(totalAverageWithoutFailuresTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                        .addComponent(totalAverageTextField, GroupLayout.PREFERRED_SIZE, 280, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(numberOfPassedPeopleTextField, GroupLayout.PREFERRED_SIZE, 280, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(numberOfFailedPeopleTextField, GroupLayout.PREFERRED_SIZE, 280, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(totalAverageWithoutFailuresTextField, GroupLayout.PREFERRED_SIZE, 280, GroupLayout.PREFERRED_SIZE)
                                         .addGroup(layout.createSequentialGroup()
-                                                .addComponent(courseNameForSummaryTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(searchButtonForSummary, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(courseNameForSummaryTextField, GroupLayout.PREFERRED_SIZE, 280, GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(searchButtonForSummary, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                                         .addGroup(layout.createSequentialGroup()
                                                 .addGap(6, 6, 6)
                                                 .addComponent(jScrollPane2))
-                                        .addComponent(scoreFiltersPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(scoreFiltersPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                                 .addContainerGap())
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                                                         .addGroup(layout.createSequentialGroup()
                                                                 .addGap(12, 12, 12)
-                                                                .addComponent(searchButtonForSummary, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                                        .addComponent(courseNameForSummaryTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(totalAverageTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(totalAverageWithoutFailuresTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(numberOfFailedPeopleTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(searchButtonForSummary, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                        .addComponent(courseNameForSummaryTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(totalAverageTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(totalAverageWithoutFailuresTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(numberOfFailedPeopleTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                                 .addGap(18, 18, 18)
-                                                .addComponent(numberOfPassedPeopleTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(numberOfPassedPeopleTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                                 .addGap(0, 0, Short.MAX_VALUE))
                                         .addGroup(layout.createSequentialGroup()
-                                                .addComponent(scoreFiltersPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 533, Short.MAX_VALUE)))
+                                                .addComponent(scoreFiltersPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jScrollPane2, GroupLayout.DEFAULT_SIZE, 533, Short.MAX_VALUE)))
                                 .addContainerGap())
         );
     }

@@ -6,15 +6,15 @@ import model.pages.reportedCardAffairs.StudentEducationalStatusPage;
 import javax.swing.*;
 
 public class AssistantEducationalStatusPage extends MyPanel {
-    private javax.swing.JTextField firstnameTextField;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField lastnameTextField;
-    private javax.swing.JTextField numberOfPassedUnitsTextField;
-    private javax.swing.JTable scoreTable;
-    private javax.swing.JButton searchButton;
-    private javax.swing.JPanel searchPanel;
-    private javax.swing.JTextField studentIdTextField;
-    private javax.swing.JTextField weightedTotalAverageTextField;
+    private JTextField firstnameTextField;
+    private JScrollPane jScrollPane1;
+    private JTextField lastnameTextField;
+    private JTextField numberOfPassedUnitsTextField;
+    private JTable scoreTable;
+    private JButton searchButton;
+    private JPanel searchPanel;
+    private JTextField studentIdTextField;
+    private JTextField weightedTotalAverageTextField;
 
     public AssistantEducationalStatusPage(StudentEducationalStatusPage studentEducationalStatusPage) {
         super(studentEducationalStatusPage);
@@ -22,25 +22,25 @@ public class AssistantEducationalStatusPage extends MyPanel {
     }
 
     private void initComponents() {
-        numberOfPassedUnitsTextField = new javax.swing.JTextField();
-        weightedTotalAverageTextField = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        scoreTable = new javax.swing.JTable();
-        searchPanel = new javax.swing.JPanel();
-        firstnameTextField = new javax.swing.JTextField();
-        lastnameTextField = new javax.swing.JTextField();
-        studentIdTextField = new javax.swing.JTextField();
-        searchButton = new javax.swing.JButton();
+        numberOfPassedUnitsTextField = new JTextField();
+        weightedTotalAverageTextField = new JTextField();
+        jScrollPane1 = new JScrollPane();
+        scoreTable = new JTable();
+        searchPanel = new JPanel();
+        firstnameTextField = new JTextField();
+        lastnameTextField = new JTextField();
+        studentIdTextField = new JTextField();
+        searchButton = new JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
         numberOfPassedUnitsTextField.setEditable(false);
         numberOfPassedUnitsTextField.setBackground(new java.awt.Color(255, 255, 255));
-        numberOfPassedUnitsTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Number of passed units:"));
+        numberOfPassedUnitsTextField.setBorder(BorderFactory.createTitledBorder("Number of passed units:"));
 
         weightedTotalAverageTextField.setEditable(false);
         weightedTotalAverageTextField.setBackground(new java.awt.Color(255, 255, 255));
-        weightedTotalAverageTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Weighted total average:"));
+        weightedTotalAverageTextField.setBorder(BorderFactory.createTitledBorder("Weighted total average:"));
 
         scoreTable.setModel(new javax.swing.table.DefaultTableModel(
                 new Object[][]{
@@ -65,72 +65,72 @@ public class AssistantEducationalStatusPage extends MyPanel {
 
         searchPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        firstnameTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Firstname:"));
+        firstnameTextField.setBorder(BorderFactory.createTitledBorder("Firstname:"));
 
-        lastnameTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("LastName:"));
+        lastnameTextField.setBorder(BorderFactory.createTitledBorder("LastName:"));
 
-        studentIdTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Student id:"));
+        studentIdTextField.setBorder(BorderFactory.createTitledBorder("Student id:"));
 
-        searchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pages/search.png"))); // NOI18N
+        searchButton.setIcon(new ImageIcon(getClass().getResource("/pages/search.png"))); // NOI18N
 
-        javax.swing.GroupLayout searchPanelLayout = new javax.swing.GroupLayout(searchPanel);
+        GroupLayout searchPanelLayout = new GroupLayout(searchPanel);
         searchPanel.setLayout(searchPanelLayout);
         searchPanelLayout.setHorizontalGroup(
-                searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                searchPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(searchPanelLayout.createSequentialGroup()
                                 .addGap(30, 30, 30)
-                                .addComponent(firstnameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lastnameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(studentIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(firstnameTextField, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lastnameTextField, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(studentIdTextField, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(searchButton, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         searchPanelLayout.setVerticalGroup(
-                searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, searchPanelLayout.createSequentialGroup()
+                searchPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(GroupLayout.Alignment.TRAILING, searchPanelLayout.createSequentialGroup()
                                 .addContainerGap(10, Short.MAX_VALUE)
-                                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(firstnameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(lastnameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(studentIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(searchPanelLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                                        .addComponent(searchButton, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(searchPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                                .addComponent(firstnameTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(lastnameTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(studentIdTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
                                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                                 .addContainerGap(261, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                        .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 550, GroupLayout.PREFERRED_SIZE)
                                                 .addGap(257, 257, 257))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                        .addComponent(searchPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
+                                                        .addComponent(searchPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                         .addGroup(layout.createSequentialGroup()
-                                                                .addComponent(numberOfPassedUnitsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                .addComponent(weightedTotalAverageTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                                .addComponent(numberOfPassedUnitsTextField, GroupLayout.PREFERRED_SIZE, 320, GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                .addComponent(weightedTotalAverageTextField, GroupLayout.PREFERRED_SIZE, 320, GroupLayout.PREFERRED_SIZE)))
                                                 .addGap(209, 209, 209))))
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
-                                .addComponent(searchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(weightedTotalAverageTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(numberOfPassedUnitsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)
+                                .addComponent(searchPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                        .addComponent(weightedTotalAverageTextField, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(numberOfPassedUnitsTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane1, GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)
                                 .addContainerGap())
         );
     }

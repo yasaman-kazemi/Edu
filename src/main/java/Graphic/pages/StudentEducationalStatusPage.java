@@ -3,10 +3,10 @@ package Graphic.pages;
 import javax.swing.*;
 
 public class StudentEducationalStatusPage extends MyPanel {
-    private javax.swing.JScrollPane scrollPane1;
-    private javax.swing.JTextField numberOfPassedUnitsTextField;
-    private javax.swing.JTable scoreTable;
-    private javax.swing.JTextField weightedTotalAverageTextField;
+    private JScrollPane scrollPane1;
+    private JTextField numberOfPassedUnitsTextField;
+    private JTable scoreTable;
+    private JTextField weightedTotalAverageTextField;
 
     public StudentEducationalStatusPage(model.pages.reportedCardAffairs.StudentEducationalStatusPage studentEducationalStatusPage) {
         super(studentEducationalStatusPage);
@@ -14,16 +14,16 @@ public class StudentEducationalStatusPage extends MyPanel {
     }
 
     private void initComponents() {
-        numberOfPassedUnitsTextField = new javax.swing.JTextField();
-        weightedTotalAverageTextField = new javax.swing.JTextField();
-        scrollPane1 = new javax.swing.JScrollPane();
-        scoreTable = new javax.swing.JTable();
+        numberOfPassedUnitsTextField = new JTextField();
+        weightedTotalAverageTextField = new JTextField();
+        scrollPane1 = new JScrollPane();
+        scoreTable = new JTable();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        numberOfPassedUnitsTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Number of passed units:"));
+        numberOfPassedUnitsTextField.setBorder(BorderFactory.createTitledBorder("Number of passed units:"));
 
-        weightedTotalAverageTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Weighted total average:"));
+        weightedTotalAverageTextField.setBorder(BorderFactory.createTitledBorder("Weighted total average:"));
 
         scoreTable.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
@@ -46,31 +46,31 @@ public class StudentEducationalStatusPage extends MyPanel {
         });
         scrollPane1.setViewportView(scoreTable);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addContainerGap(305, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(scrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                        .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 550, GroupLayout.PREFERRED_SIZE)
                                                 .addGap(257, 257, 257))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(numberOfPassedUnitsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(weightedTotalAverageTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                                        .addComponent(numberOfPassedUnitsTextField, GroupLayout.PREFERRED_SIZE, 290, GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(weightedTotalAverageTextField, GroupLayout.PREFERRED_SIZE, 290, GroupLayout.PREFERRED_SIZE))
                                                 .addGap(392, 392, 392))))
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(numberOfPassedUnitsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(weightedTotalAverageTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(scrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 521, Short.MAX_VALUE)
+                                .addComponent(numberOfPassedUnitsTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(weightedTotalAverageTextField, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(scrollPane1, GroupLayout.DEFAULT_SIZE, 521, Short.MAX_VALUE)
                                 .addContainerGap())
         );
     }

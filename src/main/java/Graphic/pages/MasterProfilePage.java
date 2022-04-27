@@ -3,71 +3,72 @@ package Graphic.pages;
 import javax.swing.*;
 
 public class MasterProfilePage extends MyPanel {
-    private javax.swing.JButton changeThemeButton;
-    private javax.swing.JTextField departmentTextField;
-    private javax.swing.JButton emailChangeButton;
-    private javax.swing.JTextField emailTextField;
-    private javax.swing.JTextField firstnameTextField;
-    private javax.swing.JTextField idTextField;
-    private javax.swing.JTextField identityCodeTextField;
-    private javax.swing.JTextField lastnameTextField;
-    private javax.swing.JTextField masterDegreeTextField;
-    private javax.swing.JButton phoneNumberChangeButton;
-    private javax.swing.JTextField phoneNumberTextField;
-    private javax.swing.JTextField roomTextField;
-    private javax.swing.JLabel userPhoto;
+    private JButton changeThemeButton;
+    private JTextField departmentTextField;
+    private JButton emailChangeButton;
+    private JTextField emailTextField;
+    private JTextField firstnameTextField;
+    private JTextField idTextField;
+    private JTextField identityCodeTextField;
+    private JTextField lastnameTextField;
+    private JTextField masterDegreeTextField;
+    private JButton phoneNumberChangeButton;
+    private JTextField phoneNumberTextField;
+    private JTextField roomTextField;
+    private JLabel userPhoto;
 
-    public MasterProfilePage() {
+    public MasterProfilePage(model.pages.profilePage.MasterProfilePage masterProfilePage) {
+        super(masterProfilePage);
         initComponents();
     }
 
     private void initComponents() {
-        userPhoto = new javax.swing.JLabel();
-        firstnameTextField = new javax.swing.JTextField();
-        lastnameTextField = new javax.swing.JTextField();
-        identityCodeTextField = new javax.swing.JTextField();
-        idTextField = new javax.swing.JTextField();
-        phoneNumberTextField = new javax.swing.JTextField();
-        emailTextField = new javax.swing.JTextField();
-        roomTextField = new javax.swing.JTextField();
-        departmentTextField = new javax.swing.JTextField();
-        emailChangeButton = new javax.swing.JButton();
-        phoneNumberChangeButton = new javax.swing.JButton();
-        changeThemeButton = new javax.swing.JButton();
-        masterDegreeTextField = new javax.swing.JTextField();
+        userPhoto = new JLabel();
+        firstnameTextField = new JTextField();
+        lastnameTextField = new JTextField();
+        identityCodeTextField = new JTextField();
+        idTextField = new JTextField();
+        phoneNumberTextField = new JTextField();
+        emailTextField = new JTextField();
+        roomTextField = new JTextField();
+        departmentTextField = new JTextField();
+        emailChangeButton = new JButton();
+        phoneNumberChangeButton = new JButton();
+        changeThemeButton = new JButton();
+        masterDegreeTextField = new JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        userPhoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pages/question.jpg"))); // NOI18N
-        userPhoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        userPhoto.setIcon(new ImageIcon(getClass().getResource("/pages/question.jpg"))); // NOI18N
+        userPhoto.setBorder(BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
         firstnameTextField.setEditable(false);
         firstnameTextField.setBackground(new java.awt.Color(255, 255, 255));
-        firstnameTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Firstname:"));
+        firstnameTextField.setBorder(BorderFactory.createTitledBorder("Firstname:"));
 
         lastnameTextField.setEditable(false);
         lastnameTextField.setBackground(new java.awt.Color(255, 255, 255));
-        lastnameTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Lastname:"));
+        lastnameTextField.setBorder(BorderFactory.createTitledBorder("Lastname:"));
 
         identityCodeTextField.setEditable(false);
         identityCodeTextField.setBackground(new java.awt.Color(255, 255, 255));
-        identityCodeTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Identity code:"));
+        identityCodeTextField.setBorder(BorderFactory.createTitledBorder("Identity code:"));
 
         idTextField.setEditable(false);
         idTextField.setBackground(new java.awt.Color(255, 255, 255));
-        idTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Master id:"));
+        idTextField.setBorder(BorderFactory.createTitledBorder("Master id:"));
 
-        phoneNumberTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Phone number:"));
+        phoneNumberTextField.setBorder(BorderFactory.createTitledBorder("Phone number:"));
 
-        emailTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Email:"));
+        emailTextField.setBorder(BorderFactory.createTitledBorder("Email:"));
 
         roomTextField.setEditable(false);
         roomTextField.setBackground(new java.awt.Color(255, 255, 255));
-        roomTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Room:"));
+        roomTextField.setBorder(BorderFactory.createTitledBorder("Room:"));
 
         departmentTextField.setEditable(false);
         departmentTextField.setBackground(new java.awt.Color(255, 255, 255));
-        departmentTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Department:"));
+        departmentTextField.setBorder(BorderFactory.createTitledBorder("Department:"));
 
         emailChangeButton.setBackground(new java.awt.Color(255, 204, 204));
         emailChangeButton.setText("Change");
@@ -81,36 +82,36 @@ public class MasterProfilePage extends MyPanel {
 
         masterDegreeTextField.setEditable(false);
         masterDegreeTextField.setBackground(new java.awt.Color(255, 255, 255));
-        masterDegreeTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Master degree:"));
+        masterDegreeTextField.setBorder(BorderFactory.createTitledBorder("Master degree:"));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                                 .addGap(282, 282, 282)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(roomTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                        .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(roomTextField, GroupLayout.PREFERRED_SIZE, 270, GroupLayout.PREFERRED_SIZE)
+                                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                                 .addComponent(userPhoto)
                                                 .addGap(482, 482, 482))
                                         .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
                                                         .addGroup(layout.createSequentialGroup()
-                                                                .addComponent(phoneNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                        .addComponent(departmentTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(phoneNumberTextField, GroupLayout.PREFERRED_SIZE, 270, GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(emailTextField, GroupLayout.PREFERRED_SIZE, 270, GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(departmentTextField, GroupLayout.PREFERRED_SIZE, 270, GroupLayout.PREFERRED_SIZE)
                                                         .addGroup(layout.createSequentialGroup()
-                                                                .addComponent(identityCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                .addComponent(idTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addComponent(identityCodeTextField, GroupLayout.PREFERRED_SIZE, 270, GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(idTextField, GroupLayout.PREFERRED_SIZE, 270, GroupLayout.PREFERRED_SIZE))
                                                         .addGroup(layout.createSequentialGroup()
-                                                                .addComponent(firstnameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(firstnameTextField, GroupLayout.PREFERRED_SIZE, 270, GroupLayout.PREFERRED_SIZE)
                                                                 .addGap(53, 53, 53)
-                                                                .addComponent(lastnameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                                .addComponent(lastnameTextField, GroupLayout.PREFERRED_SIZE, 270, GroupLayout.PREFERRED_SIZE)))
                                                 .addGap(0, 237, Short.MAX_VALUE))))
                         .addGroup(layout.createSequentialGroup()
                                 .addGap(366, 366, 366)
@@ -118,41 +119,41 @@ public class MasterProfilePage extends MyPanel {
                                 .addGap(240, 240, 240)
                                 .addComponent(emailChangeButton)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(masterDegreeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                        .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(masterDegreeTextField, GroupLayout.PREFERRED_SIZE, 270, GroupLayout.PREFERRED_SIZE)
                                                 .addGap(388, 388, 388))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                                 .addComponent(changeThemeButton)
                                                 .addGap(450, 450, 450))))
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(userPhoto)
                                 .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(firstnameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lastnameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(idTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(identityCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(departmentTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(roomTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                        .addComponent(firstnameTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lastnameTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                        .addComponent(idTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(identityCodeTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                        .addComponent(departmentTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(roomTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
-                                .addComponent(masterDegreeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(masterDegreeTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(phoneNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                        .addComponent(phoneNumberTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(emailTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                                         .addComponent(phoneNumberChangeButton)
                                         .addComponent(emailChangeButton))
                                 .addGap(48, 48, 48)

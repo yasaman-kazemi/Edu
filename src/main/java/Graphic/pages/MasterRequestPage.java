@@ -5,11 +5,11 @@ import model.pages.educationalServices.RequestsPage;
 import javax.swing.*;
 
 public class MasterRequestPage extends MyPanel {
-    private javax.swing.JScrollPane scrollPane1;
-    private javax.swing.JScrollPane scrollPane2;
-    private javax.swing.JTextArea requestTextArea;
-    private javax.swing.JTextArea responseTextArea;
-    private javax.swing.JButton sendButton;
+    private JScrollPane scrollPane1;
+    private JScrollPane scrollPane2;
+    private JTextArea requestTextArea;
+    private JTextArea responseTextArea;
+    private JButton sendButton;
 
     public MasterRequestPage(RequestsPage requestsPage) {
         super(requestsPage);
@@ -17,11 +17,11 @@ public class MasterRequestPage extends MyPanel {
     }
 
     private void initComponents() {
-        scrollPane1 = new javax.swing.JScrollPane();
-        requestTextArea = new javax.swing.JTextArea();
-        sendButton = new javax.swing.JButton();
-        scrollPane2 = new javax.swing.JScrollPane();
-        responseTextArea = new javax.swing.JTextArea();
+        scrollPane1 = new JScrollPane();
+        requestTextArea = new JTextArea();
+        sendButton = new JButton();
+        scrollPane2 = new JScrollPane();
+        responseTextArea = new JTextArea();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1112, 643));
@@ -30,7 +30,7 @@ public class MasterRequestPage extends MyPanel {
         requestTextArea.setBackground(new java.awt.Color(255, 255, 255));
         requestTextArea.setColumns(20);
         requestTextArea.setRows(5);
-        requestTextArea.setBorder(javax.swing.BorderFactory.createTitledBorder("Request:"));
+        requestTextArea.setBorder(BorderFactory.createTitledBorder("Request:"));
         scrollPane1.setViewportView(requestTextArea);
 
         sendButton.setBackground(new java.awt.Color(213, 249, 212));
@@ -38,32 +38,32 @@ public class MasterRequestPage extends MyPanel {
 
         responseTextArea.setColumns(20);
         responseTextArea.setRows(5);
-        responseTextArea.setBorder(javax.swing.BorderFactory.createTitledBorder("Response:"));
+        responseTextArea.setBorder(BorderFactory.createTitledBorder("Response:"));
         scrollPane2.setViewportView(responseTextArea);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(sendButton)
                                 .addGap(176, 176, 176))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 196, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(scrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(scrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                                        .addComponent(scrollPane2, GroupLayout.PREFERRED_SIZE, 750, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 750, GroupLayout.PREFERRED_SIZE))
                                 .addGap(166, 166, 166))
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                                 .addGap(24, 24, 24)
-                                .addComponent(scrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(scrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 322, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(scrollPane2, GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(sendButton)
                                 .addGap(24, 24, 24))
         );

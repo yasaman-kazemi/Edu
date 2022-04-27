@@ -1,29 +1,34 @@
 package Graphic.pages;
 
-public class StudentRequestPage extends MyPanel {
-    private javax.swing.JScrollPane scrollPane1;
-    private javax.swing.JScrollPane scrollPane2;
-    private javax.swing.JTextArea requestTextArea;
-    private javax.swing.JTextField requestTypeTextField;
-    private javax.swing.JTextArea responseTextArea;
-    private javax.swing.JButton sendButton;
+import model.pages.mainPage.MainPage;
 
-    public StudentRequestPage() {
+import javax.swing.*;
+
+public class StudentRequestPage extends MyPanel {
+    private JScrollPane scrollPane1;
+    private JScrollPane scrollPane2;
+    private JTextArea requestTextArea;
+    private JTextField requestTypeTextField;
+    private JTextArea responseTextArea;
+    private JButton sendButton;
+
+    public StudentRequestPage(MainPage mainPage) {
+        super(mainPage);
         initComponents();
     }
 
     private void initComponents() {
-        requestTypeTextField = new javax.swing.JTextField();
-        scrollPane1 = new javax.swing.JScrollPane();
-        requestTextArea = new javax.swing.JTextArea();
-        sendButton = new javax.swing.JButton();
-        scrollPane2 = new javax.swing.JScrollPane();
-        responseTextArea = new javax.swing.JTextArea();
+        requestTypeTextField = new JTextField();
+        scrollPane1 = new JScrollPane();
+        requestTextArea = new JTextArea();
+        sendButton = new JButton();
+        scrollPane2 = new JScrollPane();
+        responseTextArea = new JTextArea();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1112, 643));
 
-        requestTypeTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Request for:"));
+        requestTypeTextField.setBorder(BorderFactory.createTitledBorder("Request for:"));
         requestTypeTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 requestTypeTextFieldActionPerformed(evt);
@@ -39,34 +44,34 @@ public class StudentRequestPage extends MyPanel {
 
         responseTextArea.setColumns(20);
         responseTextArea.setRows(5);
-        responseTextArea.setBorder(javax.swing.BorderFactory.createTitledBorder("Response:"));
+        responseTextArea.setBorder(BorderFactory.createTitledBorder("Response:"));
         scrollPane2.setViewportView(responseTextArea);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                                 .addContainerGap(186, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(requestTypeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(scrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(scrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                        .addComponent(requestTypeTextField, GroupLayout.PREFERRED_SIZE, 260, GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                                                .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 750, GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(scrollPane2, GroupLayout.PREFERRED_SIZE, 750, GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(sendButton)))
                                 .addGap(176, 176, 176))
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                                 .addGap(39, 39, 39)
-                                .addComponent(requestTypeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(scrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(requestTypeTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 300, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(sendButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(scrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(scrollPane2, GroupLayout.PREFERRED_SIZE, 157, GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(45, Short.MAX_VALUE))
         );
     }

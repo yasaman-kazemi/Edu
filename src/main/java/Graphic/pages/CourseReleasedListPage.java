@@ -3,13 +3,13 @@ package Graphic.pages;
 import javax.swing.*;
 
 public class CourseReleasedListPage extends MyPanel {
-    private javax.swing.JList<String> courseFilteredList;
-    private javax.swing.JScrollPane scrollPane;
-    private javax.swing.JButton searchButton;
-    private javax.swing.JPanel searchPanel;
-    private javax.swing.JTextField searchWithCourseIdTextField;
-    private javax.swing.JTextField searchWithDepartmentTextField;
-    private javax.swing.JTextField searchWithGradeTextField;
+    private JList<String> courseFilteredList;
+    private JScrollPane scrollPane;
+    private JButton searchButton;
+    private JPanel searchPanel;
+    private JTextField searchWithCourseIdTextField;
+    private JTextField searchWithDepartmentTextField;
+    private JTextField searchWithGradeTextField;
 
     public CourseReleasedListPage(model.pages.registrationAffairs.CourseReleasedListPage courseReleasedListPage) {
         super(courseReleasedListPage);
@@ -17,18 +17,18 @@ public class CourseReleasedListPage extends MyPanel {
     }
 
     private void initComponents() {
-        searchButton = new javax.swing.JButton();
-        scrollPane = new javax.swing.JScrollPane();
-        courseFilteredList = new javax.swing.JList<>();
-        searchPanel = new javax.swing.JPanel();
-        searchWithCourseIdTextField = new javax.swing.JTextField();
-        searchWithDepartmentTextField = new javax.swing.JTextField();
-        searchWithGradeTextField = new javax.swing.JTextField();
+        searchButton = new JButton();
+        scrollPane = new JScrollPane();
+        courseFilteredList = new JList<>();
+        searchPanel = new JPanel();
+        searchWithCourseIdTextField = new JTextField();
+        searchWithDepartmentTextField = new JTextField();
+        searchWithGradeTextField = new JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1112, 643));
 
-        searchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pages/search.png"))); // NOI18N
+        searchButton.setIcon(new ImageIcon(getClass().getResource("/pages/search.png"))); // NOI18N
 
         courseFilteredList.setPreferredSize(new java.awt.Dimension(470, 631));
         courseFilteredList.setVisibleRowCount(10);
@@ -37,7 +37,7 @@ public class CourseReleasedListPage extends MyPanel {
         searchPanel.setBackground(new java.awt.Color(255, 255, 255));
 
         searchWithCourseIdTextField.setForeground(new java.awt.Color(204, 204, 204));
-        searchWithCourseIdTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Course id:"));
+        searchWithCourseIdTextField.setBorder(BorderFactory.createTitledBorder("Course id:"));
         searchWithCourseIdTextField.setPreferredSize(new java.awt.Dimension(150, 29));
         searchWithCourseIdTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -46,7 +46,7 @@ public class CourseReleasedListPage extends MyPanel {
         });
 
         searchWithDepartmentTextField.setForeground(new java.awt.Color(204, 204, 204));
-        searchWithDepartmentTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Department:"));
+        searchWithDepartmentTextField.setBorder(BorderFactory.createTitledBorder("Department:"));
         searchWithDepartmentTextField.setPreferredSize(new java.awt.Dimension(150, 29));
         searchWithDepartmentTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -55,7 +55,7 @@ public class CourseReleasedListPage extends MyPanel {
         });
 
         searchWithGradeTextField.setForeground(new java.awt.Color(204, 204, 204));
-        searchWithGradeTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Grade:"));
+        searchWithGradeTextField.setBorder(BorderFactory.createTitledBorder("Grade:"));
         searchWithGradeTextField.setPreferredSize(new java.awt.Dimension(150, 29));
         searchWithGradeTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,56 +63,56 @@ public class CourseReleasedListPage extends MyPanel {
             }
         });
 
-        javax.swing.GroupLayout searchPanelLayout = new javax.swing.GroupLayout(searchPanel);
+        GroupLayout searchPanelLayout = new GroupLayout(searchPanel);
         searchPanel.setLayout(searchPanelLayout);
         searchPanelLayout.setHorizontalGroup(
-                searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                searchPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(searchPanelLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(searchWithCourseIdTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
-                                        .addComponent(searchWithGradeTextField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(searchWithDepartmentTextField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(searchPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                        .addComponent(searchWithCourseIdTextField, GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
+                                        .addComponent(searchWithGradeTextField, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(searchWithDepartmentTextField, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addContainerGap())
         );
         searchPanelLayout.setVerticalGroup(
-                searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                searchPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(searchPanelLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(searchWithCourseIdTextField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(searchWithGradeTextField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(searchWithDepartmentTextField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(searchWithCourseIdTextField, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(searchWithGradeTextField, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(searchWithDepartmentTextField, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                                 .addContainerGap(234, Short.MAX_VALUE)
-                                .addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(searchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 460, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                        .addComponent(searchPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                         .addGroup(layout.createSequentialGroup()
                                                 .addGap(52, 52, 52)
-                                                .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(searchButton, GroupLayout.PREFERRED_SIZE, 250, GroupLayout.PREFERRED_SIZE)))
                                 .addGap(73, 73, 73))
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
-                                                .addComponent(searchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 643, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addComponent(searchPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(searchButton, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 643, GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }
 
