@@ -1,82 +1,91 @@
 package Graphic;
 
 import Graphic.pages.MyPanel;
+import model.person.User;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.WindowEvent;
+import java.util.Date;
 
 public class MainFrame extends JFrame {
-    private javax.swing.JMenuItem courseListMenuItem;
-    private javax.swing.JTextField currentTimeTextField;
-    private javax.swing.JMenu educationalServiceMenu;
-    private javax.swing.JMenuItem educationalStatusMenuItem;
-    private javax.swing.JTextField emailTextField;
-    private javax.swing.JMenuItem examListMenuItem;
-    private javax.swing.JButton exitButton;
-    private javax.swing.JPanel headerPanel;
-    private javax.swing.JTextField lastLoginTextField;
-    private javax.swing.JMenu mainPageMenu;
-    private javax.swing.JPanel mainPanel;
-    private javax.swing.JMenuItem masterListMenuItem;
-    private javax.swing.JMenuBar menuBar;
-    private javax.swing.JTextField nameTextField;
-    private javax.swing.JMenu profileMenu;
-    private javax.swing.JMenu registrationAffairsMenu;
-    private javax.swing.JMenu reportedCardAffairsMenu;
-    private javax.swing.JMenuItem requestsMenuItem;
-    private javax.swing.JMenuItem temporaryScoresMenuItem;
-    private javax.swing.JLabel userPhotoLabel;
-    private javax.swing.JMenuItem weeklyScheduleMenuItem;
+    private static final int listMenuItemWidth = 150;
+    private static final int listMenuItemHeight = 20;
+    private JMenuItem courseListMenuItem;
+    private JTextField currentTimeTextField;
+    private JMenu educationalServiceMenu;
+    private JMenuItem educationalStatusMenuItem;
+    private JTextField emailTextField;
+    private JMenuItem examListMenuItem;
+    private JButton exitButton;
+    private JPanel headerPanel;
+    private JTextField lastLoginTextField;
+    private JMenu mainPageMenu;
+    private MyPanel mainPanel;
+    private JMenuItem masterListMenuItem;
+    private JMenuBar menuBar;
+    private JTextField nameTextField;
+    private JMenu profileMenu;
+    private JMenu registrationAffairsMenu;
+    private JMenu reportedCardAffairsMenu;
+    private JMenuItem requestsMenuItem;
+    private JMenuItem temporaryScoresMenuItem;
+    private JLabel userPhotoLabel;
+    private JMenuItem weeklyScheduleMenuItem;
     private static MainFrame instance;
 
-    public static MainFrame getInstance() {
-        if (instance == null) instance = new MainFrame();
+    private User user;
+
+    private MainFrame(User user, MyPanel myPanel) {
+        this.user = user;
+        initComponents(myPanel);
+        this.setResizable(false);
+    }
+
+    public static MainFrame getInstance(User user, MyPanel myPanel) {
+        if (instance != null) instance.dispose();
+        instance = new MainFrame(user, myPanel);
         return instance;
     }
 
-    public JPanel getMainPanel() {
+    public static MainFrame getInstance() {
+        return instance;
+    }
+
+    public MyPanel getMainPanel() {
         return mainPanel;
     }
 
-    public void setMainPanel(MyPanel mainPanel) {
-        this.mainPanel = mainPanel;
-        setMainPageSetting();
-        setLayout();
+    public void setMyPanel(MyPanel myPanel) {
+        mainPanel = myPanel;
     }
 
-    public void setLayout() {
-        setHeaderLayout();
-        setMainPageLayout();
-    }
-
-    private MainFrame() {
-        initComponents();
-    }
-
-    private void initComponents() {
-        headerPanel = new javax.swing.JPanel();
-        lastLoginTextField = new javax.swing.JTextField();
-        currentTimeTextField = new javax.swing.JTextField();
-        userPhotoLabel = new javax.swing.JLabel();
-        nameTextField = new javax.swing.JTextField();
-        emailTextField = new javax.swing.JTextField();
-        exitButton = new javax.swing.JButton();
-        mainPanel = new javax.swing.JPanel();
-        menuBar = new javax.swing.JMenuBar();
-        mainPageMenu = new javax.swing.JMenu();
-        registrationAffairsMenu = new javax.swing.JMenu();
-        courseListMenuItem = new javax.swing.JMenuItem();
-        masterListMenuItem = new javax.swing.JMenuItem();
-        educationalServiceMenu = new javax.swing.JMenu();
-        weeklyScheduleMenuItem = new javax.swing.JMenuItem();
-        examListMenuItem = new javax.swing.JMenuItem();
-        requestsMenuItem = new javax.swing.JMenuItem();
-        reportedCardAffairsMenu = new javax.swing.JMenu();
-        temporaryScoresMenuItem = new javax.swing.JMenuItem();
-        educationalStatusMenuItem = new javax.swing.JMenuItem();
-        profileMenu = new javax.swing.JMenu();
+    public void initComponents(MyPanel myPanel) {
+        headerPanel = new JPanel();
+        lastLoginTextField = new JTextField();
+        currentTimeTextField = new JTextField();
+        userPhotoLabel = new JLabel();
+        nameTextField = new JTextField();
+        emailTextField = new JTextField();
+        exitButton = new JButton();
+        mainPanel = myPanel;
+        menuBar = new JMenuBar();
+        mainPageMenu = new JMenu();
+        registrationAffairsMenu = new JMenu();
+        courseListMenuItem = new JMenuItem();
+        masterListMenuItem = new JMenuItem();
+        educationalServiceMenu = new JMenu();
+        weeklyScheduleMenuItem = new JMenuItem();
+        examListMenuItem = new JMenuItem();
+        requestsMenuItem = new JMenuItem();
+        reportedCardAffairsMenu = new JMenu();
+        temporaryScoresMenuItem = new JMenuItem();
+        educationalStatusMenuItem = new JMenuItem();
+        profileMenu = new JMenu();
 
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("Edu");
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1145, 850));
@@ -86,30 +95,32 @@ public class MainFrame extends JFrame {
 
         lastLoginTextField.setEditable(false);
         lastLoginTextField.setBackground(new java.awt.Color(150, 207, 249));
-        lastLoginTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Last entry:"));
+        lastLoginTextField.setBorder(BorderFactory.createTitledBorder("Last entry:"));
+        lastLoginTextField.setText(new Date(System.currentTimeMillis()).toString());
 
         currentTimeTextField.setEditable(false);
         currentTimeTextField.setBackground(new java.awt.Color(150, 207, 249));
-        currentTimeTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Current time:"));
+        currentTimeTextField.setBorder(BorderFactory.createTitledBorder("Current time:"));
+        currentTimeTextField.setText(new Date(System.currentTimeMillis()).toString());
 
-        userPhotoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pages/question.jpg"))); // NOI18N
-        userPhotoLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153), 4));
+//        userPhotoLabel.setIcon(new ImageIcon(getClass().getResource("/pages/question.jpg"))); // NOI18N
+        userPhotoLabel.setBorder(BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153), 4));
 
         nameTextField.setEditable(false);
         nameTextField.setBackground(new java.awt.Color(150, 207, 249));
-        nameTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Login as:"));
+        nameTextField.setBorder(BorderFactory.createTitledBorder("Login as:"));
+        if (user != null) {
+            nameTextField.setText(user.getFirstname() + " " + user.getLastname());
+            emailTextField.setText(user.getEmail());
+        }
 
         emailTextField.setEditable(false);
         emailTextField.setBackground(new java.awt.Color(150, 207, 249));
-        emailTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Email:"));
-        emailTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailTextFieldActionPerformed(evt);
-            }
-        });
+        emailTextField.setBorder(BorderFactory.createTitledBorder("Email:"));
 
         exitButton.setBackground(new java.awt.Color(249, 150, 170));
         exitButton.setText("Exit");
+        exitButton.addActionListener(this::exitButtonActionPerformed);
 
         setHeaderLayout();
 
@@ -122,10 +133,13 @@ public class MainFrame extends JFrame {
 
         courseListMenuItem.setText("Course list");
         courseListMenuItem.setIconTextGap(-12);
+        courseListMenuItem.setPreferredSize(new Dimension(listMenuItemWidth, listMenuItemHeight));
+        courseListMenuItem.addActionListener(this::courseListActionPerformed);
         registrationAffairsMenu.add(courseListMenuItem);
 
         masterListMenuItem.setText("Master list");
         masterListMenuItem.setIconTextGap(-12);
+        masterListMenuItem.setPreferredSize(new Dimension(listMenuItemWidth, listMenuItemHeight));
         registrationAffairsMenu.add(masterListMenuItem);
 
         menuBar.add(registrationAffairsMenu);
@@ -134,19 +148,18 @@ public class MainFrame extends JFrame {
 
         weeklyScheduleMenuItem.setText("Weekly schedule");
         weeklyScheduleMenuItem.setIconTextGap(-12);
-        weeklyScheduleMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                weeklyScheduleMenuItemActionPerformed(evt);
-            }
-        });
+        weeklyScheduleMenuItem.setPreferredSize(new Dimension(listMenuItemWidth, listMenuItemHeight));
+        weeklyScheduleMenuItem.addActionListener(this::weeklyScheduleMenuItemActionPerformed);
         educationalServiceMenu.add(weeklyScheduleMenuItem);
 
         examListMenuItem.setText("Exam list");
         examListMenuItem.setIconTextGap(-12);
+        examListMenuItem.setPreferredSize(new Dimension(listMenuItemWidth, listMenuItemHeight));
         educationalServiceMenu.add(examListMenuItem);
 
         requestsMenuItem.setText("Requests");
         requestsMenuItem.setIconTextGap(-12);
+        requestsMenuItem.setPreferredSize(new Dimension(listMenuItemWidth, listMenuItemHeight));
         educationalServiceMenu.add(requestsMenuItem);
 
         menuBar.add(educationalServiceMenu);
@@ -155,10 +168,12 @@ public class MainFrame extends JFrame {
 
         temporaryScoresMenuItem.setText("Temporary scores");
         temporaryScoresMenuItem.setIconTextGap(-12);
+        temporaryScoresMenuItem.setPreferredSize(new Dimension(listMenuItemWidth, listMenuItemHeight));
         reportedCardAffairsMenu.add(temporaryScoresMenuItem);
 
         educationalStatusMenuItem.setText("Educational status");
         educationalStatusMenuItem.setIconTextGap(-12);
+        educationalStatusMenuItem.setPreferredSize(new Dimension(listMenuItemWidth, listMenuItemHeight));
         reportedCardAffairsMenu.add(educationalStatusMenuItem);
 
         menuBar.add(reportedCardAffairsMenu);
@@ -239,25 +254,26 @@ public class MainFrame extends JFrame {
     void setMainPageSetting() {
         mainPanel.setBackground(new java.awt.Color(255, 255, 255));
         mainPanel.setPreferredSize(new java.awt.Dimension(1112, 643));
-
-        GroupLayout mainPanelLayout = new GroupLayout(mainPanel);
-        mainPanel.setLayout(mainPanelLayout);
-        mainPanelLayout.setHorizontalGroup(
-                mainPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                        .addGap(0, 1112, Short.MAX_VALUE)
-        );
-        mainPanelLayout.setVerticalGroup(
-                mainPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                        .addGap(0, 643, Short.MAX_VALUE)
-        );
     }
 
     private void weeklyScheduleMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
 
-    private void emailTextFieldActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+    private void exitButtonActionPerformed(ActionEvent e) {
+        this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+    }
+
+    private void courseListActionPerformed(ActionEvent e) {
+        mainPanel.getPage().changePage("course list");
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
 

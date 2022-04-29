@@ -2,6 +2,9 @@ package model.pages;
 
 
 import Graphic.GraphicPageManager;
+import Graphic.pages.CourseListPage;
+import model.pages.mainPage.MainPage;
+import model.person.User;
 import model.samester.Semester;
 
 public class PageManager {
@@ -29,16 +32,26 @@ public class PageManager {
         this.graphicPageManager = graphicPageManager;
     }
 
-    public void enterToMainPage() {
-        graphicPageManager.enterToMainPage();
+    public void enterToMainPage(User user) {
+        MainPage mainPage = new MainPage(user, this);
+        Graphic.pages.mainPage.MainPage mainPageGr = new Graphic.pages.mainPage.MainPage(mainPage);
+        graphicPageManager.changePage(user, mainPageGr);
     }
 
     public void logout() {
-
+        LoginPage loginPage = new LoginPage(this);
+        Graphic.pages.LoginPage loginPageGr = new Graphic.pages.LoginPage(loginPage);
+        graphicPageManager.logout(loginPageGr);
     }
 
 
     public void enterToChangingPasswordPage() {
 
+    }
+
+    public void enterToCourseList(MainPage page) {
+        model.pages.registrationAffairs.CourseListPage courseListPage = new model.pages.registrationAffairs.CourseListPage(page.getUser(), this, semester.getCourses());
+        CourseListPage courseListPageGr = new CourseListPage(courseListPage);
+        graphicPageManager.changePage(page.getUser(), courseListPageGr);
     }
 }

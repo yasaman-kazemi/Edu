@@ -16,8 +16,10 @@ public class LoginPage extends JFrame implements ActionListener {
     private JTextField usernameTextField;
     private model.pages.LoginPage page;
 
-    public LoginPage() {
+    public LoginPage(model.pages.LoginPage page) {
+        this.page = page;
         initComponents();
+        this.setVisible(true);
     }
 
     private void initComponents() {
@@ -95,14 +97,14 @@ public class LoginPage extends JFrame implements ActionListener {
         loginButton.setBackground(new java.awt.Color(211, 245, 221));
         loginButton.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         loginButton.setText("Login");
-        loginButton.addActionListener(this::actionPerformed);
+        loginButton.addActionListener(this);
 
         forgetPasswordButton.setBackground(new java.awt.Color(249, 226, 234));
         forgetPasswordButton.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         forgetPasswordButton.setText("Forget password?");
-        forgetPasswordButton.addActionListener(this::actionPerformed);
+        forgetPasswordButton.addActionListener(this);
 
-        captchaIcon.setIcon(new ImageIcon(getClass().getResource("/pages/captcha1.jpg"))); // NOI18N
+//        captchaIcon.setIcon(new ImageIcon(getClass().getResource("/pages/captcha1.jpg"))); // NOI18N
         captchaIcon.setText("jLabel1");
 
         captchaTextField.setBackground(new java.awt.Color(229, 240, 251));
@@ -174,10 +176,15 @@ public class LoginPage extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource().equals(loginButton)) {
-            page.login(usernameTextField.getText(), new String(passwordField.getPassword()));
-        } else if (e.getSource().equals(forgetPasswordButton)) {
-            
+        System.out.println("0");
+        if (e.getSource() == loginButton) {
+            if (page.login(usernameTextField.getText(), new String(passwordField.getPassword()))) {
+                System.out.println("1");
+                this.setVisible(false);
+                this.dispose();
+            }
+        } else if (e.getSource() == forgetPasswordButton) {
+
         }
     }
 }

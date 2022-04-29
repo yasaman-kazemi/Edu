@@ -19,7 +19,7 @@ import java.util.*;
 
 public class Semester {
     private int semesterNumber;
-    private Map<String, Dao<?>> daoMap;
+    private final Map<String, Dao<?>> daoMap;
 
     public Semester(int semesterNumber,
                     ArrayList<Course> courseList, ArrayList<Student> studentList, ArrayList<Master> masterList) {
@@ -48,10 +48,6 @@ public class Semester {
 
     public void setSemesterNumber(int semesterNumber) {
         this.semesterNumber = semesterNumber;
-    }
-
-    public Dao<?> getDao(String daoName) {
-        return daoMap.get(daoName);
     }
 
     public void saveMaster(String firstname, String lastname, String username,
@@ -100,5 +96,20 @@ public class Semester {
     public List<Course> getCourses(Master master) {
         CourseDAO courseDAO = (CourseDAO) daoMap.get("course");
         return courseDAO.getByMaster(master);
+    }
+
+    public ArrayList<Course> getCourses() {
+        CourseDAO courseDAO = (CourseDAO) daoMap.get("course");
+        return courseDAO.getAll();
+    }
+
+    public ArrayList<Student> getStudents() {
+        StudentDAO studentDAO = (StudentDAO) daoMap.get("student");
+        return studentDAO.getAll();
+    }
+
+    public ArrayList<Master> getMasters() {
+        MasterDAO masterDAO = (MasterDAO) daoMap.get("master");
+        return masterDAO.getAll();
     }
 }

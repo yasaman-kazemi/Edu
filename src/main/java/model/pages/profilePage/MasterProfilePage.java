@@ -21,15 +21,11 @@ public class MasterProfilePage extends MainPage {
     }
 
     public void changeEmail(String newEmail) {
-        MasterDAO masterDAO = (MasterDAO) pageManager.getSemester().getDao("master");
-        for (Master master : masterDAO.getAll())
-            if (user.getId().equals(master.getId())) user.setEmail(newEmail);
+        user.setEmail(newEmail);
     }
 
     public void changePhoneNumber(String newPhoneNumber) {
-        MasterDAO masterDAO = (MasterDAO) pageManager.getSemester().getDao("master");
-        for (Master master : masterDAO.getAll())
-            if (user.getId().equals(master.getId())) user.setPhoneNumber(newPhoneNumber);
+        user.setPhoneNumber(newPhoneNumber);
     }
 }
 

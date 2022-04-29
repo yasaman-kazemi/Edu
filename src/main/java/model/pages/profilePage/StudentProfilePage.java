@@ -19,14 +19,10 @@ public class StudentProfilePage extends MainPage {
     }
 
     public void changeEmail(String newEmail) {
-        StudentDAO studentDAO = (StudentDAO) pageManager.getSemester().getDao("student");
-        for (Student student : studentDAO.getAll())
-            if (user.getId().equals(student.getId())) user.setEmail(newEmail);
+        user.setEmail(newEmail);
     }
 
     public void changePhoneNumber(String newPhoneNumber) {
-        StudentDAO studentDAO = (StudentDAO) pageManager.getSemester().getDao("student");
-        for (Student student : studentDAO.getAll())
-            if (user.getId().equals(student.getId())) user.setPhoneNumber(newPhoneNumber);
+        user.setPhoneNumber(newPhoneNumber);
     }
 }

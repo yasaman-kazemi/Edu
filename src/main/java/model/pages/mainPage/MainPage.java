@@ -92,4 +92,9 @@ public class MainPage {
 
     }
 
+    public void changePage(String pageName) {
+        if (pageName.equals("course list")) {
+            pageManager.enterToCourseList(this);
+        }
+    }
 }

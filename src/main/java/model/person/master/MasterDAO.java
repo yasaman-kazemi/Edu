@@ -9,7 +9,10 @@ public class MasterDAO implements Dao<Master> {
     private ArrayList<Master> masterList;
 
     public MasterDAO(ArrayList<Master> masterList) {
-        this.masterList = masterList;
+        this.masterList = new ArrayList<>();
+        for (Master master : masterList) {
+            save(master);
+        }
     }
 
     public MasterDAO() {

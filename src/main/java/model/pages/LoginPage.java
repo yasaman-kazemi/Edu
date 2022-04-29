@@ -1,41 +1,44 @@
 package model.pages;
 
+import model.pages.mainPage.MainPage;
 import model.person.User;
 import model.person.master.MasterDAO;
 import model.person.student.StudentDAO;
+import model.samester.Semester;
 
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class LoginPage {
-    private PageManager pageManager;
+public class LoginPage extends MainPage {
     private HashMap<Image, String> captcha;
 
-    public LoginPage(PageManager pageManager, ArrayList<User> userList) {
-        this.pageManager = pageManager;
+    public LoginPage(PageManager pageManager) {
+        super(null, pageManager);
     }
 
     //todo response not found.
-    public void login(String username, String password) {
-        StudentDAO studentDAO = (StudentDAO) pageManager.getSemester().getDao("student");
-        MasterDAO masterDAO = (MasterDAO) pageManager.getSemester().getDao("master");
-        ArrayList<User> users = new ArrayList<>(studentDAO.getAll());
-        users.addAll(masterDAO.getAll());
+    public boolean login(String username, String password) {
+        Semester semester = pageManager.getSemester();
+        ArrayList<User> users = new ArrayList<>(semester.getStudents());
+        users.addAll(semester.getMasters());
         for (User user : users) {
             if (user.getUsername().equals(username)) {
                 if (user.getPassword().equals(password)) {
-                    pageManager.enterToMainPage();
+                    System.out.println("2");
+                    pageManager.enterToMainPage(user);
+                    return true;
                 } else {
 
                 }
-                return;
+                return false;
             }
         }
+        return false;
     }
 
     //todo fill this method
-    private Boolean isCaptchaRight(String inputCaptcha) {
+    private boolean isCaptchaRight(String inputCaptcha) {
         for (Image captchaImage : captcha.keySet()) {
 
         }

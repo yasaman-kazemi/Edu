@@ -11,6 +11,9 @@ public class StudentDAO implements Dao<Student> {
 
     public StudentDAO(ArrayList<Student> studentList) {
         this.studentList = new ArrayList<>();
+        for (Student student : studentList) {
+            save(student);
+        }
     }
 
     @Override

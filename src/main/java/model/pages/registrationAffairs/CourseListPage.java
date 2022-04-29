@@ -13,20 +13,20 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class CourseReleasedListPage extends MainPage implements Searchable<Course> {
+public class CourseListPage extends MainPage implements Searchable<Course> {
     private ArrayList<Course> courseList;
     //filters
     private Department department;
     private Grade grade;
     private String courseId;
 
-    public CourseReleasedListPage(User user, PageManager pageManager, ArrayList<Course> courseList) {
+    public CourseListPage(User user, PageManager pageManager, ArrayList<Course> courseList) {
         super(user, pageManager);
         this.courseList = courseList;
     }
 
-    public CourseReleasedListPage(Date now, User user, PageManager pageManager,
-                                  ArrayList<Course> courseList, Department department, Grade grade, String courseId) {
+    public CourseListPage(Date now, User user, PageManager pageManager,
+                          ArrayList<Course> courseList, Department department, Grade grade, String courseId) {
         super(now, user, pageManager);
         this.courseList = courseList;
         this.department = department;

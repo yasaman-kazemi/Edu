@@ -1,8 +1,9 @@
 package Graphic.pages;
 
 import javax.swing.*;
+import java.awt.event.*;
 
-public class CourseReleasedListPage extends MyPanel {
+public class CourseListPage extends MyPanel {
     private JList<String> courseFilteredList;
     private JScrollPane scrollPane;
     private JButton searchButton;
@@ -11,8 +12,8 @@ public class CourseReleasedListPage extends MyPanel {
     private JTextField searchWithDepartmentTextField;
     private JTextField searchWithGradeTextField;
 
-    public CourseReleasedListPage(model.pages.registrationAffairs.CourseReleasedListPage courseReleasedListPage) {
-        super(courseReleasedListPage);
+    public CourseListPage(model.pages.registrationAffairs.CourseListPage courseListPage) {
+        super(courseListPage);
         initComponents();
     }
 
@@ -28,7 +29,7 @@ public class CourseReleasedListPage extends MyPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1112, 643));
 
-        searchButton.setIcon(new ImageIcon(getClass().getResource("/pages/search.png"))); // NOI18N
+//        searchButton.setIcon(new ImageIcon(getClass().getResource("/pages/search.png"))); // NOI18N
 
         courseFilteredList.setPreferredSize(new java.awt.Dimension(470, 631));
         courseFilteredList.setVisibleRowCount(10);
@@ -39,8 +40,8 @@ public class CourseReleasedListPage extends MyPanel {
         searchWithCourseIdTextField.setForeground(new java.awt.Color(204, 204, 204));
         searchWithCourseIdTextField.setBorder(BorderFactory.createTitledBorder("Course id:"));
         searchWithCourseIdTextField.setPreferredSize(new java.awt.Dimension(150, 29));
-        searchWithCourseIdTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        searchWithCourseIdTextField.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 searchWithCourseIdTextFieldActionPerformed(evt);
             }
         });
@@ -48,8 +49,8 @@ public class CourseReleasedListPage extends MyPanel {
         searchWithDepartmentTextField.setForeground(new java.awt.Color(204, 204, 204));
         searchWithDepartmentTextField.setBorder(BorderFactory.createTitledBorder("Department:"));
         searchWithDepartmentTextField.setPreferredSize(new java.awt.Dimension(150, 29));
-        searchWithDepartmentTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        searchWithDepartmentTextField.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 searchWithDepartmentTextFieldActionPerformed(evt);
             }
         });
@@ -57,8 +58,8 @@ public class CourseReleasedListPage extends MyPanel {
         searchWithGradeTextField.setForeground(new java.awt.Color(204, 204, 204));
         searchWithGradeTextField.setBorder(BorderFactory.createTitledBorder("Grade:"));
         searchWithGradeTextField.setPreferredSize(new java.awt.Dimension(150, 29));
-        searchWithGradeTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        searchWithGradeTextField.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 searchWithGradeTextFieldActionPerformed(evt);
             }
         });
@@ -116,15 +117,15 @@ public class CourseReleasedListPage extends MyPanel {
         );
     }
 
-    private void searchWithCourseIdTextFieldActionPerformed(java.awt.event.ActionEvent evt) {
+    private void searchWithCourseIdTextFieldActionPerformed(ActionEvent evt) {
         // TODO add your handling code here:
     }
 
-    private void searchWithDepartmentTextFieldActionPerformed(java.awt.event.ActionEvent evt) {
+    private void searchWithDepartmentTextFieldActionPerformed(ActionEvent evt) {
         // TODO add your handling code here:
     }
 
-    private void searchWithGradeTextFieldActionPerformed(java.awt.event.ActionEvent evt) {
+    private void searchWithGradeTextFieldActionPerformed(ActionEvent evt) {
         // TODO add your handling code here:
     }
 }

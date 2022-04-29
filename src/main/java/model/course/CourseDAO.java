@@ -12,7 +12,10 @@ public class CourseDAO implements Dao<Course> {
     private int counter = 1000;
 
     public CourseDAO(ArrayList<Course> courseList) {
-        this.courseList = courseList;
+        this.courseList = new ArrayList<>();
+        for (Course course : courseList) {
+            save(course);
+        }
     }
 
     public CourseDAO() {

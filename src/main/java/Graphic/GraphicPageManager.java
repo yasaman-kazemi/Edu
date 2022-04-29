@@ -1,22 +1,18 @@
 package Graphic;
 
 
+import Graphic.pages.LoginPage;
+import Graphic.pages.MyPanel;
+import model.person.User;
+
 public class GraphicPageManager {
-    private MainFrame mainFrame;
 
-    public GraphicPageManager() {
-        mainFrame = MainFrame.getInstance();
-    }
-
-    public void enterToMainPage() {
-        mainFrame.setMainPanel();
-    }
-
-    public void logout() {
+    public void logout(LoginPage loginPage) {
 
     }
 
-    public void enterToChangingPasswordPage() {
-
+    public void changePage(User user, MyPanel myPanel) {
+        MainFrame mainFrame = MainFrame.getInstance(user, myPanel);
+        mainFrame.setVisible(true);
     }
 }
