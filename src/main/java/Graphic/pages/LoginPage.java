@@ -6,8 +6,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 public class LoginPage extends JFrame implements ActionListener {
+    private String iconAddress;
     private JLabel captchaIcon;
     private JTextField captchaTextField;
     private JButton forgetPasswordButton;
@@ -20,6 +22,9 @@ public class LoginPage extends JFrame implements ActionListener {
     private model.pages.LoginPage page;
 
     public LoginPage(model.pages.LoginPage page) {
+        Random rand = new Random();
+        int r = rand.nextInt(4) + 1;
+        iconAddress = "captcha" + r;
         this.page = page;
         initComponents();
         this.setVisible(true);
@@ -103,7 +108,7 @@ public class LoginPage extends JFrame implements ActionListener {
         forgetPasswordButton.setText("Forget password?");
         forgetPasswordButton.addActionListener(this);
 
-        captchaIcon.setIcon(new ImageIcon(ImageLoader.getImageAddresses().get("captcha1"))); // NOI18N
+        captchaIcon.setIcon(new ImageIcon(ImageLoader.getImageAddresses().get(iconAddress))); // NOI18N
         captchaIcon.setText("jLabel1");
 
         captchaTextField.setBackground(new java.awt.Color(229, 240, 251));
@@ -175,7 +180,7 @@ public class LoginPage extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == loginButton) {
-            if (captchaTextField.getText().equals("5947")) {
+            if (page.isCaptchaRight(captchaTextField.getText(), iconAddress)) {
                 if (page.login(usernameTextField.getText(), new String(passwordField.getPassword()))) {
                     this.setVisible(false);
                     this.dispose();

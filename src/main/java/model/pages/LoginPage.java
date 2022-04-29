@@ -2,19 +2,24 @@ package model.pages;
 
 import model.pages.mainPage.MainPage;
 import model.person.User;
-import model.person.master.MasterDAO;
-import model.person.student.StudentDAO;
 import model.samester.Semester;
+import utils.ImageLoader;
 
+import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class LoginPage extends MainPage {
-    private HashMap<Image, String> captcha;
+    private HashMap<String, String> captcha;
 
     public LoginPage(PageManager pageManager) {
         super(null, pageManager);
+        captcha = new HashMap<>();
+        captcha.put("captcha1", "5947");
+        captcha.put("captcha2", "8393");
+        captcha.put("captcha3", "8425");
+        captcha.put("captcha4", "9075");
     }
 
     //todo response not found.
@@ -38,11 +43,8 @@ public class LoginPage extends MainPage {
     }
 
     //todo fill this method
-    private boolean isCaptchaRight(String inputCaptcha) {
-        for (Image captchaImage : captcha.keySet()) {
-
-        }
-        return false;
+    public boolean isCaptchaRight(String inputCaptcha, String icon) {
+        return captcha.get(icon).equals(inputCaptcha);
     }
 
 

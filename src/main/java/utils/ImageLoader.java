@@ -17,6 +17,9 @@ public class ImageLoader {
             InputStream input = new FileInputStream("src/main/resources/config.properties");
             prop.load(input);
             imageAddresses.put("captcha1", prop.getProperty("captcha1"));
+            imageAddresses.put("captcha2", prop.getProperty("captcha2"));
+            imageAddresses.put("captcha3", prop.getProperty("captcha3"));
+            imageAddresses.put("captcha4", prop.getProperty("captcha4"));
             imageAddresses.put("download", prop.getProperty("download"));
             imageAddresses.put("search_image", prop.getProperty("search_image"));
             imageAddresses.put("sharif_logo", prop.getProperty("sharif_logo"));
