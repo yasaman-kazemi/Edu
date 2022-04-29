@@ -9,19 +9,22 @@ public class Assignment implements Comparable<Assignment> {
     private File questions;
     private File answers;
     private Score score;
+    private String course;
 
-    public Assignment(Date deadline, Date start, File questions) {
+    public Assignment(Date deadline, Date start, File questions, String course) {
         this.deadline = deadline;
         this.start = start;
         this.questions = questions;
+        this.course = course;
     }
 
-    public Assignment(Date deadline, Date start, File questions, File answers, Score score) {
+    public Assignment(Date deadline, Date start, File questions, File answers, Score score, String course) {
         this.deadline = deadline;
         this.start = start;
         this.questions = questions;
         this.answers = answers;
         this.score = score;
+        this.course = course;
     }
 
     public Date getDeadline() {
@@ -67,5 +70,13 @@ public class Assignment implements Comparable<Assignment> {
     @Override
     public int compareTo(Assignment assignment) {
         return this.start.compareTo(assignment.getStart());
+    }
+
+    public String getCourse() {
+        return course;
+    }
+
+    public void setCourse(String course) {
+        this.course = course;
     }
 }

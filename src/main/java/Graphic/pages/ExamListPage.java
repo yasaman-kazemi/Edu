@@ -3,6 +3,7 @@ package Graphic.pages;
 import model.course.Assignment;
 
 import javax.swing.*;
+import java.util.ArrayList;
 
 public class ExamListPage extends MyPanel {
     private JList<String> examList;
@@ -18,6 +19,7 @@ public class ExamListPage extends MyPanel {
     private void initComponents() {
         scrollPane = new JScrollPane();
         listModel = new DefaultListModel<>();
+        fillListModel();
         examList = new JList<>(listModel);
         titleTextField = new JTextField();
 
@@ -53,9 +55,22 @@ public class ExamListPage extends MyPanel {
 
     //todo i love you.
     private void fillListModel() {
+        listModel.clear();
         model.pages.educationalServices.ExamListPage examListPage =
                 (model.pages.educationalServices.ExamListPage) page;
-        for (Assignment exam : examListPage.getExamList()) {
+        ArrayList<Assignment> exams = examListPage.getExamList();
+        ArrayList<String> showExams = showExams(exams);
+        for (String showExam : showExams) {
+            listModel.addElement(showExam);
         }
+    }
+
+    private ArrayList<String> showExams(ArrayList<Assignment> exams) {
+        ArrayList<String> result = new ArrayList<>();
+        for (Assignment exam : exams) {
+            String row = exam.getStart() + " -> " + exam.getDeadline() + " : " + exam.getCourse();
+            result.add(row);
+        }
+        return result;
     }
 }

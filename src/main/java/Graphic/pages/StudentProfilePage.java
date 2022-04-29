@@ -1,9 +1,6 @@
 package Graphic.pages;
 
-import model.person.User;
-import model.person.master.Master;
 import model.person.student.Student;
-import model.person.student.StudentStatus;
 import utils.ImageLoader;
 
 import javax.swing.*;

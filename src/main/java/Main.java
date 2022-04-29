@@ -1,4 +1,5 @@
 import model.Department;
+import model.course.Assignment;
 import model.course.Course;
 import model.pages.PageManager;
 import model.pages.mainPage.EducationalStatus;
@@ -10,6 +11,7 @@ import model.person.student.Student;
 import model.person.student.StudentStatus;
 import model.samester.Semester;
 
+import java.io.File;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
@@ -38,9 +40,14 @@ public class Main {
         riazi1WeeklyClass.add(Date.from(i1));
         riazi1WeeklyClass.add(Date.from(i2));
 
+        ArrayList<Assignment> riazi1Exam = new ArrayList<>();
+        Assignment exam = new Assignment(Date.from(i2), Date.from(i1),
+                new File("src/main/resources/config.properties"), "Riazi1");
+        riazi1Exam.add(exam);
+
         Course course = new Course("Riazi1", "4001", Department.Math, new ArrayList<>(),
                 new ArrayList<>(), new ArrayList<>(students), master, 4, riazi1WeeklyClass,
-                new ArrayList<>(), new ArrayList<>(), Grade.BS);
+                riazi1Exam, new ArrayList<>(), Grade.BS);
         courses.add(course);
 
         Semester semester = new Semester(14001, courses, students, masters);

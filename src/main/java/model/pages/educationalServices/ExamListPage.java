@@ -10,10 +10,9 @@ import model.person.student.Student;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
-import java.util.List;
 
 public class ExamListPage extends MainPage {
-    private List<Assignment> examList;
+    private ArrayList<Assignment> examList;
 
     public ExamListPage(User user, PageManager pageManager) {
         super(user, pageManager);
@@ -37,12 +36,12 @@ public class ExamListPage extends MainPage {
         Collections.sort(examList);
     }
 
-    public List<Assignment> getExamList() {
+    public ArrayList<Assignment> getExamList() {
         Collections.sort(examList);
         return this.examList;
     }
 
-    public void setExamList(List<Assignment> examList) {
+    public void setExamList(ArrayList<Assignment> examList) {
         Collections.sort(examList);
         this.examList = examList;
     }
