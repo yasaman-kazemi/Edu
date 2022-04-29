@@ -1,9 +1,12 @@
 package Graphic.pages;
 
+import model.course.Assignment;
+
 import javax.swing.*;
 
 public class ExamListPage extends MyPanel {
     private JList<String> examList;
+    private DefaultListModel<String> listModel;
     private JScrollPane scrollPane;
     private JTextField titleTextField;
 
@@ -14,7 +17,8 @@ public class ExamListPage extends MyPanel {
 
     private void initComponents() {
         scrollPane = new JScrollPane();
-        examList = new JList<>();
+        listModel = new DefaultListModel<>();
+        examList = new JList<>(listModel);
         titleTextField = new JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -45,5 +49,13 @@ public class ExamListPage extends MyPanel {
                                 .addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 596, Short.MAX_VALUE)
                                 .addContainerGap())
         );
+    }
+
+    //todo i love you.
+    private void fillListModel() {
+        model.pages.educationalServices.ExamListPage examListPage =
+                (model.pages.educationalServices.ExamListPage) page;
+        for (Assignment exam : examListPage.getExamList()) {
+        }
     }
 }

@@ -18,20 +18,23 @@ public class ExamListPage extends MainPage {
     public ExamListPage(User user, PageManager pageManager) {
         super(user, pageManager);
         examList = new ArrayList<>();
+        Collections.sort(examList);
         initial();
     }
 
     public ExamListPage(Date now, User user, PageManager pageManager) {
         super(now, user, pageManager);
         examList = new ArrayList<>();
+        Collections.sort(examList);
         initial();
     }
 
     public void initial() {
         if (user instanceof Student) {
-            for (Course course: ((Student) user).getCurrentCourses())
+            for (Course course : ((Student) user).getCurrentCourses())
                 examList.addAll(course.getExamList());
         }
+        Collections.sort(examList);
     }
 
     public List<Assignment> getExamList() {
@@ -40,7 +43,9 @@ public class ExamListPage extends MainPage {
     }
 
     public void setExamList(List<Assignment> examList) {
+        Collections.sort(examList);
         this.examList = examList;
     }
+
 
 }
