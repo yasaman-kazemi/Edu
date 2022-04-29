@@ -2,10 +2,7 @@ package model.pages;
 
 
 import Graphic.GraphicPageManager;
-import Graphic.pages.CourseListPage;
-import Graphic.pages.ExamListPage;
-import Graphic.pages.MastersListPage;
-import Graphic.pages.WeeklySchedulePage;
+import Graphic.pages.*;
 import model.pages.mainPage.MainPage;
 import model.person.User;
 import model.samester.Semester;
@@ -78,5 +75,12 @@ public class PageManager {
                 new model.pages.educationalServices.ExamListPage(mainPage.getUser(), this);
         ExamListPage examListPageGr = new ExamListPage(examListPage);
         graphicPageManager.changePage(mainPage.getUser(), examListPageGr);
+    }
+
+    public void enterToRequests(MainPage mainPage) {
+        model.pages.educationalServices.RequestsPage requestsPage =
+                new model.pages.educationalServices.RequestsPage(mainPage.getUser(),this);
+        StudentRequestPage requestPageGr = new StudentRequestPage(requestsPage);
+        graphicPageManager.changePage(mainPage.getUser(),requestPageGr);
     }
 }

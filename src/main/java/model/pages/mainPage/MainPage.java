@@ -101,6 +101,8 @@ public class MainPage {
             pageManager.enterToWeeklySchedule(this);
         } else if (pageName.equals("exam list")) {
             pageManager.enterToExamList(this);
+        } else if (pageName.equals("requests")) {
+            pageManager.enterToRequests(this);
         }
 
     }

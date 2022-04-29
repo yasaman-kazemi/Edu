@@ -164,6 +164,7 @@ public class MainFrame extends JFrame {
         requestsMenuItem.setText("Requests");
         requestsMenuItem.setIconTextGap(-12);
         requestsMenuItem.setPreferredSize(new Dimension(listMenuItemWidth, listMenuItemHeight));
+        requestsMenuItem.addActionListener(this::requestActionPerformed);
         educationalServiceMenu.add(requestsMenuItem);
 
         menuBar.add(educationalServiceMenu);
@@ -282,6 +283,10 @@ public class MainFrame extends JFrame {
 
     private void examListActionPerformed(ActionEvent e) {
         mainPanel.getPage().changePage("exam list");
+    }
+
+    private void requestActionPerformed(ActionEvent actionEvent) {
+        mainPanel.getPage().changePage("requests");
     }
 
     public User getUser() {
