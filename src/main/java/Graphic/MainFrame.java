@@ -7,6 +7,8 @@ import utils.ImageLoader;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.WindowEvent;
 import java.util.Date;
 
@@ -128,8 +130,13 @@ public class MainFrame extends JFrame {
         setMainPageSetting();
 
         mainPageMenu.setText("Main page");
+        mainPageMenu.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                mainPageActionPerformed();
+            }
+        });
         menuBar.add(mainPageMenu);
-        mainPageMenu.addActionListener(this::mainPageActionPerformed);
 
         registrationAffairsMenu.setText("Registration affairs");
 
@@ -296,7 +303,7 @@ public class MainFrame extends JFrame {
         mainPanel.getPage().changePage("temporary scores");
     }
 
-    private void mainPageActionPerformed(ActionEvent e) {
+    private void mainPageActionPerformed() {
         mainPanel.getPage().changePage("main page");
     }
 

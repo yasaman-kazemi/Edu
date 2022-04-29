@@ -87,11 +87,6 @@ public class MainPage {
         }
     }
 
-    //TODO fill this
-    public void refresh() {
-
-    }
-
     public void changePage(String pageName) {
         if (pageName.equals("course list")) {
             pageManager.enterToCourseList(this);
