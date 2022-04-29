@@ -7,8 +7,8 @@ import model.pages.mainPage.MainPage;
 import model.person.User;
 import model.person.student.Student;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class StudentEducationalStatusPage extends MainPage {
 
@@ -24,8 +24,14 @@ public class StudentEducationalStatusPage extends MainPage {
         return student.getTotalPassedCredit();
     }
 
-    public List<Score> getAllFinalizedScores(Student student) {
+    public ArrayList<Score> getAllFinalizedScores(Student student) {
         return student.getScoreByStatus(ScoreStatus.Finalized);
+    }
+
+    public ArrayList<Score> getAllFinalizedScores() {
+        if (user instanceof Student)
+            return getAllFinalizedScores((Student) user);
+        return null;
     }
 
     public double getAverageScore(Student student) {

@@ -1,9 +1,12 @@
 package Graphic.pages;
 
-import model.person.User;
+import model.course.Score;
+import model.course.ScoreStatus;
+import model.pages.mainPage.EducationalStatus;
 import model.person.student.Student;
 
 import javax.swing.*;
+import java.util.ArrayList;
 
 public class StudentEducationalStatusPage extends MyPanel {
     private JScrollPane scrollPane1;
@@ -30,27 +33,25 @@ public class StudentEducationalStatusPage extends MyPanel {
 
         weightedTotalAverageTextField.setBorder(BorderFactory.createTitledBorder("Weighted total average:"));
         weightedTotalAverageTextField.setText(String.valueOf(student.getTotalAverageScore()));
-
+        model.pages.reportedCardAffairs.StudentEducationalStatusPage studentEducationalStatusPage =
+                (model.pages.reportedCardAffairs.StudentEducationalStatusPage) page;
+        ArrayList<Score> allFinalizedScores = studentEducationalStatusPage.getAllFinalizedScores();
+        String[][] table = new String[allFinalizedScores.size()][2];
+        for (int i = 0; i < allFinalizedScores.size(); i++) {
+            Score score = allFinalizedScores.get(i);
+            table[i][0] = score.getCourse().getName() + " : " + score.getScore();
+            if (score.getScore() >= 10) {
+                table[i][1] = "Passed";
+            } else {
+                table[i][1] = "failed";
+            }
+        }
         scoreTable.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][]{
-                        {null, null},
-                        {null, null},
-                        {null, null},
-                        {null, null}
-                },
+                table,
                 new String[]{
                         "Score", "Status"
                 }
-        ) {
-            Class[] types = new Class[]{
-                    java.lang.Double.class, java.lang.Object.class
-            };
-
-
-            public Class getColumnClass(int columnIndex) {
-                return types[columnIndex];
-            }
-        });
+        ));
         scrollPane1.setViewportView(scoreTable);
 
         GroupLayout layout = new GroupLayout(this);

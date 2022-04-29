@@ -49,7 +49,7 @@ public class Main {
                 riazi1Exam, new ArrayList<>(), Grade.BS);
         courses.add(course);
 
-        Score score = new Score(course, 19, ScoreStatus.Temporary, "", ProtestRespond.InProgress);
+        Score score = new Score(course, 19, ScoreStatus.Finalized, "", ProtestRespond.InProgress);
         student.addScore(score);
 
         Semester semester = new Semester(14001, courses, students, masters);
