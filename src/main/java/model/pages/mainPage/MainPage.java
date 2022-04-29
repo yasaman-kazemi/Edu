@@ -107,6 +107,8 @@ public class MainPage {
             pageManager.enterToTemporaryScores(this);
         } else if (pageName.equals("main page")) {
             pageManager.enterToMainPage(this);
+        } else if (pageName.equals("educational status")) {
+            pageManager.enterToEducationalStatus(this);
         }
     }
 }

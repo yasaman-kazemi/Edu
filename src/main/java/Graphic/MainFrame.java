@@ -181,6 +181,7 @@ public class MainFrame extends JFrame {
         educationalStatusMenuItem.setText("Educational status");
         educationalStatusMenuItem.setIconTextGap(-12);
         educationalStatusMenuItem.setPreferredSize(new Dimension(listMenuItemWidth, listMenuItemHeight));
+        educationalStatusMenuItem.addActionListener(this::educationalStatusActionPerformed);
         reportedCardAffairsMenu.add(educationalStatusMenuItem);
 
         menuBar.add(reportedCardAffairsMenu);
@@ -291,13 +292,18 @@ public class MainFrame extends JFrame {
         mainPanel.getPage().changePage("requests");
     }
 
-    private void temporaryScoresActionPerformed(ActionEvent actionEvent) {
+    private void temporaryScoresActionPerformed(ActionEvent e) {
         mainPanel.getPage().changePage("temporary scores");
     }
 
     private void mainPageActionPerformed(ActionEvent e) {
         mainPanel.getPage().changePage("main page");
     }
+
+    private void educationalStatusActionPerformed(ActionEvent e) {
+        mainPanel.getPage().changePage("educational status");
+    }
+
 
     public User getUser() {
         return user;

@@ -96,4 +96,11 @@ public class PageManager {
         TemporaryScoresPage temporaryScoresPageGr = new TemporaryScoresPage(temporaryScoresPage);
         graphicPageManager.changePage(mainPage.getUser(), temporaryScoresPageGr);
     }
+
+    public void enterToEducationalStatus(MainPage mainPage) {
+        model.pages.reportedCardAffairs.StudentEducationalStatusPage educationalStatusPage =
+                new model.pages.reportedCardAffairs.StudentEducationalStatusPage(mainPage.getUser(), this);
+        StudentEducationalStatusPage educationalStatusPageGr = new StudentEducationalStatusPage(educationalStatusPage);
+        graphicPageManager.changePage(mainPage.getUser(), educationalStatusPageGr);
+    }
 }
