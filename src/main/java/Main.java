@@ -23,7 +23,7 @@ public class Main {
         masters.add(master);
 
         Student student = new Student("Yasaman", "Kazemi", "yasaman.kazemi", "5",
-                "1234", "yasmana@gmail.com", Department.Math, "0912345", master,
+                "1234", "yasaman@gmail.com", Department.Math, "0912345", master,
                 "13981", Grade.BS, StudentStatus.Studying, new Date(System.currentTimeMillis()),
                 EducationalStatus.AllowedToRegister, "8:00");
         ArrayList<Student> students = new ArrayList<>();
