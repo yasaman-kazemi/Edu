@@ -99,6 +99,8 @@ public class MainPage {
             pageManager.enterToMasterList(this);
         } else if (pageName.equals("weekly schedule")) {
             pageManager.enterToWeeklySchedule(this);
+        } else if (pageName.equals("exam list")) {
+            pageManager.enterToExamList(this);
         }
 
     }

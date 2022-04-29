@@ -3,6 +3,7 @@ package model.pages;
 
 import Graphic.GraphicPageManager;
 import Graphic.pages.CourseListPage;
+import Graphic.pages.ExamListPage;
 import Graphic.pages.MastersListPage;
 import Graphic.pages.WeeklySchedulePage;
 import model.pages.mainPage.MainPage;
@@ -70,5 +71,12 @@ public class PageManager {
                 new model.pages.educationalServices.WeeklySchedulePage(mainPage.getUser(), this);
         WeeklySchedulePage weeklySchedulePageGr = new WeeklySchedulePage(weeklySchedulePage);
         graphicPageManager.changePage(mainPage.getUser(), weeklySchedulePageGr);
+    }
+
+    public void enterToExamList(MainPage mainPage) {
+        model.pages.educationalServices.ExamListPage examListPage =
+                new model.pages.educationalServices.ExamListPage(mainPage.getUser(), this);
+        ExamListPage examListPageGr = new ExamListPage(examListPage);
+        graphicPageManager.changePage(mainPage.getUser(), examListPageGr);
     }
 }

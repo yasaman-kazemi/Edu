@@ -157,6 +157,7 @@ public class MainFrame extends JFrame {
         examListMenuItem.setText("Exam list");
         examListMenuItem.setIconTextGap(-12);
         examListMenuItem.setPreferredSize(new Dimension(listMenuItemWidth, listMenuItemHeight));
+        examListMenuItem.addActionListener(this::examListActionPerformed);
         educationalServiceMenu.add(examListMenuItem);
 
         requestsMenuItem.setText("Requests");
@@ -276,6 +277,10 @@ public class MainFrame extends JFrame {
 
     private void weeklyScheduleActionPerformed(ActionEvent e) {
         mainPanel.getPage().changePage("weekly schedule");
+    }
+
+    private void examListActionPerformed(ActionEvent e) {
+        mainPanel.getPage().changePage("exam list");
     }
 
     public User getUser() {
