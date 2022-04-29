@@ -62,6 +62,11 @@ public class MastersListPage extends MainPage implements Searchable<Master> {
         this.masterDegree = masterDegree;
     }
 
+    public void setMasterDegree(String masterDegree) {
+        if (masterDegree != null && !masterDegree.isEmpty())
+        this.masterDegree = MasterDegree.valueOf(masterDegree);
+    }
+
     public Department getDepartment() {
         return department;
     }
@@ -70,13 +75,18 @@ public class MastersListPage extends MainPage implements Searchable<Master> {
         this.department = department;
     }
 
+    public void setDepartment(String department) {
+        if (department != null && !department.isEmpty())
+        this.department = Department.valueOf(department);
+    }
+
     @Override
     public ArrayList<Master> search() {
         ArrayList<Master> suitableMasters = new ArrayList<>();
         for (Master master : masterList)
             if ((department == null || master.getDepartment().equals(department)) &&
-                    (firstname == null || master.getFirstname().equals(firstname)) &&
-                    (lastname == null || master.getLastname().equals(lastname)) &&
+                    (firstname == null || firstname.isEmpty() || master.getFirstname().equals(firstname)) &&
+                    (lastname == null || lastname.isEmpty() || master.getLastname().equals(lastname)) &&
                     (masterDegree == null || master.getMasterDegree().equals(masterDegree)))
                 suitableMasters.add(master);
         return suitableMasters;
