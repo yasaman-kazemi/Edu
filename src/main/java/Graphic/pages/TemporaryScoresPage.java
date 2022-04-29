@@ -1,5 +1,9 @@
 package Graphic.pages;
+import model.course.Score;
+
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 
 public class TemporaryScoresPage extends MyPanel {
     private JTextField courseNameTextField;
@@ -24,20 +28,20 @@ public class TemporaryScoresPage extends MyPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1112, 643));
+        model.pages.reportedCardAffairs.TemporaryScoresPage temporaryScoresPage =
+                (model.pages.reportedCardAffairs.TemporaryScoresPage) page;
+        ArrayList<Score> scores = temporaryScoresPage.getAllTemporaryScores();
+        String[][] table = new String[scores.size()][4];
+        for (int i = 0; i < scores.size(); i++) {
+            Score score = scores.get(i);
+            table[i][0] = score.getCourse().getId();
+            table[i][1] = score.getCourse().getName();
+            table[i][2] = String.valueOf(score.getScore());
+            table[i][3] = String.valueOf(score.getProtestRespond());
+        }
 
         temporaryScoresTable.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][]{
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null}
-                },
+                table,
                 new String[]{
                         "Course id", "Course name", "Score", "Protest response"
                 }
@@ -45,7 +49,6 @@ public class TemporaryScoresPage extends MyPanel {
         scrollPane1.setViewportView(temporaryScoresTable);
 
         courseNameTextField.setForeground(new java.awt.Color(204, 204, 204));
-        courseNameTextField.setText("Course Name");
         courseNameTextField.setBorder(BorderFactory.createTitledBorder("Protest for:"));
 
         protestResponseTextArea.setColumns(20);
@@ -54,6 +57,7 @@ public class TemporaryScoresPage extends MyPanel {
 
         sendButton.setBackground(new java.awt.Color(203, 238, 203));
         sendButton.setText("Send");
+        sendButton.addActionListener(this::sendActionPerformed);
 
         GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);
@@ -82,5 +86,18 @@ public class TemporaryScoresPage extends MyPanel {
                                 .addComponent(sendButton)
                                 .addGap(8, 8, 8))
         );
+    }
+
+    private void sendActionPerformed(ActionEvent e) {
+        model.pages.reportedCardAffairs.TemporaryScoresPage temporaryScoresPage =
+                (model.pages.reportedCardAffairs.TemporaryScoresPage) page;
+        String courseName = courseNameTextField.getText();
+        String protest = protestResponseTextArea.getText();
+        for (Score score : temporaryScoresPage.getAllTemporaryScores()) {
+            if (score.getCourse().getName().equalsIgnoreCase(courseName)) {
+                temporaryScoresPage.setProtest(score, protest);
+                break;
+            }
+        }
     }
 }

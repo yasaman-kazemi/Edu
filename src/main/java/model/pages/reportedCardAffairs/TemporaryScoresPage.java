@@ -23,7 +23,7 @@ public class TemporaryScoresPage extends MainPage {
         super(now, user, pageManager);
     }
 
-    public List<Score> getAllTemporaryScores() {
+    public ArrayList<Score> getAllTemporaryScores() {
         if (user instanceof Student) {
             return ((Student) user).getScoreByStatus(ScoreStatus.Temporary);
         }

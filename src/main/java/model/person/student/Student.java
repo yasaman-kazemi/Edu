@@ -135,7 +135,7 @@ public class Student extends User {
         return null;
     }
 
-    public List<Score> getScoreByStatus(ScoreStatus scoreStatus) {
+    public ArrayList<Score> getScoreByStatus(ScoreStatus scoreStatus) {
         ArrayList<Score> result = new ArrayList<>();
         for (Score score : scores) {
             if (score.getScoreStatus() == scoreStatus)
@@ -192,5 +192,9 @@ public class Student extends User {
 
     public void addCourse(Course course) {
         currentCourses.add(course);
+    }
+
+    public void addScore(Score score) {
+        scores.add(score);
     }
 }

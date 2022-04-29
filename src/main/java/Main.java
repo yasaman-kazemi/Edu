@@ -1,6 +1,5 @@
 import model.Department;
-import model.course.Assignment;
-import model.course.Course;
+import model.course.*;
 import model.pages.PageManager;
 import model.pages.mainPage.EducationalStatus;
 import model.person.master.Master;
@@ -49,6 +48,9 @@ public class Main {
                 new ArrayList<>(), new ArrayList<>(students), master, 4, riazi1WeeklyClass,
                 riazi1Exam, new ArrayList<>(), Grade.BS);
         courses.add(course);
+
+        Score score = new Score(course, 19, ScoreStatus.Temporary, "", ProtestRespond.InProgress);
+        student.addScore(score);
 
         Semester semester = new Semester(14001, courses, students, masters);
         PageManager pageManager = new PageManager(semester);
