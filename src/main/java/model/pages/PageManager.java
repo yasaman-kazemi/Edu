@@ -7,6 +7,7 @@ import model.pages.mainPage.MainPage;
 import model.pages.profilePage.StudentProfilePage;
 import model.person.User;
 import model.person.master.Master;
+import model.person.master.MasterPosition;
 import model.person.student.Student;
 import model.samester.Semester;
 
@@ -102,15 +103,33 @@ public class PageManager {
     public void enterToTemporaryScores(MainPage mainPage) {
         model.pages.reportedCardAffairs.TemporaryScoresPage temporaryScoresPage =
                 new model.pages.reportedCardAffairs.TemporaryScoresPage(mainPage.getUser(), this);
-        TemporaryScoresPage temporaryScoresPageGr = new TemporaryScoresPage(temporaryScoresPage);
-        graphicPageManager.changePage(mainPage.getUser(), temporaryScoresPageGr);
+        if (mainPage.getUser() instanceof Student) {
+            TemporaryScoresPage temporaryScoresPageGr = new TemporaryScoresPage(temporaryScoresPage);
+            graphicPageManager.changePage(mainPage.getUser(), temporaryScoresPageGr);
+        } else if (mainPage.getUser() instanceof Master &&
+                ((Master) mainPage.getUser()).getMasterPosition().equals(MasterPosition.Assistant)) {
+            AssistantTemporaryScorePage temporaryScorePageGr =
+                    new AssistantTemporaryScorePage(temporaryScoresPage);
+            graphicPageManager.changePage(mainPage.getUser(), temporaryScorePageGr);
+        } else if (mainPage.getUser() instanceof Master) {
+            MasterTemporaryScorePage temporaryScorePageGr = new MasterTemporaryScorePage(temporaryScoresPage);
+            graphicPageManager.changePage(mainPage.getUser(), temporaryScorePageGr);
+        }
     }
 
     public void enterToEducationalStatus(MainPage mainPage) {
         model.pages.reportedCardAffairs.StudentEducationalStatusPage educationalStatusPage =
                 new model.pages.reportedCardAffairs.StudentEducationalStatusPage(mainPage.getUser(), this);
-        StudentEducationalStatusPage educationalStatusPageGr = new StudentEducationalStatusPage(educationalStatusPage);
-        graphicPageManager.changePage(mainPage.getUser(), educationalStatusPageGr);
+        if (mainPage.getUser() instanceof Student) {
+            StudentEducationalStatusPage educationalStatusPageGr =
+                    new StudentEducationalStatusPage(educationalStatusPage);
+            graphicPageManager.changePage(mainPage.getUser(), educationalStatusPageGr);
+        } else if (mainPage.getUser() instanceof Master &&
+                ((Master) mainPage.getUser()).getMasterPosition().equals(MasterPosition.Assistant)) {
+            AssistantEducationalStatusPage educationalStatusPageGr =
+                    new AssistantEducationalStatusPage(educationalStatusPage);
+            graphicPageManager.changePage(mainPage.getUser(), educationalStatusPageGr);
+        }
     }
 
     public void enterToProfile(MainPage mainPage) {
@@ -119,7 +138,7 @@ public class PageManager {
             StudentProfilePage profilePage = new StudentProfilePage(user, this);
             Graphic.pages.StudentProfilePage profilePageGr = new Graphic.pages.StudentProfilePage(profilePage);
             graphicPageManager.changePage(user, profilePageGr);
-        } else if (user instanceof Master){
+        } else if (user instanceof Master) {
             model.pages.profilePage.MasterProfilePage profilePage = new model.pages.profilePage.MasterProfilePage(user,
                     this);
             MasterProfilePage profilePageGr = new MasterProfilePage(profilePage);
