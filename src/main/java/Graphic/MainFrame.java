@@ -2,6 +2,7 @@ package Graphic;
 
 import Graphic.pages.MyPanel;
 import model.person.User;
+import utils.ImageLoader;
 
 import javax.swing.*;
 import java.awt.*;
@@ -103,7 +104,7 @@ public class MainFrame extends JFrame {
         currentTimeTextField.setBorder(BorderFactory.createTitledBorder("Current time:"));
         currentTimeTextField.setText(new Date(System.currentTimeMillis()).toString());
 
-//        userPhotoLabel.setIcon(new ImageIcon(getClass().getResource("/pages/question.jpg"))); // NOI18N
+        userPhotoLabel.setIcon(new ImageIcon(ImageLoader.getImageAddresses().get("question"))); // NOI18N
         userPhotoLabel.setBorder(BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153), 4));
 
         nameTextField.setEditable(false);

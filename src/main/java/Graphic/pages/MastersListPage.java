@@ -1,4 +1,6 @@
 package Graphic.pages;
+import utils.ImageLoader;
+
 import javax.swing.*;
 
 public class MastersListPage extends MyPanel {
@@ -29,7 +31,7 @@ public class MastersListPage extends MyPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1112, 643));
 
-//        searchButton.setIcon(new ImageIcon(getClass().getResource("/pages/search.png"))); // NOI18N
+        searchButton.setIcon(new ImageIcon(ImageLoader.getImageAddresses().get("search_image"))); // NOI18N
 
         masterFilteredList.setPreferredSize(new java.awt.Dimension(470, 631));
         scrollPane.setViewportView(masterFilteredList);
@@ -39,38 +41,22 @@ public class MastersListPage extends MyPanel {
         searchWithFirstnameTextField.setForeground(new java.awt.Color(204, 204, 204));
         searchWithFirstnameTextField.setBorder(BorderFactory.createTitledBorder("Firstname:"));
         searchWithFirstnameTextField.setPreferredSize(new java.awt.Dimension(150, 29));
-        searchWithFirstnameTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchWithFirstnameTextFieldActionPerformed(evt);
-            }
-        });
+        searchWithFirstnameTextField.addActionListener(this::searchWithFirstnameTextFieldActionPerformed);
 
         searchWithMasterDegreeTextField.setForeground(new java.awt.Color(204, 204, 204));
         searchWithMasterDegreeTextField.setBorder(BorderFactory.createTitledBorder("Master degree:"));
         searchWithMasterDegreeTextField.setPreferredSize(new java.awt.Dimension(150, 29));
-        searchWithMasterDegreeTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchWithMasterDegreeTextFieldActionPerformed(evt);
-            }
-        });
+        searchWithMasterDegreeTextField.addActionListener(this::searchWithMasterDegreeTextFieldActionPerformed);
 
         searchWithDepartmentTextField.setForeground(new java.awt.Color(204, 204, 204));
         searchWithDepartmentTextField.setBorder(BorderFactory.createTitledBorder("Department:"));
         searchWithDepartmentTextField.setPreferredSize(new java.awt.Dimension(150, 29));
-        searchWithDepartmentTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchWithDepartmentTextFieldActionPerformed(evt);
-            }
-        });
+        searchWithDepartmentTextField.addActionListener(this::searchWithDepartmentTextFieldActionPerformed);
 
         searchWithLastnameTextField.setForeground(new java.awt.Color(204, 204, 204));
         searchWithLastnameTextField.setBorder(BorderFactory.createTitledBorder("Lastname:"));
         searchWithLastnameTextField.setPreferredSize(new java.awt.Dimension(150, 29));
-        searchWithLastnameTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchWithLastnameTextFieldActionPerformed(evt);
-            }
-        });
+        searchWithLastnameTextField.addActionListener(this::searchWithLastnameTextFieldActionPerformed);
 
         GroupLayout searchPanelLayout = new GroupLayout(searchPanel);
         searchPanel.setLayout(searchPanelLayout);

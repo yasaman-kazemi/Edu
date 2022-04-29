@@ -1,7 +1,7 @@
 package Graphic.pages;
 
-import model.pages.mainPage.MainPage;
 import model.pages.reportedCardAffairs.StudentEducationalStatusPage;
+import utils.ImageLoader;
 
 import javax.swing.*;
 
@@ -71,7 +71,7 @@ public class AssistantEducationalStatusPage extends MyPanel {
 
         studentIdTextField.setBorder(BorderFactory.createTitledBorder("Student id:"));
 
-        searchButton.setIcon(new ImageIcon(getClass().getResource("/pages/search.png"))); // NOI18N
+        searchButton.setIcon(new ImageIcon(ImageLoader.getImageAddresses().get("search_image")));
 
         GroupLayout searchPanelLayout = new GroupLayout(searchPanel);
         searchPanel.setLayout(searchPanelLayout);

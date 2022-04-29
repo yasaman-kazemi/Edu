@@ -3,6 +3,7 @@ package Graphic.pages;
 import model.pages.ChangingPasswordPage;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class NewPasswordPage extends MyPanel {
     private JTextField currentTextField;
@@ -27,7 +28,7 @@ public class NewPasswordPage extends MyPanel {
 
         messageTextField.setEditable(false);
         messageTextField.setBackground(new java.awt.Color(255, 204, 204));
-        messageTextField.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        messageTextField.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 24)); // NOI18N
         messageTextField.setForeground(new java.awt.Color(153, 0, 51));
         messageTextField.setHorizontalAlignment(JTextField.CENTER);
         messageTextField.setText("You have to set another password!");

@@ -1,6 +1,7 @@
 package Graphic.pages;
 
 import model.pages.reportedCardAffairs.TemporaryScoresPage;
+import utils.ImageLoader;
 
 import javax.swing.*;
 
@@ -68,7 +69,7 @@ public class AssistantTemporaryScorePage extends MyPanel {
 
         masterNameTextField.setBorder(BorderFactory.createTitledBorder("Master:"));
 
-        searchButtonForTable.setIcon(new ImageIcon(getClass().getResource("/pages/search.png"))); // NOI18N
+        searchButtonForTable.setIcon(new ImageIcon(ImageLoader.getImageAddresses().get("search_image"))); // NOI18N
 
         GroupLayout scoreFiltersPanelLayout = new GroupLayout(scoreFiltersPanel);
         scoreFiltersPanel.setLayout(scoreFiltersPanelLayout);
@@ -119,9 +120,9 @@ public class AssistantTemporaryScorePage extends MyPanel {
         numberOfFailedPeopleTextField.setBorder(BorderFactory.createTitledBorder("Number of failed people:"));
 
         totalAverageWithoutFailuresTextField.setForeground(new java.awt.Color(204, 204, 204));
-        totalAverageWithoutFailuresTextField.setBorder(BorderFactory.createTitledBorder("Total avarage without failures:"));
+        totalAverageWithoutFailuresTextField.setBorder(BorderFactory.createTitledBorder("Total average without failures:"));
 
-        searchButtonForSummary.setIcon(new ImageIcon(getClass().getResource("/pages/search.png"))); // NOI18N
+        searchButtonForSummary.setIcon(new ImageIcon(ImageLoader.getImageAddresses().get("search_image"))); // NOI18N
 
         GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);

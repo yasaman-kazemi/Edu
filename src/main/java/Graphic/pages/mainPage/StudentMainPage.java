@@ -1,15 +1,16 @@
-package Graphic.pages;
+package Graphic.pages.mainPage;
 
+import Graphic.pages.MyPanel;
 import model.pages.mainPage.MainPage;
 
 import javax.swing.*;
 
 public class StudentMainPage extends MyPanel {
-    private javax.swing.JTextField educationalInfoTextField;
-    private javax.swing.JTextField educationalStatusTextField;
-    private javax.swing.JTextField guideMasterTextField;
-    private javax.swing.JTextField registrationLicenseTextField;
-    private javax.swing.JTextField registrationTimeTextField;
+    private JTextField educationalInfoTextField;
+    private JTextField educationalStatusTextField;
+    private JTextField guideMasterTextField;
+    private JTextField registrationLicenseTextField;
+    private JTextField registrationTimeTextField;
 
     public StudentMainPage(MainPage mainPage) {
         super(mainPage);
@@ -17,66 +18,66 @@ public class StudentMainPage extends MyPanel {
     }
 
     private void initComponents() {
-        educationalInfoTextField = new javax.swing.JTextField();
-        educationalStatusTextField = new javax.swing.JTextField();
-        guideMasterTextField = new javax.swing.JTextField();
-        registrationLicenseTextField = new javax.swing.JTextField();
-        registrationTimeTextField = new javax.swing.JTextField();
+        educationalInfoTextField = new JTextField();
+        educationalStatusTextField = new JTextField();
+        guideMasterTextField = new JTextField();
+        registrationLicenseTextField = new JTextField();
+        registrationTimeTextField = new JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(134, 134, 134)));
+        setBorder(BorderFactory.createLineBorder(new java.awt.Color(134, 134, 134)));
         setPreferredSize(new java.awt.Dimension(1112, 643));
 
         educationalInfoTextField.setEditable(false);
         educationalInfoTextField.setBackground(new java.awt.Color(204, 204, 204));
         educationalInfoTextField.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        educationalInfoTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        educationalInfoTextField.setHorizontalAlignment(JTextField.CENTER);
         educationalInfoTextField.setText("Educational info:");
-        educationalInfoTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        educationalInfoTextField.setBorder(BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
         educationalStatusTextField.setEditable(false);
         educationalStatusTextField.setBackground(new java.awt.Color(255, 255, 255));
-        educationalStatusTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Educational status:"));
+        educationalStatusTextField.setBorder(BorderFactory.createTitledBorder("Educational status:"));
 
-        guideMasterTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Guide master:"));
+        guideMasterTextField.setBorder(BorderFactory.createTitledBorder("Guide master:"));
 
-        registrationLicenseTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Registration license:"));
+        registrationLicenseTextField.setBorder(BorderFactory.createTitledBorder("Registration license:"));
 
         registrationTimeTextField.setEditable(false);
         registrationTimeTextField.setBackground(new java.awt.Color(255, 255, 255));
-        registrationTimeTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Registration time:"));
+        registrationTimeTextField.setBorder(BorderFactory.createTitledBorder("Registration time:"));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                                 .addContainerGap(323, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(registrationTimeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(registrationLicenseTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(guideMasterTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                        .addGroup(GroupLayout.Alignment.TRAILING, layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                                .addComponent(registrationTimeTextField, GroupLayout.PREFERRED_SIZE, 520, GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(registrationLicenseTextField, GroupLayout.PREFERRED_SIZE, 520, GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(guideMasterTextField, GroupLayout.PREFERRED_SIZE, 520, GroupLayout.PREFERRED_SIZE)
                                                 .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(educationalStatusTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(educationalStatusTextField, GroupLayout.PREFERRED_SIZE, 520, GroupLayout.PREFERRED_SIZE)
                                                         .addGap(267, 267, 267)))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(educationalInfoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(educationalInfoTextField, GroupLayout.PREFERRED_SIZE, 172, GroupLayout.PREFERRED_SIZE)
                                                 .addGap(437, 437, 437))))
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addContainerGap(128, Short.MAX_VALUE)
-                                .addComponent(educationalInfoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(educationalInfoTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(educationalStatusTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(educationalStatusTextField, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(guideMasterTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(guideMasterTextField, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(registrationLicenseTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(registrationLicenseTextField, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(registrationTimeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(registrationTimeTextField, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
                                 .addGap(178, 178, 178))
         );
     }

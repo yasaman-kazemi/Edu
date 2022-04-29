@@ -1,7 +1,10 @@
 package Graphic.pages;
 
+import utils.ImageLoader;
+
 import javax.swing.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class CourseListPage extends MyPanel {
     private JList<String> courseFilteredList;
@@ -29,7 +32,7 @@ public class CourseListPage extends MyPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1112, 643));
 
-//        searchButton.setIcon(new ImageIcon(getClass().getResource("/pages/search.png"))); // NOI18N
+        searchButton.setIcon(new ImageIcon(ImageLoader.getImageAddresses().get("search_image"))); // NOI18N
 
         courseFilteredList.setPreferredSize(new java.awt.Dimension(470, 631));
         courseFilteredList.setVisibleRowCount(10);

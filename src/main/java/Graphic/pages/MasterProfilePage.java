@@ -1,5 +1,7 @@
 package Graphic.pages;
 
+import utils.ImageLoader;
+
 import javax.swing.*;
 
 public class MasterProfilePage extends MyPanel {
@@ -39,7 +41,7 @@ public class MasterProfilePage extends MyPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        userPhoto.setIcon(new ImageIcon(getClass().getResource("/pages/question.jpg"))); // NOI18N
+        userPhoto.setIcon(new ImageIcon(ImageLoader.getImageAddresses().get("question"))); // NOI18N
         userPhoto.setBorder(BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
         firstnameTextField.setEditable(false);

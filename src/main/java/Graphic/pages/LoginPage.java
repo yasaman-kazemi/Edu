@@ -1,6 +1,9 @@
 package Graphic.pages;
 
+import utils.ImageLoader;
+
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -69,10 +72,10 @@ public class LoginPage extends JFrame implements ActionListener {
 
         passwordPanel.setBackground(new java.awt.Color(229, 240, 251));
         passwordPanel.setBorder(BorderFactory.createTitledBorder(null, "Password:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Comic Sans MS", 1, 14))); // NOI18N
-        passwordPanel.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        passwordPanel.setFont(new java.awt.Font("Comic Sans MS", Font.PLAIN, 14)); // NOI18N
 
         passwordField.setBackground(new java.awt.Color(229, 240, 251));
-        passwordField.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        passwordField.setFont(new java.awt.Font("Comic Sans MS", Font.PLAIN, 14)); // NOI18N
         passwordField.setForeground(java.awt.Color.lightGray);
         passwordField.setText("Enter your password.");
         passwordField.setBorder(null);
@@ -104,7 +107,7 @@ public class LoginPage extends JFrame implements ActionListener {
         forgetPasswordButton.setText("Forget password?");
         forgetPasswordButton.addActionListener(this);
 
-//        captchaIcon.setIcon(new ImageIcon(getClass().getResource("/pages/captcha1.jpg"))); // NOI18N
+        captchaIcon.setIcon(new ImageIcon(ImageLoader.getImageAddresses().get("captcha1"))); // NOI18N
         captchaIcon.setText("jLabel1");
 
         captchaTextField.setBackground(new java.awt.Color(229, 240, 251));
