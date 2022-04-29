@@ -1,5 +1,7 @@
 package Graphic.pages;
 
+import model.person.master.Master;
+import model.person.student.Student;
 import utils.ImageLoader;
 
 import javax.swing.*;
@@ -162,5 +164,21 @@ public class MasterProfilePage extends MyPanel {
                                 .addComponent(changeThemeButton)
                                 .addGap(65, 65, 65))
         );
+        fillTextFields();
+    }
+
+    private void fillTextFields() {
+        model.pages.profilePage.MasterProfilePage masterProfilePage =
+                (model.pages.profilePage.MasterProfilePage) page;
+        Master user = (Master) masterProfilePage.getUser();
+        firstnameTextField.setText(user.getFirstname());
+        lastnameTextField.setText(user.getLastname());
+        departmentTextField.setText(String.valueOf(user.getDepartment()));
+        roomTextField.setText(String.valueOf(user.getRoomNumber()));
+        masterDegreeTextField.setText(String.valueOf(user.getMasterDegree()));
+        identityCodeTextField.setText(user.getIdentityCode());
+        idTextField.setText(user.getId());
+        phoneNumberTextField.setText(user.getPhoneNumber());
+        emailTextField.setText(user.getEmail());
     }
 }

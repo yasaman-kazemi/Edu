@@ -1,5 +1,9 @@
 package Graphic.pages;
 
+import model.person.User;
+import model.person.master.Master;
+import model.person.student.Student;
+import model.person.student.StudentStatus;
 import utils.ImageLoader;
 
 import javax.swing.*;
@@ -184,6 +188,25 @@ public class StudentProfilePage extends MyPanel {
                                 .addComponent(changeThemeButton)
                                 .addGap(14, 14, 14))
         );
+        fillTextFields();
+    }
+
+    private void fillTextFields() {
+        model.pages.profilePage.StudentProfilePage studentProfilePage =
+                (model.pages.profilePage.StudentProfilePage) page;
+        Student user = (Student) studentProfilePage.getUser();
+        firstnameTextField.setText(user.getFirstname());
+        lastnameTextField.setText(user.getLastname());
+        departmentTextField.setText(String.valueOf(user.getDepartment()));
+        identityCodeTextField.setText(user.getIdentityCode());
+        idTextField.setText(user.getId());
+        totalAverageTextField.setText(String.valueOf(user.getTotalAverageScore()));
+        guideMasterTextField.setText(user.getGuideMaster().getFirstname() + " " + user.getGuideMaster().getLastname());
+        enteryYearTextField.setText(user.getEnteringYear());
+        gradeTextField.setText(String.valueOf(user.getGrade()));
+        educationalStatusTextField.setText(String.valueOf(user.getEducationalStatus()));
+        phoneNumberTextField.setText(user.getPhoneNumber());
+        emailTextField.setText(user.getEmail());
     }
 
 }
