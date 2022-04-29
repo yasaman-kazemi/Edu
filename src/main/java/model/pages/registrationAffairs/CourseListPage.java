@@ -11,7 +11,6 @@ import model.person.student.Grade;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class CourseListPage extends MainPage implements Searchable<Course> {
     private ArrayList<Course> courseList;
@@ -50,12 +49,23 @@ public class CourseListPage extends MainPage implements Searchable<Course> {
         this.department = department;
     }
 
+    public void setDepartment(String department) {
+        if (department != null && !department.isEmpty()) {
+            this.department = Department.valueOf(department);
+        }
+    }
+
     public Grade getGrade() {
         return grade;
     }
 
     public void setGrade(Grade grade) {
         this.grade = grade;
+    }
+
+    public void setGrade(String grade) {
+        if (grade != null && !grade.isEmpty())
+            this.grade = Grade.valueOf(grade);
     }
 
     public String getCourseId() {
@@ -72,7 +82,7 @@ public class CourseListPage extends MainPage implements Searchable<Course> {
         for (Course course : courseList)
             if ((department == null || course.getDepartment().equals(department)) &&
                     (grade == null || course.getGrade().equals(grade)) &&
-                    (courseId == null || course.getId().equals(courseId))) {
+                    (courseId == null || course.getId().startsWith(courseId))) {
                 suitableCourses.add(course);
             }
         return suitableCourses;
@@ -85,9 +95,9 @@ public class CourseListPage extends MainPage implements Searchable<Course> {
     }
 
     public void addCourseByAssistant(String name, Department department,
-                          ArrayList<Course> prerequisitesCourse, ArrayList<Course> corequisitesCourse,
-                          Master master, int courseCredit,
-                          ArrayList<Date> weeklyClassDate, Grade grade) {
+                                     ArrayList<Course> prerequisitesCourse, ArrayList<Course> corequisitesCourse,
+                                     Master master, int courseCredit,
+                                     ArrayList<Date> weeklyClassDate, Grade grade) {
         if (user instanceof Master)
             if (((Master) user).getMasterPosition() == MasterPosition.Assistant) {
                 pageManager.getSemester().saveCourse(name, department, prerequisitesCourse, corequisitesCourse, master,

@@ -1,12 +1,14 @@
 package Graphic.pages;
 
+import model.course.Course;
 import utils.ImageLoader;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class CourseListPage extends MyPanel {
+    private DefaultListModel<String> listModel;
     private JList<String> courseFilteredList;
     private JScrollPane scrollPane;
     private JButton searchButton;
@@ -23,7 +25,8 @@ public class CourseListPage extends MyPanel {
     private void initComponents() {
         searchButton = new JButton();
         scrollPane = new JScrollPane();
-        courseFilteredList = new JList<>();
+        listModel = new DefaultListModel<>();
+        courseFilteredList = new JList<>(listModel);
         searchPanel = new JPanel();
         searchWithCourseIdTextField = new JTextField();
         searchWithDepartmentTextField = new JTextField();
@@ -32,7 +35,8 @@ public class CourseListPage extends MyPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1112, 643));
 
-        searchButton.setIcon(new ImageIcon(ImageLoader.getImageAddresses().get("search_image"))); // NOI18N
+        searchButton.setIcon(new ImageIcon(ImageLoader.getImageAddresses().get("search_image")));
+        searchButton.addActionListener(this::search);
 
         courseFilteredList.setPreferredSize(new java.awt.Dimension(470, 631));
         courseFilteredList.setVisibleRowCount(10);
@@ -43,29 +47,14 @@ public class CourseListPage extends MyPanel {
         searchWithCourseIdTextField.setForeground(new java.awt.Color(204, 204, 204));
         searchWithCourseIdTextField.setBorder(BorderFactory.createTitledBorder("Course id:"));
         searchWithCourseIdTextField.setPreferredSize(new java.awt.Dimension(150, 29));
-        searchWithCourseIdTextField.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                searchWithCourseIdTextFieldActionPerformed(evt);
-            }
-        });
 
         searchWithDepartmentTextField.setForeground(new java.awt.Color(204, 204, 204));
         searchWithDepartmentTextField.setBorder(BorderFactory.createTitledBorder("Department:"));
         searchWithDepartmentTextField.setPreferredSize(new java.awt.Dimension(150, 29));
-        searchWithDepartmentTextField.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                searchWithDepartmentTextFieldActionPerformed(evt);
-            }
-        });
 
         searchWithGradeTextField.setForeground(new java.awt.Color(204, 204, 204));
         searchWithGradeTextField.setBorder(BorderFactory.createTitledBorder("Grade:"));
         searchWithGradeTextField.setPreferredSize(new java.awt.Dimension(150, 29));
-        searchWithGradeTextField.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                searchWithGradeTextFieldActionPerformed(evt);
-            }
-        });
 
         GroupLayout searchPanelLayout = new GroupLayout(searchPanel);
         searchPanel.setLayout(searchPanelLayout);
@@ -120,15 +109,32 @@ public class CourseListPage extends MyPanel {
         );
     }
 
-    private void searchWithCourseIdTextFieldActionPerformed(ActionEvent evt) {
-        // TODO add your handling code here:
+    private void search(ActionEvent e) {
+        listModel.clear();
+        model.pages.registrationAffairs.CourseListPage courseListPage =
+                (model.pages.registrationAffairs.CourseListPage) page;
+        setFilters(courseListPage, searchWithCourseIdTextField.getText(), searchWithDepartmentTextField.getText(),
+                searchWithGradeTextField.getText());
+        ArrayList<Course> matchedCourses = courseListPage.search();
+        ArrayList<String> showCourses = showCourses(matchedCourses);
+        for (String course : showCourses) {
+            listModel.addElement(course);
+        }
     }
 
-    private void searchWithDepartmentTextFieldActionPerformed(ActionEvent evt) {
-        // TODO add your handling code here:
+    private void setFilters(model.pages.registrationAffairs.CourseListPage courseListPage, String courseId, String department, String grade) {
+        courseListPage.setCourseId(courseId);
+        courseListPage.setDepartment(department);
+        courseListPage.setGrade(grade);
     }
 
-    private void searchWithGradeTextFieldActionPerformed(ActionEvent evt) {
-        // TODO add your handling code here:
+    private ArrayList<String> showCourses(ArrayList<Course> matchedCourses) {
+        ArrayList<String> result = new ArrayList<>();
+        for (Course course : matchedCourses) {
+            String row = course.getName() + " | " + course.getId() + " | " + course.getDepartment() + " | "
+                    + course.getMaster().getFirstname() + " " + course.getMaster().getLastname() + " | " + course.getCourseCredit() + " | " + course.getGrade();
+            result.add(row);
+        }
+        return result;
     }
 }

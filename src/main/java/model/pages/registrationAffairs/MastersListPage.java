@@ -85,8 +85,8 @@ public class MastersListPage extends MainPage implements Searchable<Master> {
         ArrayList<Master> suitableMasters = new ArrayList<>();
         for (Master master : masterList)
             if ((department == null || master.getDepartment().equals(department)) &&
-                    (firstname == null || firstname.isEmpty() || master.getFirstname().equals(firstname)) &&
-                    (lastname == null || lastname.isEmpty() || master.getLastname().equals(lastname)) &&
+                    (firstname == null || firstname.isEmpty() || master.getFirstname().startsWith(firstname)) &&
+                    (lastname == null || lastname.isEmpty() || master.getLastname().startsWith(lastname)) &&
                     (masterDegree == null || master.getMasterDegree().equals(masterDegree)))
                 suitableMasters.add(master);
         return suitableMasters;

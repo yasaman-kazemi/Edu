@@ -30,8 +30,8 @@ public class Main {
         students.add(student);
 
         ArrayList<Course> courses = new ArrayList<>();
-        Course course = new Course("Riazi1", Department.Math, new ArrayList<Course>(), new ArrayList<Course>(), master,
-                4, new ArrayList<Date>(), Grade.BS);
+        Course course = new Course("Riazi1", Department.Math, new ArrayList<>(), new ArrayList<>(), master,
+                4, new ArrayList<>(), Grade.BS);
         courses.add(course);
 
         Semester semester = new Semester(14001, courses, students, masters);

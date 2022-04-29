@@ -123,8 +123,8 @@ public class MastersListPage extends MyPanel {
                 (model.pages.registrationAffairs.MastersListPage) page;
         setFilters(searchWithFirstnameTextField.getText(), searchWithLastnameTextField.getText(),
                 searchWithMasterDegreeTextField.getText(), searchWithDepartmentTextField.getText(), mastersListPage);
-        ArrayList<Master> search = mastersListPage.search();
-        ArrayList<String> showMaster = showMasters(search);
+        ArrayList<Master> matchedMasters = mastersListPage.search();
+        ArrayList<String> showMaster = showMasters(matchedMasters);
         for (String master : showMaster) {
             listModel.addElement(master);
         }
