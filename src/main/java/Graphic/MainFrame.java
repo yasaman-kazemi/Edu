@@ -175,6 +175,7 @@ public class MainFrame extends JFrame {
         temporaryScoresMenuItem.setText("Temporary scores");
         temporaryScoresMenuItem.setIconTextGap(-12);
         temporaryScoresMenuItem.setPreferredSize(new Dimension(listMenuItemWidth, listMenuItemHeight));
+        temporaryScoresMenuItem.addActionListener(this::temporaryScoresActionPerformed);
         reportedCardAffairsMenu.add(temporaryScoresMenuItem);
 
         educationalStatusMenuItem.setText("Educational status");
@@ -288,6 +289,10 @@ public class MainFrame extends JFrame {
 
     private void requestActionPerformed(ActionEvent actionEvent) {
         mainPanel.getPage().changePage("requests");
+    }
+
+    private void temporaryScoresActionPerformed(ActionEvent actionEvent) {
+        mainPanel.getPage().changePage("temporary scores");
     }
 
     public User getUser() {

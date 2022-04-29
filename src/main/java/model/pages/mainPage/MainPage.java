@@ -103,6 +103,8 @@ public class MainPage {
             pageManager.enterToExamList(this);
         } else if (pageName.equals("requests")) {
             pageManager.enterToRequests(this);
+        } else if (pageName.equals("temporary scores")) {
+            pageManager.enterToTemporaryScores(this);
         }
 
     }
