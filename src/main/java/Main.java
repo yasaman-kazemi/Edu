@@ -10,6 +10,7 @@ import model.person.student.Student;
 import model.person.student.StudentStatus;
 import model.samester.Semester;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -30,8 +31,16 @@ public class Main {
         students.add(student);
 
         ArrayList<Course> courses = new ArrayList<>();
-        Course course = new Course("Riazi1", Department.Math, new ArrayList<>(), new ArrayList<>(), master,
-                4, new ArrayList<>(), Grade.BS);
+
+        ArrayList<Date> riazi1WeeklyClass = new ArrayList<>();
+        Instant i1 = Instant.parse("2022-06-04T04:00:00Z");
+        Instant i2 = Instant.parse("2022-06-06T04:00:00Z");
+        riazi1WeeklyClass.add(Date.from(i1));
+        riazi1WeeklyClass.add(Date.from(i2));
+
+        Course course = new Course("Riazi1", "4001", Department.Math, new ArrayList<>(),
+                new ArrayList<>(), new ArrayList<>(students), master, 4, riazi1WeeklyClass,
+                new ArrayList<>(), new ArrayList<>(), Grade.BS);
         courses.add(course);
 
         Semester semester = new Semester(14001, courses, students, masters);

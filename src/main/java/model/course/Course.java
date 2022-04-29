@@ -24,30 +24,6 @@ public class Course {
     private List<Assignment> assignmentList;
     private Grade grade;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Course)) return false;
-        Course course = (Course) o;
-        return getCourseCredit() == course.getCourseCredit() &&
-                Objects.equals(getName(), course.getName()) &&
-                Objects.equals(getId(), course.getId()) &&
-                getDepartment() == course.getDepartment() &&
-                Objects.equals(getPrerequisitesCourse(), course.getPrerequisitesCourse()) &&
-                Objects.equals(getCorequisitesCourse(), course.getCorequisitesCourse()) &&
-                Objects.equals(getStudentList(), course.getStudentList()) &&
-                Objects.equals(getMaster(), course.getMaster()) &&
-                Objects.equals(getWeeklyClassDate(), course.getWeeklyClassDate()) &&
-                Objects.equals(getExamList(), course.getExamList()) &&
-                Objects.equals(getAssignmentList(), course.getAssignmentList()) &&
-                getGrade() == course.getGrade();
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getName(), getId(), getDepartment(), getPrerequisitesCourse(), getCorequisitesCourse(), getStudentList(), getMaster(), getCourseCredit(), getWeeklyClassDate(), getExamList(), getAssignmentList(), getGrade());
-    }
-
     public Course(String name, String id, Department department,
                   List<Course> prerequisitesCourse, List<Course> corequisitesCourse,
                   List<Student> studentList, Master master, int courseCredit,
@@ -56,6 +32,9 @@ public class Course {
         this(name, department, prerequisitesCourse, corequisitesCourse, master, courseCredit, weeklyClassDate, grade);
         this.id = id;
         this.studentList = studentList;
+        for (Student student : studentList) {
+            student.addCourse(this);
+        }
         this.examList = examList;
         this.assignmentList = assignmentList;
     }
@@ -220,5 +199,30 @@ public class Course {
             result.add(student.getScore(this));
         }
         return result;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Course)) return false;
+        Course course = (Course) o;
+        return getCourseCredit() == course.getCourseCredit() &&
+                Objects.equals(getName(), course.getName()) &&
+                Objects.equals(getId(), course.getId()) &&
+                getDepartment() == course.getDepartment() &&
+                Objects.equals(getPrerequisitesCourse(), course.getPrerequisitesCourse()) &&
+                Objects.equals(getCorequisitesCourse(), course.getCorequisitesCourse()) &&
+                Objects.equals(getStudentList(), course.getStudentList()) &&
+                Objects.equals(getMaster(), course.getMaster()) &&
+                Objects.equals(getWeeklyClassDate(), course.getWeeklyClassDate()) &&
+                Objects.equals(getExamList(), course.getExamList()) &&
+                Objects.equals(getAssignmentList(), course.getAssignmentList()) &&
+                getGrade() == course.getGrade();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getId(), getDepartment(), getPrerequisitesCourse(), getCorequisitesCourse(), getStudentList(), getMaster(), getCourseCredit(), getWeeklyClassDate(), getExamList(), getAssignmentList(), getGrade());
     }
 }

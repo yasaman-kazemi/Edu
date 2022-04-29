@@ -189,4 +189,8 @@ public class Student extends User {
         }
         return result;
     }
+
+    public void addCourse(Course course) {
+        currentCourses.add(course);
+    }
 }
