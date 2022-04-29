@@ -89,8 +89,14 @@ public class PageManager {
     public void enterToRequests(MainPage mainPage) {
         model.pages.educationalServices.RequestsPage requestsPage =
                 new model.pages.educationalServices.RequestsPage(mainPage.getUser(), this);
-        StudentRequestPage requestPageGr = new StudentRequestPage(requestsPage);
-        graphicPageManager.changePage(mainPage.getUser(), requestPageGr);
+        if (mainPage.getUser() instanceof Student) {
+            StudentRequestPage requestPageGr = new StudentRequestPage(requestsPage);
+            graphicPageManager.changePage(mainPage.getUser(), requestPageGr);
+        } else if (mainPage.getUser() instanceof Master) {
+            MasterRequestPage requestPageGr = new MasterRequestPage(requestsPage);
+            graphicPageManager.changePage(mainPage.getUser(), requestPageGr);
+        }
+
     }
 
     public void enterToTemporaryScores(MainPage mainPage) {
