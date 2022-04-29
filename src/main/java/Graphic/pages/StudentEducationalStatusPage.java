@@ -46,6 +46,7 @@ public class StudentEducationalStatusPage extends MyPanel {
                     java.lang.Double.class, java.lang.Object.class
             };
 
+
             public Class getColumnClass(int columnIndex) {
                 return types[columnIndex];
             }
