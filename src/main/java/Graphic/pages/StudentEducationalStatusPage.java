@@ -1,5 +1,8 @@
 package Graphic.pages;
 
+import model.person.User;
+import model.person.student.Student;
+
 import javax.swing.*;
 
 public class StudentEducationalStatusPage extends MyPanel {
@@ -22,26 +25,29 @@ public class StudentEducationalStatusPage extends MyPanel {
         setBackground(new java.awt.Color(255, 255, 255));
 
         numberOfPassedUnitsTextField.setBorder(BorderFactory.createTitledBorder("Number of passed units:"));
+        Student student = (Student) page.getUser();
+        numberOfPassedUnitsTextField.setText(String.valueOf(student.getTotalPassedCredit()));
 
         weightedTotalAverageTextField.setBorder(BorderFactory.createTitledBorder("Weighted total average:"));
+        weightedTotalAverageTextField.setText(String.valueOf(student.getTotalAverageScore()));
 
         scoreTable.setModel(new javax.swing.table.DefaultTableModel(
-                new Object [][] {
+                new Object[][]{
                         {null, null},
                         {null, null},
                         {null, null},
                         {null, null}
                 },
-                new String [] {
+                new String[]{
                         "Score", "Status"
                 }
         ) {
-            Class[] types = new Class [] {
+            Class[] types = new Class[]{
                     java.lang.Double.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
+                return types[columnIndex];
             }
         });
         scrollPane1.setViewportView(scoreTable);
