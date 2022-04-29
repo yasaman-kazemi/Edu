@@ -97,6 +97,9 @@ public class MainPage {
             pageManager.enterToCourseList(this);
         } else if (pageName.equals("master list")) {
             pageManager.enterToMasterList(this);
+        } else if (pageName.equals("weekly schedule")) {
+            pageManager.enterToWeeklySchedule(this);
         }
+
     }
 }
