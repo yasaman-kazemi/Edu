@@ -5,6 +5,7 @@ import model.person.student.Student;
 import utils.ImageLoader;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
 
 public class MasterProfilePage extends MyPanel {
     private JButton changeThemeButton;
@@ -76,9 +77,11 @@ public class MasterProfilePage extends MyPanel {
 
         emailChangeButton.setBackground(new java.awt.Color(255, 204, 204));
         emailChangeButton.setText("Change");
+        emailChangeButton.addActionListener(this::changeEmailActionPerformed);
 
         phoneNumberChangeButton.setBackground(new java.awt.Color(255, 204, 204));
         phoneNumberChangeButton.setText("Change");
+        phoneNumberChangeButton.addActionListener(this::changePhoneNumberActionPerformed);
 
         changeThemeButton.setBackground(new java.awt.Color(102, 102, 102));
         changeThemeButton.setForeground(new java.awt.Color(51, 51, 51));
@@ -180,5 +183,18 @@ public class MasterProfilePage extends MyPanel {
         idTextField.setText(user.getId());
         phoneNumberTextField.setText(user.getPhoneNumber());
         emailTextField.setText(user.getEmail());
+    }
+
+    private void changePhoneNumberActionPerformed(ActionEvent e) {
+        model.pages.profilePage.MasterProfilePage masterProfilePage =
+                (model.pages.profilePage.MasterProfilePage) page;
+        if (e.getSource().equals(emailChangeButton)) masterProfilePage.changeEmail(emailTextField.getText());
+    }
+
+    private void changeEmailActionPerformed(ActionEvent e) {
+        model.pages.profilePage.MasterProfilePage masterProfilePage =
+                (model.pages.profilePage.MasterProfilePage) page;
+        if (e.getSource().equals(phoneNumberChangeButton))
+            masterProfilePage.changeEmail(phoneNumberTextField.getText());
     }
 }
