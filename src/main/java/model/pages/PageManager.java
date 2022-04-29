@@ -3,6 +3,7 @@ package model.pages;
 
 import Graphic.GraphicPageManager;
 import Graphic.pages.CourseListPage;
+import Graphic.pages.MastersListPage;
 import model.pages.mainPage.MainPage;
 import model.person.User;
 import model.samester.Semester;
@@ -53,5 +54,13 @@ public class PageManager {
         model.pages.registrationAffairs.CourseListPage courseListPage = new model.pages.registrationAffairs.CourseListPage(page.getUser(), this, semester.getCourses());
         CourseListPage courseListPageGr = new CourseListPage(courseListPage);
         graphicPageManager.changePage(page.getUser(), courseListPageGr);
+    }
+
+    public void enterToMasterList(MainPage mainPage) {
+        model.pages.registrationAffairs.MastersListPage mastersListPage =
+                new model.pages.registrationAffairs.MastersListPage(mainPage.getUser(),
+                        this, semester.getMasters());
+        MastersListPage mastersListPageGr = new MastersListPage(mastersListPage);
+        graphicPageManager.changePage(mainPage.getUser(), mastersListPageGr);
     }
 }

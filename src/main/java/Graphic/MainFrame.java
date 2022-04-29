@@ -140,6 +140,7 @@ public class MainFrame extends JFrame {
         masterListMenuItem.setText("Master list");
         masterListMenuItem.setIconTextGap(-12);
         masterListMenuItem.setPreferredSize(new Dimension(listMenuItemWidth, listMenuItemHeight));
+        masterListMenuItem.addActionListener(this::masterListActionPerformed);
         registrationAffairsMenu.add(masterListMenuItem);
 
         menuBar.add(registrationAffairsMenu);
@@ -266,6 +267,10 @@ public class MainFrame extends JFrame {
 
     private void courseListActionPerformed(ActionEvent e) {
         mainPanel.getPage().changePage("course list");
+    }
+
+    private void masterListActionPerformed(ActionEvent e) {
+        mainPanel.getPage().changePage("master list");
     }
 
     public User getUser() {

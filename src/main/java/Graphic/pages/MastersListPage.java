@@ -29,7 +29,7 @@ public class MastersListPage extends MyPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1112, 643));
 
-        searchButton.setIcon(new ImageIcon(getClass().getResource("/pages/search.png"))); // NOI18N
+//        searchButton.setIcon(new ImageIcon(getClass().getResource("/pages/search.png"))); // NOI18N
 
         masterFilteredList.setPreferredSize(new java.awt.Dimension(470, 631));
         scrollPane.setViewportView(masterFilteredList);
