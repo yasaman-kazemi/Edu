@@ -179,12 +179,12 @@ public class LoginPage extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("0");
         if (e.getSource() == loginButton) {
-            if (page.login(usernameTextField.getText(), new String(passwordField.getPassword()))) {
-                System.out.println("1");
-                this.setVisible(false);
-                this.dispose();
+            if (captchaTextField.getText().equals("5947")) {
+                if (page.login(usernameTextField.getText(), new String(passwordField.getPassword()))) {
+                    this.setVisible(false);
+                    this.dispose();
+                }
             }
         } else if (e.getSource() == forgetPasswordButton) {
 
