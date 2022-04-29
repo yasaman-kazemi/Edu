@@ -4,7 +4,10 @@ package model.pages;
 import Graphic.GraphicPageManager;
 import Graphic.pages.*;
 import model.pages.mainPage.MainPage;
+import model.pages.profilePage.StudentProfilePage;
 import model.person.User;
+import model.person.master.Master;
+import model.person.student.Student;
 import model.samester.Semester;
 
 public class PageManager {
@@ -102,5 +105,19 @@ public class PageManager {
                 new model.pages.reportedCardAffairs.StudentEducationalStatusPage(mainPage.getUser(), this);
         StudentEducationalStatusPage educationalStatusPageGr = new StudentEducationalStatusPage(educationalStatusPage);
         graphicPageManager.changePage(mainPage.getUser(), educationalStatusPageGr);
+    }
+
+    public void enterToProfile(MainPage mainPage) {
+        User user = mainPage.getUser();
+        if (user instanceof Student) {
+            StudentProfilePage profilePage = new StudentProfilePage(user, this);
+            Graphic.pages.StudentProfilePage profilePageGr = new Graphic.pages.StudentProfilePage(profilePage);
+            graphicPageManager.changePage(user, profilePageGr);
+        } else if (user instanceof Master){
+            model.pages.profilePage.MasterProfilePage profilePage = new model.pages.profilePage.MasterProfilePage(user,
+                    this);
+            MasterProfilePage profilePageGr = new MasterProfilePage(profilePage);
+            graphicPageManager.changePage(user, profilePageGr);
+        }
     }
 }

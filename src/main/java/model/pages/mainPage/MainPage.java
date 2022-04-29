@@ -104,6 +104,8 @@ public class MainPage {
             pageManager.enterToMainPage(this);
         } else if (pageName.equals("educational status")) {
             pageManager.enterToEducationalStatus(this);
+        } else if (pageName.equals("profile")) {
+            pageManager.enterToProfile(this);
         }
     }
 }

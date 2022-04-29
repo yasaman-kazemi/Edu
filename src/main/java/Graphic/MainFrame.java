@@ -194,6 +194,12 @@ public class MainFrame extends JFrame {
         menuBar.add(reportedCardAffairsMenu);
 
         profileMenu.setText("Profile");
+        profileMenu.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                profileActionPerformed();
+            }
+        });
         menuBar.add(profileMenu);
 
         setJMenuBar(menuBar);
@@ -305,6 +311,10 @@ public class MainFrame extends JFrame {
 
     private void mainPageActionPerformed() {
         mainPanel.getPage().changePage("main page");
+    }
+
+    private void profileActionPerformed() {
+        mainPanel.getPage().changePage("profile");
     }
 
     private void educationalStatusActionPerformed(ActionEvent e) {
