@@ -38,6 +38,12 @@ public class PageManager {
         graphicPageManager.changePage(user, mainPageGr);
     }
 
+    public void enterToMainPage(MainPage page) {
+        MainPage mainPage = new MainPage(page.getUser(), this);
+        Graphic.pages.mainPage.MainPage mainPageGr = new Graphic.pages.mainPage.MainPage(mainPage);
+        graphicPageManager.changePage(page.getUser(), mainPageGr);
+    }
+
     public void logout() {
         LoginPage loginPage = new LoginPage(this);
         Graphic.pages.LoginPage loginPageGr = new Graphic.pages.LoginPage(loginPage);

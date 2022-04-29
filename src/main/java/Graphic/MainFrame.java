@@ -129,7 +129,7 @@ public class MainFrame extends JFrame {
 
         mainPageMenu.setText("Main page");
         menuBar.add(mainPageMenu);
-
+        mainPageMenu.addActionListener(this::mainPageActionPerformed);
 
         registrationAffairsMenu.setText("Registration affairs");
 
@@ -263,7 +263,7 @@ public class MainFrame extends JFrame {
         mainPanel.setPreferredSize(new java.awt.Dimension(1112, 643));
     }
 
-    private void weeklyScheduleMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
+    private void weeklyScheduleMenuItemActionPerformed(ActionEvent e) {
         // TODO add your handling code here:
     }
 
@@ -287,12 +287,16 @@ public class MainFrame extends JFrame {
         mainPanel.getPage().changePage("exam list");
     }
 
-    private void requestActionPerformed(ActionEvent actionEvent) {
+    private void requestActionPerformed(ActionEvent e) {
         mainPanel.getPage().changePage("requests");
     }
 
     private void temporaryScoresActionPerformed(ActionEvent actionEvent) {
         mainPanel.getPage().changePage("temporary scores");
+    }
+
+    private void mainPageActionPerformed(ActionEvent e) {
+        mainPanel.getPage().changePage("main page");
     }
 
     public User getUser() {

@@ -105,7 +105,8 @@ public class MainPage {
             pageManager.enterToRequests(this);
         } else if (pageName.equals("temporary scores")) {
             pageManager.enterToTemporaryScores(this);
+        } else if (pageName.equals("main page")) {
+            pageManager.enterToMainPage(this);
         }
-
     }
 }
