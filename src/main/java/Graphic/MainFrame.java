@@ -130,6 +130,7 @@ public class MainFrame extends JFrame {
         mainPageMenu.setText("Main page");
         menuBar.add(mainPageMenu);
 
+
         registrationAffairsMenu.setText("Registration affairs");
 
         courseListMenuItem.setText("Course list");

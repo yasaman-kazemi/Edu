@@ -48,10 +48,7 @@ public class LoginPage extends JFrame implements ActionListener {
         usernameTextField.setBackground(new java.awt.Color(229, 240, 251));
         usernameTextField.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         usernameTextField.setForeground(new java.awt.Color(204, 204, 204));
-        usernameTextField.setText("Enter your username.");
-        usernameTextField.setToolTipText("");
         usernameTextField.setBorder(null);
-        usernameTextField.setName(""); // NOI18N
         usernameTextField.setSelectionColor(new java.awt.Color(200, 224, 247));
 
         GroupLayout usernamePanelLayout = new GroupLayout(usernamePanel);
@@ -77,7 +74,6 @@ public class LoginPage extends JFrame implements ActionListener {
         passwordField.setBackground(new java.awt.Color(229, 240, 251));
         passwordField.setFont(new java.awt.Font("Comic Sans MS", Font.PLAIN, 14)); // NOI18N
         passwordField.setForeground(java.awt.Color.lightGray);
-        passwordField.setText("Enter your password.");
         passwordField.setBorder(null);
         passwordField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
@@ -111,9 +107,8 @@ public class LoginPage extends JFrame implements ActionListener {
         captchaIcon.setText("jLabel1");
 
         captchaTextField.setBackground(new java.awt.Color(229, 240, 251));
-        captchaTextField.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        captchaTextField.setFont(new java.awt.Font("Comic Sans MS", Font.PLAIN, 12)); // NOI18N
         captchaTextField.setForeground(java.awt.Color.lightGray);
-        captchaTextField.setText("Enter the captcha.");
         captchaTextField.setBorder(BorderFactory.createLineBorder(java.awt.Color.lightGray));
 
         GroupLayout loginPanelLayout = new GroupLayout(loginPanel);
